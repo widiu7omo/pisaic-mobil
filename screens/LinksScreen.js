@@ -1,27 +1,50 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
-
-export default class LinksScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Links',
-  };
-
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
-      </ScrollView>
-    );
-  }
+import { Button } from 'react-native-paper';
+import { AppRegistry, View, ScrollView, StyleSheet, Text, Platform } from 'react-native';
+export default class LoginScreen extends React.Component{
+    constructor(){
+        super();
+        this.items=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    }
+    render(){
+    
+        return (
+        <View style = { styles.container }>
+            <ScrollView>
+                {
+                    this.items.map(( item, key ) =>
+                    (
+                        <View key = { key } style = { styles.item }>
+                            <Text style = { styles.text }>{ item }</Text>
+                            <View style = { styles.separator }/>
+                        </View>
+                    ))
+                }
+            </ScrollView>
+        </View>
+        );
+    }
 }
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
+    container:
+    {
+        flex: 1,
+        paddingTop: (Platform.OS === 'ios') ? 20 : 0
+    },
+    
+    separator:
+    {
+        height: 2,
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        width: '100%'
+    },
+    
+    text:
+    {
+        fontSize: 18,
+        color: 'black',
+        padding: 15
+    }
+        
 });
+
