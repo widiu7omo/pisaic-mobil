@@ -1,20 +1,24 @@
 import React from 'react';
 import { Button, TextInput } from 'react-native-paper';
-import MainTabNavigator from '../navigation/MainTabNavigator';
-
-import { AppRegistry, View, ScrollView, StyleSheet, Text, Platform } from 'react-native';
+import { 
+    ActivityIndicator,
+    Platform,
+    Text, 
+    AsyncStorage,
+    StatusBar,
+    StyleSheet,
+    View,} from 'react-native';
+/*eslint-disable */
 export default class LoginScreen extends React.Component{
     constructor(){
         super();
-        this.items=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        this.items=[];
     }
     render(){
-    
         return (
         <View style = { styles.container }>
             <View style = {styles.input}>
-                <View
-                >
+                <View>
                     <Text style ={{fontSize:70,textAlign:'center'}}>PISAIC</Text>
                 </View>
                 <TextInput
@@ -26,15 +30,18 @@ export default class LoginScreen extends React.Component{
                 mode="outlined"
                 label="Password"
                 ></TextInput> 
-                <View style={{alignItems:'flex-end',marginTop:20}}>
-                    <Button mode="contained" onPress={()=>MainTabNavigator}>Login</Button>
+                <View style={{alignItems:'flex-end',flexDirection:'row',marginTop:20}}>
+                    <Button style={{marginRight:20}} mode="contained" onPress={this._signInAsync}>Login</Button>
+                    <Button mode="contained" onPress={()=>this.props.navigation.navigate('Main')}>Register</Button>
                 </View>
             </View>
-
-            
         </View>
         );
     }
+    _signInAsync = async () => {
+        await AsyncStorage.setItem('userToken', 'abc');
+        this.props.navigation.navigate('Main');
+      };
 }
 const styles = StyleSheet.create({
     container:

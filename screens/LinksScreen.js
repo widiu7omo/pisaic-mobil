@@ -6,8 +6,10 @@ export default class LoginScreen extends React.Component{
         super();
         this.items=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     }
+    static navigationOptions = {
+        title: 'app.json',
+      };
     render(){
-    
         return (
         <View style = { styles.container }>
             <ScrollView>

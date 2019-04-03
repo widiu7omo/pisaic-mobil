@@ -1,14 +1,15 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-
+import UnitmenuScreen from '../screens/UnitmenuScreen';
 const HomeStack = createStackNavigator({
     Home: HomeScreen,
+    Unitmenu :UnitmenuScreen
   },
   {
     initialRouteName:"Home"
@@ -16,14 +17,14 @@ const HomeStack = createStackNavigator({
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Units',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-rocket${focused ? '' : '-outline'}`
+          : 'md-rocket'
       }
     />
   ),
@@ -57,7 +58,7 @@ SettingsStack.navigationOptions = {
   ),
 };
 
-export default createBottomTabNavigator({
+export default createMaterialBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,

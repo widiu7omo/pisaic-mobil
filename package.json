@@ -6,6 +6,7 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "test": "node ./node_modules/jest/bin/jest.js --watchAll",
+    "postinstall": "rndebugger-open",
     "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=19001' && expo start"
   },
   "jest": {
@@ -17,11 +18,14 @@
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-paper": "^2.15.0",
-    "react-navigation": "^3.0.9"
+    "react-navigation": "^3.0.9",
+    "react-navigation-material-bottom-tabs": "^1.0.0",
+    "react-redux": "^6.0.1"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
-    "jest-expo": "^32.0.0"
+    "jest-expo": "^32.0.0",
+    "react-native-debugger-open": "^0.3.19"
   },
   "private": true
 }
