@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Pisaic Mobile App United Tractor",
+    "githubUrl": "https://github.com/widiu7omo/pisaic-mobil"
   }
 }

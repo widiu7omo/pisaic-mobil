@@ -1,5 +1,5 @@
 import React from 'react'
-import { Component,View, Text,StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Button } from 'react-native-paper'
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -29,7 +29,7 @@ export default class UnitmenuScreen extends React.Component{
                 {
                     this.menus.map((menu, key) => (
                         <View key={key} style={styles.menusContent}>
-                            <Button mode="outlined">{menu}</Button>
+                            <Button mode="outlined" onPress = {() => this.props.navigation.navigate('Screen')}>{menu}</Button>
                         </View>
                     ))
                 }
