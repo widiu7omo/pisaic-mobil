@@ -54,7 +54,9 @@ export default class HomeScreen extends React.Component {
               source={{uri:'https://facebook.github.io/react/logo-og.png',
               method:'POST'}}>
             </Image>
-            <Text border={{}}>PISAIC</Text>
+            <View style={styles.bordered}>
+              <Text style={{color:'rgba(233,22,22,0.8)',fontSize:25,fontWeight:'bold'}}>PISAIC</Text>
+            </View>
           </View>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.helpContainer}>
@@ -96,13 +98,23 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     // paddingTop: 30,
-    // flexDirection:'column'
+    flexDirection:'column'
   },
   helpContainer: {
     // marginTop: 10,
     // marginBottom:20,
     // alignItems: 'center',
     justifyContent:'center'
+  },
+  bordered:{
+    justifyContent:'flex-end',
+    alignItems:'flex-end',
+    position:'absolute',
+    fontSize:25,
+    top:0,
+    bottom:10,
+    left:0,
+    right:10,
   },
   cardContent:{
     marginHorizontal:10,

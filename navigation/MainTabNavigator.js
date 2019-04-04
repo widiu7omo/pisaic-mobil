@@ -7,9 +7,13 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import UnitmenuScreen from '../screens/UnitmenuScreen';
+import PisheetScreen from '../screens/pisheet/IndexScreen';
+import Workorder from '../screens/pisheet/Workorder';
 const HomeStack = createStackNavigator({
     Home: HomeScreen,
-    Unitmenu :UnitmenuScreen
+    Unitmenu : UnitmenuScreen,
+    Pisheetmenu : PisheetScreen,
+    Workorder : Workorder
   },
   {
     initialRouteName:"Home"
