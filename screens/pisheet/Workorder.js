@@ -7,7 +7,15 @@ export default class Workorder extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            date:"20-12-2019"
+            date:"20-12-2019",
+            wono:'',
+            refisisr:'',
+            pocust:'',
+            prodname:'',
+            modelunit:'',
+            modelengine:'',
+            estjob:'',
+            note:''
         }
     }
     render(){
@@ -22,14 +30,14 @@ export default class Workorder extends React.Component{
                     placeholder="Pilih tanggal"
                     showIcon={false}
                     onDateChange={(date)=> {this.setState({date:date})}}/>
-                    <TextInput label="WO No." mode="outlined"></TextInput>
-                    <TextInput label="Refisi SR" mode="outlined"></TextInput>
-                    <TextInput label="PO Cust." mode="outlined"></TextInput>
-                    <TextInput label="Product Name" mode="outlined"></TextInput>
-                    <TextInput label="Model Unit/ Equipment No." mode="outlined"></TextInput>
-                    <TextInput label="Model Engine/ Equipment No." mode="outlined"></TextInput>
-                    <TextInput label="Estimasi Pekerjaan" mode="outlined"></TextInput>
-                    <TextInput label="Catatan" mode="outlined" style={{height:400}}></TextInput>
+                    <TextInput value={this.state.wono} onChangeText={(wono)=>this.setState({wono})} label="WO No." mode="outlined"></TextInput>
+                    <TextInput value={this.state.refisisr} onChangeText={(refisisr)=>this.setState({refisisr})} label="Refisi SR" mode="outlined"></TextInput>
+                    <TextInput value={this.state.pocust} onChangeText={(pocust)=>this.setState({pocust})} label="PO Cust." mode="outlined"></TextInput>
+                    <TextInput value={this.state.prodname} onChangeText={(prodname)=>this.setState({prodname})} label="Product Name" mode="outlined"></TextInput>
+                    <TextInput value={this.state.modelunit} onChangeText={(modelunit)=>this.setState({modelunit})} label="Model Unit/ Equipment No." mode="outlined"></TextInput>
+                    <TextInput value={this.state.modelengine} onChangeText={(modelengine)=>this.setState({modelengine})} label="Model Engine/ Equipment No." mode="outlined"></TextInput>
+                    <TextInput value={this.state.estjob} onChangeText={(estjob)=>this.setState({estjob})} label="Estimasi Pekerjaan" mode="outlined"></TextInput>
+                    <TextInput value={this.state.note} onChangeText={(note)=>this.setState({note})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
                 </ScrollView>
             </View>
         )
