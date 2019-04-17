@@ -3,7 +3,7 @@ import { Component, View,StyleSheet,ScrollView, Text } from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
 import DatePicker from 'react-native-datepicker'
 
-export default class Dataunit extends React.Component{
+export default class DataunitScreen extends React.Component{
     //ganti nama class nya sesuai dengan nama file jsnya
     constructor(props){
         super(props);

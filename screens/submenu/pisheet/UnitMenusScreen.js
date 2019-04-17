@@ -3,7 +3,7 @@ import { Component,View,Text, StyleSheet } from 'react-native'
 import { Button } from 'react-native-paper'
 import { ViewPagerAndroid } from 'react-native-gesture-handler';
 
-export default class IndexScreen extends React.Component{
+export default class UnitMenusScreen extends React.Component{
     constructor(){
         super(); 
         this.submenus = [

@@ -11,9 +11,9 @@ class LogoTitle extends React.Component{
       return (
         <View style={{flexDirection:'row'}}>
           <TouchableOpacity onPress={()=>this.props.navigation.openDrawer()}>
-          <Image 
+          {/* <Image 
           source={require('../../assets/images/iconut.png')}
-          style={{marginHorizontal:5,width:40,height:40}}/>
+          style={{marginHorizontal:5,width:40,height:40}}/> */} 
           </TouchableOpacity> 
           <View style={{flexDirection:'column'}}>
             <Text style={{fontSize:25,fontWeight:'bold'}}>{this.props.navigation.getParam('headerTitle','Nama Menu...')}</Text>
@@ -22,7 +22,7 @@ class LogoTitle extends React.Component{
       )
     }
   }
-export default class Workorder extends React.Component{
+export default class WorkorderScreen extends React.Component{
     static navigationOptions = ({navigation}) => {
         return {
             headerTitle:<LogoTitle navigation={navigation}/>,

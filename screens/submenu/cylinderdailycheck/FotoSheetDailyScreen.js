@@ -1,9 +1,35 @@
 import React from 'react'
-import { Component, View,StyleSheet,ScrollView, Text } from 'react-native'
+import { Component,Image, View,StyleSheet,ScrollView, Text ,TouchableOpacity} from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
 import DatePicker from 'react-native-datepicker'
 
-export default class Workorder extends React.Component{
+class LogoTitle extends React.Component{
+    constructor(props){
+      super(props);
+    }
+    render(){
+      return (
+        <View style={{flexDirection:'row'}}>
+          <TouchableOpacity onPress={()=>this.props.navigation.openDrawer()}>
+          {/* <Image 
+          source={require('../../assets/images/iconut.png')}
+          style={{marginHorizontal:5,width:40,height:40}}/> */}
+          </TouchableOpacity> 
+          <View style={{flexDirection:'column'}}>
+            <Text style={{fontSize:25,fontWeight:'bold'}}>{this.props.navigation.getParam('headerTitle','Nama Menu...')}</Text>
+          </View>
+        </View>
+      )
+    }
+  }
+export default class FotoSheetDailyScreen extends React.Component{
+    static navigationOptions = ({navigation}) => {
+        return {
+            headerTitle:<LogoTitle navigation={navigation}/>,
+            headerStyle:{backgroundColor:"#FEDA01"},
+            headerIcon:null,
+        }
+    }
     constructor(props){
         super(props);
         this.state = {
@@ -40,10 +66,10 @@ export default class Workorder extends React.Component{
                     <TextInput value={this.state.modelunit} onChangeText={(modelunit)=>this.setState({modelunit})} label="Model Unit/ Equipment No." mode="outlined"></TextInput>
                     <TextInput value={this.state.modelengine} onChangeText={(modelengine)=>this.setState({modelengine})} label="Model Engine/ Equipment No." mode="outlined"></TextInput>
                     <TextInput value={this.state.estjob} onChangeText={(estjob)=>this.setState({estjob})} label="Estimasi Pekerjaan" mode="outlined"></TextInput>
-                    <TextInput value={this.state.note} onChangeText={(note)=>this.setState({note})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput value={this.state.note2} onChangeText={(note2)=>this.setState({note2})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput value={this.state.ttdsdh} onChangeText={(ttdsdh)=>this.setState({ttdsdh})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput value={this.state.sdhname} onChangeText={(sdhname)=>this.setState({sdhname})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
+                    <TextInput multiline={true} value={this.state.note} onChangeText={(note)=>this.setState({note})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
+                    <TextInput multiline={true} value={this.state.note2} onChangeText={(note2)=>this.setState({note2})} label="Tanda tangan SDH" mode="outlined" style={{height:200}}></TextInput>
+                    <TextInput multiline={true} value={this.state.ttdsdh} onChangeText={(ttdsdh)=>this.setState({ttdsdh})} label="SDH Name" mode="outlined" style={{height:200}}></TextInput>
+                    <TextInput multiline={true} value={this.state.sdhname} onChangeText={(sdhname)=>this.setState({sdhname})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
 
                 </ScrollView>
             </View>

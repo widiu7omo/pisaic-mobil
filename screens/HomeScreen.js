@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component{
         this.menus = [
             {name:'Work Order & Others',screen:'Workorder'},
             {name:'Cek Status Progress PI',screen:'Workorder'},
-            {name:'Go To PI',screen:'Workorder'},
+            {name:'Go To PI',screen:'GotoPi'},
             {name:'Create New PI',screen:'Workorder'},
             {name:'Give Order',screen:''}
         ]
@@ -53,7 +53,7 @@ export default class HomeScreen extends React.Component{
     }
     render(){
         const textColor = Colors.primaryColor
-        const level = 'spv'
+        const level = 'admin'
         let index = null;
 
         if(level === 'admin'){
@@ -86,7 +86,7 @@ export default class HomeScreen extends React.Component{
             <View style={styles.subContainer}>
                 {
                     this.menus.map((menu,key)=>( 
-                        <Button style={styles.button} key={key} mode="contained" onPress={()=>this.props.navigation.navigate(menu.screen)}>{menu.name}</Button>
+                        <Button style={styles.button} key={key} mode="contained" onPress={()=>this.props.navigation.navigate(menu.screen,{headerTitle:menu.name})}>{menu.name}</Button>
                     ))
                 }
             </View>

@@ -11,6 +11,7 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import Colors from '../constants/Colors'
 import { Button, Card, Title, Paragraph, Headline } from 'react-native-paper';
 
 class LogoTitle extends React.Component{
@@ -37,7 +38,7 @@ class LogoTitle extends React.Component{
     )
   }
 }
-export default class HomeScreen extends React.Component {
+export default class ListUnitScreen extends React.Component {
   static navigationOptions = ({navigation,navigationOptions}) => {
     // title: "United Tractor",
     return {
@@ -70,7 +71,7 @@ export default class HomeScreen extends React.Component {
               method:'POST'}}>
             </Image>
             <View style={styles.bordered}>
-              <Text style={{color:'rgba(233,22,22,0.8)',fontSize:25,fontWeight:'bold'}}>PISAIC</Text>
+              <Text style={{color:`${Colors.primaryColor}`,fontSize:25,fontWeight:'bold'}}>PISAIC</Text>
             </View>
           </View>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>

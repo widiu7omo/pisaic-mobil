@@ -3,10 +3,11 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import {Provider as PaperProvider, DefaultTheme } from 'react-native-paper'
-
+import { useScreens } from 'react-native-screens';
+useScreens();
 const primaryTheme = {
   ...DefaultTheme,
-  roundness:2,
+  // roundness:2,
   colors:{
     ...DefaultTheme.colors,
     accent:"#FEDA01",

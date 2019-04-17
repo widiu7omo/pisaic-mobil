@@ -9,17 +9,20 @@ import AboutScreen from '../screens/AboutScreen';
 import AddUserScreen from '../screens/AddUserScreen';
 import DbPisaicScreen from '../screens/DbPisaicScreen';
 import UnitmenuScreen from '../screens/UnitmenuScreen';
-import PisheetScreen from '../screens/pisheet/IndexScreen';
-import Workorder from '../screens/pisheet/Workorder';
-import Dataunit from '../screens/pisheet/Dataunit';
+import PisheetScreen from '../screens/submenu/pisheet/UnitMenusScreen';
+import Workorder from '../screens/submenu/pisheet/WorkorderScreen';
+import Dataunit from '../screens/submenu/pisheet/DataunitScreen';
+import ListUnitNavigator from '../navigation/ListUnitNavigator'
 //Main screen on Home
 //with some of nested screen
-const HomeStack = createStackNavigator({
+//@TODO:cek status 
+//@TODO:goto pi screen
+//@TODO:Create new pi
+//@TODO:Give order
+const HomeStack = createStackNavigator({ 
     Home: HomeScreen,
-    Unitmenu : UnitmenuScreen,
-    Pisheetmenu : PisheetScreen,
+    // GotoPi: ListUnitNavigator,
     Workorder : Workorder,
-    Dataunit: Dataunit
   },
   {
     initialRouteName:"Home"
