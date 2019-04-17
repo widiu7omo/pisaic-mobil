@@ -3,17 +3,18 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import ListUnitScreen from '../screens/ListUnitScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import UnitmenuScreen from '../screens/UnitmenuScreen';
 import PisheetScreen from '../screens/pisheet/IndexScreen';
 import Workorder from '../screens/pisheet/Workorder';
 const HomeStack = createStackNavigator({
-    Home: HomeScreen,
+    Home: ListUnitScreen,
     Unitmenu : UnitmenuScreen,
     Pisheetmenu : PisheetScreen,
-    Workorder : Workorder
+    Workorder : Workorder,
+    // Dataunit: DataUnit
   },
   {
     initialRouteName:"Home"
