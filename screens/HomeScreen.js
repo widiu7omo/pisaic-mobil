@@ -1,123 +1,118 @@
-import React from 'react';
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import { WebBrowser } from 'expo';
-
-import { MonoText } from '../components/StyledText';
-import { Button, Card, Title, Paragraph, Headline } from 'react-native-paper';
-
+import React from 'react'
+import { View, Text,Image, TouchableOpacity,StyleSheet } from 'react-native'
+import { Button } from 'react-native-paper';
+import Colors from '../constants/Colors'
 class LogoTitle extends React.Component{
-  render(){
-    return (
-      <View style={{flexDirection:'row'}}>
-        <Image
-        source={require('../assets/images/iconut.png')}
-        style={{marginHorizontal:5,width:40,height:40}}/>
-        <Text style={{fontSize:30,fontWeight:'bold'}}>United Tracktors</Text>
-      </View>
-    )
-  }
-}
-export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    // title: "United Tractor",
-    headerTitle:<LogoTitle/>
-  };
-  constructor(){
-    super();
-    this.units = [
-      'SE001',
-      'SE002',
-      'SE003',
-      'SE004',
-      'SE005',
-      'SE006',
-      'SE007',
-      'SE008',
-      'SE009',
-      'SE0010',
-      'SE0011',
-    ]
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-       <View style={styles.contentContainer}>
-            <Image style={{height:200,padding:0}}
-              source={{uri:'https://facebook.github.io/react/logo-og.png',
-              method:'POST'}}>
-            </Image>
-            <View style={styles.bordered}>
-              <Text style={{color:'rgba(233,22,22,0.8)',fontSize:25,fontWeight:'bold'}}>PISAIC</Text>
+    constructor(props){
+      super(props);
+    }
+    render(){
+      return (
+        <View style={{flexDirection:'row'}}>
+          <TouchableOpacity onPress={()=>this.props.navigation.openDrawer()}>
+          <Image 
+          source={require('../assets/images/iconut.png')}
+          style={{marginHorizontal:5,width:40,height:40}}/>
+          </TouchableOpacity> 
+          <View style={{flexDirection:'column'}}>
+            <Text style={{fontSize:25,fontWeight:'bold'}}>United Tracktors</Text>
+            <View style={{flexDirection:'row'}}>
+              <Text style={{fontSize:10,fontWeight:'100',}}>member of </Text>
+              <Text style={{fontSize:10,fontWeight:'bold'}}>ASTRA</Text>
             </View>
+            
           </View>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.helpContainer}>
-            {
-              this.units.map((unit,key) => (
-                  <Card style={styles.cardContent} key={key}>
-                    <Card.Content>
-                      <Title>{unit}</Title>
-                      <Paragraph></Paragraph>
-                    </Card.Content>
-                    <Card.Actions>
-                      <Button mode="outlined" onPress={()=>this.props.navigation.navigate('Unitmenu',{unitName:unit})}>Buka</Button>
-                    </Card.Actions>
-                  </Card>
-              ))
-            }
-          </View>
-        </ScrollView>
-      </View>
-    );
+        </View>
+      )
+    }
   }
+export default class HomeScreen extends React.Component{
+    static navigationOptions = ({navigation,navigationOptions}) => {
+        // title: "United Tractor",
+        return {
+          headerTitle:<LogoTitle navigation={navigation}/>,
+          headerStyle:{backgroundColor:"#FEDA01"}
+        }
+      }
+    constructor(){
+        super();
 
-  // _gotoMenu = () =>{
-  //   this.props.navigation.navigate('Unitmenu')
-  // }
+        //admin menu, workorder,cek status,goto pi, create pi
+        //spv menu, give order,cek status,goto pi
+        this.menus = [
+            {name:'Work Order & Others',screen:'Workorder'},
+            {name:'Cek Status Progress PI',screen:'Workorder'},
+            {name:'Go To PI',screen:'GotoPi'},
+            {name:'Create New PI',screen:'Workorder'},
+            {name:'Give Order',screen:''}
+        ]
+    }
+    _getIndex = (items,forLooking) =>{
+        //array must be object with index name
+        return items.findIndex(item => item.name === forLooking)
+    }
+    render(){
+        const textColor = Colors.primaryColor
+        const level = 'admin'
+        let index = null;
 
-  // _handleHelpPress = () => {
-  //   WebBrowser.openBrowserAsync(
-  //     'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-  //   );
-  // };
+        if(level === 'admin'){
+            index = this._getIndex(this.menus,'Give Order')
+            this.menus.splice(index,1)
+        }
+        else if(level === 'spv'){
+            index = this._getIndex(this.menus,'Create New PI')
+            this.menus.splice(index,1)
+            index = this._getIndex(this.menus,'Work Order & Others')
+            this.menus.splice(index,1)
+        }
+        else if(level === 'mekanik'){
+            index = this._getIndex(this.menus,'Create New PI')
+            this.menus.splice(index,1)
+            index = this._getIndex(this.menus,'Work Order & Others')
+            this.menus.splice(index,1)
+        }
+        return(
+            <View style={styles.container}>
+            <View style={styles.subContainer}>
+                <Image style={{height:200,padding:0}}
+                  source={{uri:'https://facebook.github.io/react/logo-og.png',
+                  method:'POST'}}>
+                </Image>
+                <View style={styles.bordered}>
+                  <Text style={{color:`${textColor}`,fontSize:25,fontWeight:'bold'}}>PISAIC</Text>
+                </View>
+            </View>
+            <View style={styles.subContainer}>
+                {
+                    this.menus.map((menu,key)=>( 
+                        <Button style={styles.button} key={key} mode="contained" onPress={()=>this.props.navigation.navigate(menu.screen,{headerTitle:menu.name})}>{menu.name}</Button>
+                    ))
+                }
+            </View>
+            </View>
+        )
+    }
 }
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // paddingHorizontal:10,
-    // backgroundColor: '#fff',
-  },
-  contentContainer: {
-    // paddingTop: 30,
-    flexDirection:'column'
-  },
-  helpContainer: {
-    // marginTop: 10,
-    // marginBottom:20,
-    // alignItems: 'center',
-    justifyContent:'center'
-  },
-  bordered:{
-    justifyContent:'flex-end',
-    alignItems:'flex-end',
-    position:'absolute',
-    fontSize:25,
-    top:0,
-    bottom:10,
-    left:0,
-    right:10,
-  },
-  cardContent:{
-    marginHorizontal:10,
-    marginTop:15
-  }
-});
+    container:{
+        flex:1
+    },
+    bordered:{
+        justifyContent:'flex-end',
+        alignItems:'flex-end',
+        position:'absolute',
+        fontSize:25,
+        top:0,
+        bottom:10,
+        left:0,
+        right:10,
+    },
+    subContainer:{
+        
+        flexDirection:'column'
+    },
+    button:{
+        margin:10
+    }
+})
