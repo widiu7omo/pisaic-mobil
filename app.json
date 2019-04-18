@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
-      "ios",
+      // "ios",
       "android"
     ],
     "version": "1.0.0",
@@ -19,6 +19,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "android": {
+      "package": "com.danarwidi.pisaic_united_tracktor"
+      },
     "assetBundlePatterns": [
       "**/*"
     ],

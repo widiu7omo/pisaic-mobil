@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component{
         this.menus = [
             {name:'Work Order & Others',screen:'Workorder'},
             {name:'Cek Status Progress PI',screen:'Workorder'},
-            {name:'Go To PI',screen:'GotoPi'},
+            {name:'Go To PI',screen:'ListUnit'},
             {name:'Create New PI',screen:'Workorder'},
             {name:'Give Order',screen:''}
         ]

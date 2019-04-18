@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -29,8 +29,8 @@ class LogoTitle extends React.Component{
         <View style={{flexDirection:'column'}}>
           <Text style={{fontSize:25,fontWeight:'bold'}}>United Tracktors</Text>
           <View style={{flexDirection:'row'}}>
-            <Text style={{fontSize:10,fontWeight:'100',}}>member of </Text>
-            <Text style={{fontSize:10,fontWeight:'bold'}}>ASTRA</Text>
+            <Text style={{fontSize:10,fontWeight:'100',color:"#1475B2"}}>member of </Text>
+            <Text style={{fontSize:10,fontWeight:'bold',color:"#1475B2"}}>ASTRA</Text>
           </View>
           
         </View>
@@ -78,7 +78,7 @@ export default class ListUnitScreen extends React.Component {
           <View style={styles.helpContainer}>
             {
               this.units.map((unit,key) => (
-                <Button style={styles.cardContent} key={key} mode="outlined" onPress={()=>this.props.navigation.navigate('Unitmenu',{unitName:unit})}>{unit}</Button>
+                <Button style={styles.cardContent} key={key} mode="contained" onPress={()=>this.props.navigation.navigate('UnitMenu',{unitName:unit})}>{unit}</Button>
                   // <Card style={styles.cardContent} key={key}>
                   //   <Card.Content>
                   //     <Title>{unit}</Title>
@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
   },
   cardContent:{
     marginHorizontal:10,
-    marginTop:15
+    marginTop:15,
+    // maxWidth:80
   }
 });
