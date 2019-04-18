@@ -1,9 +1,17 @@
 import React from 'react'
-import { Component,View,Text, StyleSheet } from 'react-native'
+import { View,Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Button } from 'react-native-paper'
 import { ViewPagerAndroid } from 'react-native-gesture-handler';
+import CustomHeader from "../../../components/CustomHeader";
 
-export default class UnitMenusScreen extends React.Component{
+export default class IndexPiSheetScreen extends React.Component{
+    static navigationOptions =({navigation}) => {
+        return {
+            headerTitle:<CustomHeader navigation={navigation} headerName="subMenuTitle" />,
+            headerStyle:{backgroundColor:"#FEDA01"},
+            headerIcon:null,
+        }
+    } 
     constructor(){
         super(); 
         this.submenus = [
@@ -20,7 +28,7 @@ export default class UnitMenusScreen extends React.Component{
             {
                 this.submenus.map((submenu,key) =>(
                     <View key={key} style={styles.submenu}>
-                        <Button style={styles.menuButton} mode="outlined" onPress={() =>this.props.navigation.navigate(submenu.screen)}>{submenu.name}</Button>
+                        <Button style={styles.menuButton} mode="contained" onPress={() =>this.props.navigation.navigate(submenu.screen)}>{submenu.name}</Button>
                     </View>
                 ))
             }

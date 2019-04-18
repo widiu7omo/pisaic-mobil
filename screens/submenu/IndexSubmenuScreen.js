@@ -1,15 +1,13 @@
 import React from 'react'
-import { View, StyleSheet,Image,Text } from 'react-native'
+import { View, StyleSheet,Image,Text,ScrollView } from 'react-native'
 import { Button } from 'react-native-paper'
-import { ScrollView } from 'react-native-gesture-handler';
-
+import CustomHeader from '../../components/CustomHeader'
 export default class IndexSubmenuScreen extends React.Component{
-    
     constructor(){
         super();
         //props
-        this.menus = [
-            { name:'Periodic Inspection Sheet', screen:'Pisheetmenu'},
+        this.menus = [ 
+            { name: 'Periodic Inspection Sheet', screen:'PeriodicInspection'},
             { name: 'Inspection Camera', screen:'InspectCamScreen'},
             { name: 'Problem Log', screen: 'ProblemLogScreen'},
             { name: 'Backlog Entry Sheet', screen: 'BesScreen'},
@@ -19,7 +17,10 @@ export default class IndexSubmenuScreen extends React.Component{
     }
     static navigationOptions = ({navigation}) => {
         return {
-            title: navigation.getParam('unitName','Nama Unit...')
+            //sub menu, the header name param is unitName
+            headerTitle: <CustomHeader navigation={navigation} headerName="unitName"/>,
+            headerStyle:{backgroundColor:"#FEDA01"},
+            headerIcon:null,
         }
     }
     render(){
@@ -38,7 +39,7 @@ export default class IndexSubmenuScreen extends React.Component{
                 {
                     this.menus.map((menu, key) => (
                         <View key={key} style={styles.menusContent}>
-                            <Button mode="outlined" onPress = {() => this.props.navigation.navigate(menu.screen)}>{menu.name}</Button>
+                            <Button mode="contained" onPress = {() => this.props.navigation.navigate(menu.screen,{subMenuTitle:menu.name,unit:this.props.navigation.getParam('unitName')})}>{menu.name}</Button>
                         </View>
                     ))
                 }
