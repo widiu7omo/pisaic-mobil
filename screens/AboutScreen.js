@@ -1,10 +1,39 @@
 import React from 'react'
-import { View,Image, StyleSheet, ScrollView } from 'react-native'
+import { View,Image,Text, StyleSheet, ScrollView,TouchableOpacity, } from 'react-native'
 import Markdown from 'react-native-easy-markdown'
-export default class AboutScreen extends React.Component{
-    static navigationOptions ={
-        headerTitle:'About Pisaic'
+
+class LogoTitle extends React.Component{
+    constructor(props){
+      super(props);
     }
+    render(){
+      return (
+        <View style={{flexDirection:'row'}}>
+          <TouchableOpacity onPress={()=>this.props.navigation.openDrawer()}>
+          <Image 
+          source={require('../assets/images/iconut.png')}
+          style={{marginHorizontal:5,width:40,height:40}}/>
+          </TouchableOpacity> 
+          <View style={{flexDirection:'column'}}>
+            <Text style={{fontSize:25,fontWeight:'bold'}}>About Pisaic</Text>
+            <View style={{flexDirection:'row'}}>
+              <Text style={{fontSize:10,fontWeight:'100',}}>member of </Text>
+              <Text style={{fontSize:10,fontWeight:'bold'}}>ASTRA</Text>
+            </View>
+            
+          </View>
+        </View>
+      )
+    }
+  }
+export default class AboutScreen extends React.Component{
+    static navigationOptions = ({navigation}) => {
+        // title: "United Tractor",
+        return {
+          headerTitle:<LogoTitle navigation={navigation}/>,
+          headerStyle:{backgroundColor:"#FEDA01"}
+        }
+      }
     constructor(){
         super()
     }

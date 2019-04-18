@@ -64,7 +64,8 @@ export default HomeStack = createStackNavigator({
 
   },
   {
-    initialRouteName:"Home"
+    initialRouteName:"Home",
+ 
   }
 );
 
@@ -82,4 +83,3 @@ HomeStack.navigationOptions = {
     />
   ),
 };
-

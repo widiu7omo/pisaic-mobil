@@ -85,7 +85,7 @@ export default class ListUnitScreen extends React.Component {
                   //     <Paragraph></Paragraph>
                   //   </Card.Content>
                   //   <Card.Actions>
-                      
+
                   //   </Card.Actions>
                   // </Card>
               ))

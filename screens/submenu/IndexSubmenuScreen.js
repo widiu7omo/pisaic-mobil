@@ -39,7 +39,7 @@ export default class IndexSubmenuScreen extends React.Component{
                 {
                     this.menus.map((menu, key) => (
                         <View key={key} style={styles.menusContent}>
-                            <Button mode="contained" onPress = {() => this.props.navigation.navigate(menu.screen,{subMenuTitle:menu.name})}>{menu.name}</Button>
+                            <Button mode="contained" onPress = {() => this.props.navigation.navigate(menu.screen,{subMenuTitle:menu.name,unit:this.props.navigation.getParam('unitName')})}>{menu.name}</Button>
                         </View>
                     ))
                 }

@@ -6,10 +6,8 @@ import CustomHeader from "../../../components/CustomHeader";
 
 export default class IndexPiSheetScreen extends React.Component{
     static navigationOptions =({navigation}) => {
-        let SubTitle = navigation.getParam('subMenuTitle','Submenu title...')
-        let Unit = navigation.getParam('unitName','Nama Unit...')
         return {
-            headerTitle:<CustomHeader navigation={navigation} headerName="subMenuTitle" subHeader={Unit}/>,
+            headerTitle:<CustomHeader navigation={navigation} headerName="subMenuTitle" />,
             headerStyle:{backgroundColor:"#FEDA01"},
             headerIcon:null,
         }
