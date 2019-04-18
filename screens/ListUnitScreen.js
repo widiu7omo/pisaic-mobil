@@ -49,17 +49,13 @@ export default class ListUnitScreen extends React.Component {
   constructor(){
     super();
     this.units = [
-      'SE001',
-      'SE002',
-      'SE003',
-      'SE004',
-      'SE005',
-      'SE006',
-      'SE007',
-      'SE008',
-      'SE009',
-      'SE0010',
-      'SE0011',
+      'SE 3001',
+      'SE 3002',
+      'SE 3003',
+      'SE 3004',
+      'SE 3005',
+      'SE 3006',
+      'SE 3007',
     ]
   }
   render() {
