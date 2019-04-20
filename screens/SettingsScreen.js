@@ -6,7 +6,7 @@ import { Button } from 'react-native-paper';
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: 'app.json',
-  };
+  }
 
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your

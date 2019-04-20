@@ -4,13 +4,13 @@ import { Button } from 'react-native-paper'
 import { ViewPagerAndroid } from 'react-native-gesture-handler';
 import CustomHeader from "../../../components/CustomHeader";
 
+//if you want to get unit name on subheader, then send param from navigate function with "unit" param
+
 export default class IndexPiSheetScreen extends React.Component{
-    static navigationOptions =({navigation}) => {
-        return {
-            headerTitle:<CustomHeader navigation={navigation} headerName="subMenuTitle" />,
+    static navigationOptions = {
+            headerTitle:<CustomHeader headerName="subMenuTitle" />,
             headerStyle:{backgroundColor:"#FEDA01"},
-            headerIcon:null,
-        }
+            headerIcon:null
     } 
     constructor(){
         super(); 
@@ -26,9 +26,9 @@ export default class IndexPiSheetScreen extends React.Component{
         return(
             <View style={styles.container}>
             {
-                this.submenus.map((submenu,key) =>(
+                this.submenus.map((submenu,key) =>( 
                     <View key={key} style={styles.submenu}>
-                        <Button style={styles.menuButton} mode="contained" onPress={() =>this.props.navigation.navigate(submenu.screen)}>{submenu.name}</Button>
+                        <Button style={styles.menuButton} mode="contained" onPress={() =>this.props.navigation.navigate(submenu.screen,{zoneTitle:submenu.screen,unit:this.props.navigation.getParam('unit','Unit Name')})}>{submenu.name}</Button>
                     </View>
                 ))
             }

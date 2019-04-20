@@ -15,13 +15,11 @@ export default class IndexSubmenuScreen extends React.Component{
             { name: 'Cylinder Daily Check Sheet', screen: 'CdcsScreen'}
         ]
     }
-    static navigationOptions = ({navigation}) => {
-        return {
+    static navigationOptions ={
             //sub menu, the header name param is unitName
-            headerTitle: <CustomHeader navigation={navigation} headerName="unitName"/>,
+            headerTitle: <CustomHeader headerName="unitName"/>,
             headerStyle:{backgroundColor:"#FEDA01"},
             headerIcon:null,
-        }
     }
     render(){
         return(
@@ -32,7 +30,7 @@ export default class IndexSubmenuScreen extends React.Component{
               method:'POST'}}>
             </Image>
             <View style={styles.bordered}>
-              <Text style={{color:'rgba(233,22,22,0.8)',fontSize:25,fontWeight:'bold'}}>PISAIC</Text>
+              <Text style={{color:'#FEDA01',fontSize:25,fontWeight:'bold'}}>PISAIC</Text>
             </View>
            </View>
             <ScrollView>
