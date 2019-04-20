@@ -1,6 +1,6 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import { Platform,ScrollView, } from 'react-native';
+import { DrawerItems, SafeAreaView, createStackNavigator, createDrawerNavigator } from 'react-navigation';
 // import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 import TabBarIcon from '../components/TabBarIcon';
 import Colors from '../constants/Colors'
@@ -77,6 +77,26 @@ AddUserStack.navigationOptions = {
     )
 }
 
+//Add custom drawer, override default drawer config
+const drawerContent = (props) =>
+  (
+    <ScrollView>
+      <SafeAreaView forceInset={{top: 'always', horizontal: 'never'}}>
+        <DrawerItems {...props} onItemPress={ ({route, focused}) => {
+          console.log(route)
+          if (route.key === "HomeStack") {
+            if (route.routes.length === 1) {
+              props.navigation.navigate(route.routeName);
+            } else {
+              props.navigation.navigate(route.routes[0].routeName);
+            }
+          } else {
+            props.onItemPress({route, focused});
+          }
+        }} />
+      </SafeAreaView>
+    </ScrollView>
+  )
 export default createDrawerNavigator({
   HomeStack,
   DatabasePisaicStack,
@@ -84,6 +104,7 @@ export default createDrawerNavigator({
   AddUserStack,
 },{
   drawerBackgroundColor:Colors.darkColor,
+  contentComponent:drawerContent,
   contentOptions: {
     activeLabelStyle: {
       fontFamily: 'Roboto',
@@ -93,7 +114,6 @@ export default createDrawerNavigator({
       fontFamily: 'Roboto',
       color: Colors.inactive
     },
-    activeBackgroundColor:Colors.inactiveBackground
-    
+    activeBackgroundColor:Colors.inactiveBackground,
   }
 },);

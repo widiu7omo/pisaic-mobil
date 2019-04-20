@@ -7,13 +7,14 @@
     "platforms": [
       "android"
     ],
-    "version": "1.0.0",
+    "primaryColor":"#FEDA01",
+    "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/pisaic_icon.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/splashut.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

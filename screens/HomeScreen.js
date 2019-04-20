@@ -15,7 +15,7 @@ class LogoTitle extends React.Component{
           style={{marginHorizontal:5,width:40,height:40}}/>
           </TouchableOpacity> 
           <View style={{flexDirection:'column'}}>
-            <Text style={{fontSize:25,fontWeight:'bold'}}>United Tracktors</Text>
+            <Text style={{fontSize:25,fontWeight:'bold'}}>United Tractors</Text>
             <View style={{flexDirection:'row'}}>
               <Text style={{fontSize:10,fontWeight:'100',}}>member of </Text>
               <Text style={{fontSize:10,fontWeight:'bold'}}>ASTRA</Text>

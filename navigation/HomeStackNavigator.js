@@ -23,6 +23,7 @@ import DataUnitDailyScreen from "../screens/submenu/cylinderdailycheck/DataUnitD
 import FotoSheetDailyScreen from "../screens/submenu/cylinderdailycheck/FotoSheetDailyScreen";
 import SheetDailyQuestionScreen from "../screens/submenu/cylinderdailycheck/SheetDailyQuestionScreen";
 import SheetDailyScreen from "../screens/submenu/cylinderdailycheck/SheetDailyScreen";
+import BucketGroupScreen from "../screens/submenu/pisheet/Zone1/BucketGroupScreen"
 //Main screen on Home
 //with some of nested screen
 //@TODO:cek status 
@@ -42,6 +43,9 @@ export default HomeStack = createStackNavigator({
     Dataunit:DataunitScreen,
     Workorder:WorkorderScreen,
     Zone1:IndexZone1Screen,
+          //sub Zone1
+    BucketGroup:BucketGroupScreen,
+
     Zone2:IndexZone2Screen,
     Zone3:IndexZone3Screen,
     //Problem Log
@@ -65,7 +69,6 @@ export default HomeStack = createStackNavigator({
   },
   {
     initialRouteName:"Home",
- 
   }
 );
 

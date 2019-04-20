@@ -1,13 +1,15 @@
 import React from 'react'
 import { View,TouchableOpacity, Text, Image } from 'react-native'
+import { withNavigation } from 'react-navigation';
 //custom header accept param headerName and object of navigation
-export default class CustomHeader extends React.Component{
+class CustomHeader extends React.Component{
     constructor(props){
       super(props);
     }
     render(){
       return (
         <View style={{flexDirection:'row'}}>
+          {console.log(this.props)}
           <TouchableOpacity onPress={()=>this.props.navigation.openDrawer()}>
           <Image 
           source={require('../assets/images/iconut.png')}
@@ -23,3 +25,4 @@ export default class CustomHeader extends React.Component{
       )
     }
   }
+  export default withNavigation(CustomHeader) 
