@@ -5,16 +5,17 @@ import DatePicker from 'react-native-datepicker'
 import CustomHeader from '../../../../components/CustomHeader'
 import KeyboardShift from '../../../../components/KeyboardShift'
 
-export default class z2aScreen extends React.Component{
+export default class z2eScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Abnormal Noise During Operation",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Drive Motor Support Mounting RHLH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Connection Box",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Capacitor",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Fan+Air Intake Screen Housing",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-           ]
+            {name:"Pump And Gauge",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Valve",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Line",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Grease CLS Level",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Electric Related Part",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+           
+        ] 
     }
     static navigationOptions = {
         headerTitle:<CustomHeader headerName="zone"/>,

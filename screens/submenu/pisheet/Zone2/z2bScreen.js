@@ -5,16 +5,26 @@ import DatePicker from 'react-native-datepicker'
 import CustomHeader from '../../../../components/CustomHeader'
 import KeyboardShift from '../../../../components/KeyboardShift'
 
-export default class z2aScreen extends React.Component{
+export default class z2bScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Abnormal Noise During Operation",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Drive Motor Support Mounting RHLH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Connection Box",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Capacitor",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Fan+Air Intake Screen Housing",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-           ]
+            {name:"Flexible Coupling",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"PTO",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"PTO Relief Valve",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Accumulator Pilot Pressure",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"All Hoe Related",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Electric Equipment",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pilot Control Pump",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"PTO Lubrication Pump",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pump Fan Oil Cooler",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"High Pressure Filter",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pump No.1",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pump No.2",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pump No.3",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Shut Off Valve Hydraulic Tank",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+           
+        ] 
     }
     static navigationOptions = {
         headerTitle:<CustomHeader headerName="zone"/>,

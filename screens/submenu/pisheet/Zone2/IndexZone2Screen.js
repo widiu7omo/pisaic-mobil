@@ -49,13 +49,13 @@ export default class IndexZone2Screen extends React.Component{
         this.z2Menus = [
             {name:"A. Main Drive Motor",screen:'z2a'},
             {name:"B. PDG And Pump",screen:'z2b'},
-            {name:"C. Swing",screen:'z3c'},
-            {name:"D. Oil Center",screen:'z4d'},
-            {name:"E. Central Lubrication System (CLS)",screen:'z5e'},
-            {name:"F. Swing Lubrication System (SLS)",screen:'z6f'},
-            {name:"G. Hydraulic",screen:'z7g'},
-            {name:"H. Electric",screen:'z8h'},
-            {name:"Additional Of Fluid (Oil, Coolant, Grease)",screen:'z9i'},
+            {name:"C. Swing",screen:'z2c'},
+            {name:"D. Oil Center",screen:'z2d'},
+            {name:"E. Central Lubrication System (CLS)",screen:'z2e'},
+            {name:"F. Swing Lubrication System (SLS)",screen:'z2f'},
+            {name:"G. Hydraulic",screen:'z2g'},
+            {name:"H. Electric",screen:'z2h'},
+            {name:"Additional Of Fluid (Oil, Coolant, Grease)",screen:'z2i'},
         ]
     }
     render(){

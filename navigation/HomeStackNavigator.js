@@ -31,6 +31,15 @@ import z1eScreen from "../screens/submenu/pisheet/Zone1/z1eScreen";
 import z1fScreen from "../screens/submenu/pisheet/Zone1/z1fScreen";
 import z1gScreen from "../screens/submenu/pisheet/Zone1/z1gScreen";
 import z2aScreen from "../screens/submenu/pisheet/Zone2/z2aScreen";
+import z2bScreen from "../screens/submenu/pisheet/Zone2/z2bScreen";
+import z2cScreen from "../screens/submenu/pisheet/Zone2/z2cScreen";
+import z2dScreen from "../screens/submenu/pisheet/Zone2/z2dScreen";
+import z2eScreen from "../screens/submenu/pisheet/Zone2/z2eScreen";
+import z2fScreen from "../screens/submenu/pisheet/Zone2/z2fScreen";
+import z2gScreen from "../screens/submenu/pisheet/Zone2/z2gScreen";
+import z2hScreen from "../screens/submenu/pisheet/Zone2/z2hScreen";
+import z2iScreen from "../screens/submenu/pisheet/Zone2/z2iScreen";
+
 //Main screen on Home
 //with some of nested screen
 //@TODO:cek status 
@@ -64,6 +73,15 @@ export default HomeStack = createStackNavigator({
     Zone2:IndexZone2Screen,
       //sub Zone2
     z2a:z2aScreen,
+    z2b:z2bScreen,
+    z2c:z2cScreen,
+    z2d:z2dScreen,
+    z2e:z2eScreen,
+    z2f:z2fScreen,
+    z2g:z2gScreen,
+    z2h:z2hScreen,
+    z2i:z2iScreen,
+    
 
     Zone3:IndexZone3Screen,
     //Problem Log

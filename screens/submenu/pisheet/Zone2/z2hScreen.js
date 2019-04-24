@@ -5,16 +5,14 @@ import DatePicker from 'react-native-datepicker'
 import CustomHeader from '../../../../components/CustomHeader'
 import KeyboardShift from '../../../../components/KeyboardShift'
 
-export default class z2aScreen extends React.Component{
+export default class z2hScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Abnormal Noise During Operation",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Drive Motor Support Mounting RHLH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Connection Box",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Capacitor",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Fan+Air Intake Screen Housing",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-           ]
+            {name:"Batteries",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Batteries Switch",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            
+        ] 
     }
     static navigationOptions = {
         headerTitle:<CustomHeader headerName="zone"/>,
