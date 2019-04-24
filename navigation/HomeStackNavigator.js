@@ -39,6 +39,13 @@ import z2fScreen from "../screens/submenu/pisheet/Zone2/z2fScreen";
 import z2gScreen from "../screens/submenu/pisheet/Zone2/z2gScreen";
 import z2hScreen from "../screens/submenu/pisheet/Zone2/z2hScreen";
 import z2iScreen from "../screens/submenu/pisheet/Zone2/z2iScreen";
+import z3aScreen from "../screens/submenu/pisheet/Zone3/z3aScreen";
+import z3bScreen from "../screens/submenu/pisheet/Zone3/z3bScreen";
+import z3cScreen from "../screens/submenu/pisheet/Zone3/z3cScreen";
+import z3dScreen from "../screens/submenu/pisheet/Zone3/z3dScreen";
+import z3eScreen from "../screens/submenu/pisheet/Zone3/z3eScreen";
+import z3fScreen from "../screens/submenu/pisheet/Zone3/z3fScreen";
+import z3gScreen from "../screens/submenu/pisheet/Zone3/z3gScreen";
 
 //Main screen on Home
 //with some of nested screen
@@ -84,6 +91,15 @@ export default HomeStack = createStackNavigator({
     
 
     Zone3:IndexZone3Screen,
+      //sub Zone3
+      z3a:z3aScreen,
+      z3b:z3bScreen,
+      z3c:z3cScreen,
+      z3d:z3dScreen,
+      z3e:z3eScreen,
+      z3f:z3fScreen,
+      z3g:z3gScreen,
+
     //Problem Log
     ProblemLog:ProblemLogScreen,
     //Inspect Camera
