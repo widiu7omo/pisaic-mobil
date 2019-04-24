@@ -69,7 +69,7 @@ export default class ListUnitScreen extends React.Component {
             <View style={styles.bordered}>
               <Text style={{color:`${Colors.primaryColor}`,fontSize:25,fontWeight:'bold'}}>PISAIC</Text>
             </View>
-          </View>
+        </View>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.helpContainer}>
             {

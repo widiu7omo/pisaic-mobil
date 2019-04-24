@@ -5,22 +5,22 @@ import DatePicker from 'react-native-datepicker'
 import CustomHeader from '../../../../components/CustomHeader'
 import KeyboardShift from '../../../../components/KeyboardShift'
 
-export default class BucketGroupScreen extends React.Component{
+export default class z1dScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"teeth_bucket",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"lp_teeth_bucket",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"shroud",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_hff",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"clamp_cylinder_lh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"clamp_cylinder_rh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhcc",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_cylinder_lh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_cylinder_rh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhff",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhcb",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"injector_grease_ll",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Idler",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Adjusting Track Cylinder/Hic",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Track Roller",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Carrier Roller",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Track Pad",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin Track Pad",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Sproket",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Track Tension Condition",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"LH Travel Gear Box Motor & Hose",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Level Thick Of Soil U/C LH",status:'Clean',foto:{name:'',catatan:''},remark:''},
+            {name:"Level Thick Of Soil U/C RH",status:'Clean',foto:{name:'',catatan:''},remark:''},
+           
         ]
     }
     static navigationOptions = {
@@ -35,6 +35,7 @@ export default class BucketGroupScreen extends React.Component{
             condition:'',
             note:["None","Leak","Broken","Missing","Loosen ","Worn","Crack","Other"],
             priority:["None","Now","Chng. Shift","Next PS","Backlog"],
+            status:["Clean","Median","High"],
             foto:{name:'',catatan:''},
             remark:''
         }
@@ -50,7 +51,7 @@ export default class BucketGroupScreen extends React.Component{
                 <View style={styles.container}>
                     <ScrollView style={styles.inputField}>
                     {
-                        this.state.inputItems.map(({name,condition,note,priority,remark},key,)=>( 
+                        this.state.inputItems.map(({name,condition,note,priority,status,remark},key,)=>( 
                             <View key={key} style={{padding:10}}>
                                 <Card>
                                     <Card.Content > 
@@ -79,6 +80,7 @@ export default class BucketGroupScreen extends React.Component{
                                             </RadioButton.Group>
                                         </View>
                                     </View>
+                                  
                                     <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                                         <View>
                                             <Text>Note</Text>
@@ -117,12 +119,31 @@ export default class BucketGroupScreen extends React.Component{
                                             </Picker>
                                         </View>
                                         <View>
+                                            <Text>Status</Text>
+                                            <Picker
+                                                style={{width: 115}}
+                                                selectedValue={status}
+                                                onValueChange={status => {
+                                                    const inputItems =[...this.state.inputItems]
+                                                    inputItems[key] = {...inputItems[key],status:status}
+                                                    this.setState({inputItems})
+                                                }
+                                                }>
+                                                {
+                                                    this.groupProps.status.map((status,key) => (
+                                                        <Picker.Item key={key} label={status} value={status} />
+                                                    ))
+                                                }
+                                            </Picker>
+                                        </View>
+                                       
+                                        <View>
                                             <Button icon="add-a-photo" dark={true} mode="text">foto</Button>
                                         </View>
                                     </View> 
 
                                     <View style={{flexDirection:"column"}}>
-                                            <TextInput mode="flat" label="Remark" 
+                                            <TextInput mode="flat" label="Remark(Detail Temuan Backlog)" 
                                             value={remark} onChangeText={(remark)=>{
                                                 const inputItems =[...this.state.inputItems]
                                                 inputItems[key] = {...inputItems[key],remark:remark}

@@ -6,6 +6,7 @@ class LogoTitle extends React.Component{
     constructor(props){
       super(props);
     }
+    //buat header atas
     render(){
       return (
         <View style={{flexDirection:'row'}}>

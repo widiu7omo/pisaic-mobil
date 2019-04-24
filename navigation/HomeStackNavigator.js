@@ -23,7 +23,13 @@ import DataUnitDailyScreen from "../screens/submenu/cylinderdailycheck/DataUnitD
 import FotoSheetDailyScreen from "../screens/submenu/cylinderdailycheck/FotoSheetDailyScreen";
 import SheetDailyQuestionScreen from "../screens/submenu/cylinderdailycheck/SheetDailyQuestionScreen";
 import SheetDailyScreen from "../screens/submenu/cylinderdailycheck/SheetDailyScreen";
-import BucketGroupScreen from "../screens/submenu/pisheet/Zone1/BucketGroupScreen"
+import BucketGroupScreen from "../screens/submenu/pisheet/Zone1/BucketGroupScreen";
+import z1bScreen from "../screens/submenu/pisheet/Zone1/z1bScreen";
+import z1cScreen from "../screens/submenu/pisheet/Zone1/z1cScreen";
+import z1dScreen from "../screens/submenu/pisheet/Zone1/z1dScreen";
+import z1eScreen from "../screens/submenu/pisheet/Zone1/z1eScreen";
+import z1fScreen from "../screens/submenu/pisheet/Zone1/z1fScreen";
+import z1gScreen from "../screens/submenu/pisheet/Zone1/z1gScreen"
 //Main screen on Home
 //with some of nested screen
 //@TODO:cek status 
@@ -45,6 +51,13 @@ export default HomeStack = createStackNavigator({
     Zone1:IndexZone1Screen,
           //sub Zone1
     BucketGroup:BucketGroupScreen,
+    z1b:z1bScreen,
+    z1c:z1cScreen,
+    z1d:z1dScreen,
+    z1e:z1eScreen,
+    z1f:z1fScreen,
+    z1g:z1gScreen,
+
 
     Zone2:IndexZone2Screen,
     Zone3:IndexZone3Screen,

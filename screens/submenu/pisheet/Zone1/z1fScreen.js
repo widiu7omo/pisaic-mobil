@@ -5,22 +5,19 @@ import DatePicker from 'react-native-datepicker'
 import CustomHeader from '../../../../components/CustomHeader'
 import KeyboardShift from '../../../../components/KeyboardShift'
 
-export default class BucketGroupScreen extends React.Component{
+export default class z1fScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"teeth_bucket",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"lp_teeth_bucket",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"shroud",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_hff",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"clamp_cylinder_lh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"clamp_cylinder_rh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhcc",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_cylinder_lh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_cylinder_rh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhff",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhcb",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"injector_grease_ll",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Swing Circle Bolt",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Mounting Bolt Center Body RHLH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Teeth Swing Circle",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"HV Cable & Connector",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cable Duct",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cable Singer",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Swivel Joint",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"HV Cable & Pilot Cable",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            
         ]
     }
     static navigationOptions = {
@@ -79,6 +76,7 @@ export default class BucketGroupScreen extends React.Component{
                                             </RadioButton.Group>
                                         </View>
                                     </View>
+                                  
                                     <View style={{flexDirection:"row",justifyContent:"space-between"}}>
                                         <View>
                                             <Text>Note</Text>
@@ -116,13 +114,14 @@ export default class BucketGroupScreen extends React.Component{
                                                 }
                                             </Picker>
                                         </View>
+                                       
                                         <View>
                                             <Button icon="add-a-photo" dark={true} mode="text">foto</Button>
                                         </View>
                                     </View> 
 
                                     <View style={{flexDirection:"column"}}>
-                                            <TextInput mode="flat" label="Remark" 
+                                            <TextInput mode="flat" label="Remark(Detail Temuan Backlog)" 
                                             value={remark} onChangeText={(remark)=>{
                                                 const inputItems =[...this.state.inputItems]
                                                 inputItems[key] = {...inputItems[key],remark:remark}
