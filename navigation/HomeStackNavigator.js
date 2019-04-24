@@ -29,7 +29,8 @@ import z1cScreen from "../screens/submenu/pisheet/Zone1/z1cScreen";
 import z1dScreen from "../screens/submenu/pisheet/Zone1/z1dScreen";
 import z1eScreen from "../screens/submenu/pisheet/Zone1/z1eScreen";
 import z1fScreen from "../screens/submenu/pisheet/Zone1/z1fScreen";
-import z1gScreen from "../screens/submenu/pisheet/Zone1/z1gScreen"
+import z1gScreen from "../screens/submenu/pisheet/Zone1/z1gScreen";
+import z2aScreen from "../screens/submenu/pisheet/Zone2/z2aScreen";
 //Main screen on Home
 //with some of nested screen
 //@TODO:cek status 
@@ -48,6 +49,7 @@ export default HomeStack = createStackNavigator({
         //sub Pi
     Dataunit:DataunitScreen,
     Workorder:WorkorderScreen,
+
     Zone1:IndexZone1Screen,
           //sub Zone1
     BucketGroup:BucketGroupScreen,
@@ -60,6 +62,9 @@ export default HomeStack = createStackNavigator({
 
 
     Zone2:IndexZone2Screen,
+      //sub Zone2
+    z2a:z2aScreen,
+
     Zone3:IndexZone3Screen,
     //Problem Log
     ProblemLog:ProblemLogScreen,

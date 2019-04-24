@@ -46,6 +46,17 @@ export default class IndexZone2Screen extends React.Component{
             ttdsdh:'',
             sdhname:''
         }
+        this.z2Menus = [
+            {name:"A. Main Drive Motor",screen:'z2a'},
+            {name:"B. PDG And Pump",screen:'z2b'},
+            {name:"C. Swing",screen:'z3c'},
+            {name:"D. Oil Center",screen:'z4d'},
+            {name:"E. Central Lubrication System (CLS)",screen:'z5e'},
+            {name:"F. Swing Lubrication System (SLS)",screen:'z6f'},
+            {name:"G. Hydraulic",screen:'z7g'},
+            {name:"H. Electric",screen:'z8h'},
+            {name:"Additional Of Fluid (Oil, Coolant, Grease)",screen:'z9i'},
+        ]
     }
     render(){
         return (
@@ -53,24 +64,12 @@ export default class IndexZone2Screen extends React.Component{
             {/* bring your input here */}
                 {/* <Text>This is from workorder</Text> */}
                 <ScrollView style={styles.inputField}>
-                    <DatePicker
-                    date={this.state.date}
-                    format="DD-MM-YYYY"
-                    placeholder="Pilih tanggal"
-                    showIcon={false}
-                    onDateChange={(date)=> {this.setState({date:date})}}/>
-                    <TextInput value={this.state.wono} onChangeText={(wono)=>this.setState({wono})} label="WO No." mode="outlined"></TextInput>
-                    <TextInput value={this.state.refisisr} onChangeText={(refisisr)=>this.setState({refisisr})} label="Refisi SR" mode="outlined"></TextInput>
-                    <TextInput value={this.state.pocust} onChangeText={(pocust)=>this.setState({pocust})} label="PO Cust." mode="outlined"></TextInput>
-                    <TextInput value={this.state.prodname} onChangeText={(prodname)=>this.setState({prodname})} label="Product Name" mode="outlined"></TextInput>
-                    <TextInput value={this.state.modelunit} onChangeText={(modelunit)=>this.setState({modelunit})} label="Model Unit/ Equipment No." mode="outlined"></TextInput>
-                    <TextInput value={this.state.modelengine} onChangeText={(modelengine)=>this.setState({modelengine})} label="Model Engine/ Equipment No." mode="outlined"></TextInput>
-                    <TextInput value={this.state.estjob} onChangeText={(estjob)=>this.setState({estjob})} label="Estimasi Pekerjaan" mode="outlined"></TextInput>
-                    <TextInput multiline={true} value={this.state.note} onChangeText={(note)=>this.setState({note})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput multiline={true} value={this.state.note2} onChangeText={(note2)=>this.setState({note2})} label="Tanda tangan SDH" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput multiline={true} value={this.state.ttdsdh} onChangeText={(ttdsdh)=>this.setState({ttdsdh})} label="SDH Name" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput multiline={true} value={this.state.sdhname} onChangeText={(sdhname)=>this.setState({sdhname})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
-
+                   {
+                       this.z2Menus.map((menu,key)=>
+                       (
+                           <Button style={styles.button} key={key} onPress={()=>this.props.navigation.navigate(menu.screen,{zone:menu.name,unit:this.props.navigation.getParam('unit')})} mode="contained">{menu.name}</Button>
+                       ))
+                   }
                 </ScrollView>
             </View>
         )
@@ -83,5 +82,8 @@ const styles = StyleSheet.create({
     inputField:{
         flexDirection:'column',
         padding:10,
+    },
+    button:{
+        margin:10
     }
 })
