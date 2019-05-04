@@ -10,12 +10,12 @@ export default class z1cScreen extends React.Component{
         //ganti kata2 yang ada disini
         inputItems : [
             {name:"Boom (Crack)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Boom Cylinder LH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Cylinder Protector LH Boom",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Boom Cylinder RH",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Cylinder Protector RH Boom",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pin & Bushing RHLH Cyl Boom",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pin & Bushing RHLH Boom To Stick",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Boom Cylinder LH(Leaking, Scratch,Bending etc)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cylinder Protector LH Boom(Loose,Damage,Crack)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Boom Cylinder RH(Leaking,Scratch,Bending etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cylinder Protector RH Boom(Loose,Damage,Crack)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin & Bushing RHLH Cyl Boom(Lock Pin,Lubricating)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin & Bushing RHLH Boom To Stick(Lock Pin,Lubricating)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             {name:"Hose High Presure, Pipe & Clamp To Boom Cylinder",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             {name:"Hose High Presure, Pipe & Clamp To Stick Cylinder",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             {name:"Hose High Presure, Pipe & Clamp To Clamp Cylinder",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},

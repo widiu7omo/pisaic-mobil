@@ -9,20 +9,20 @@ export default class z2bScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Flexible Coupling",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"PTO",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"PTO Relief Valve",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Accumulator Pilot Pressure",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"All Hoe Related",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Electric Equipment",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pilot Control Pump",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"PTO Lubrication Pump",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pump Fan Oil Cooler",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"High Pressure Filter",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pump No.1",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pump No.2",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pump No.3",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Shut Off Valve Hydraulic Tank",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Flexible Coupling(Loose,Crack)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"PTO(Oil level, Oil Leak)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"PTO Relief Valve(Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Accumulator Pilot Pressure(Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"All Hoe Related(Crack,Loose,Leak)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Electric Equipment(Connection)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pilot Control Pump(Oil Leak,Bolt Loose etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"PTO Lubrication Pump(Oil Leak,Bolt Loose etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pump Fan Oil Cooler(Oil Leak,Bolt Loose etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"High Pressure Filter(Oil Leak,Crack,Bolt Loose etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pump No.1(Oil Leak,Bolt Loose etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pump No.2(Oil Leak,Bolt Loose etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pump No.3(Oil Leak,Bolt Loose etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Shut Off Valve Hydraulic Tank(Leak)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
            
         ] 
     }

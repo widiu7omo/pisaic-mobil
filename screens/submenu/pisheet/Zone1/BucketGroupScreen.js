@@ -9,18 +9,18 @@ export default class BucketGroupScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"teeth_bucket",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"lp_teeth_bucket",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"shroud",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_hff",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"clamp_cylinder_lh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"clamp_cylinder_rh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhcc",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_cylinder_lh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"bucket_cylinder_rh",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhff",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"pin_bushing_lhrhcb",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"injector_grease_ll",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Teeth Bueket(Crack,Worn, Loose, Missing)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Lock Pin Teeth Bucket(Broken, Worn, Loose, Missing)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Shroud(Worn,Crack,Loose,Missing)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Bucket(Crack)Hinge Front Face",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Clamp Cylinder LH(Leaking,Scratch,Bending etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Clamp Cylinder RH(Leaking,Scratch,Bending etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin & Bushing LHRH Cyl Clamp(Lock Pink,Lubricating)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Bucket Cylinder LH(Leaking,Scratch,Bending etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Bucket Cylinder RH(Leaking,Scratch,Bending etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin & Bushing RHLH Front Face(Lock Pin, Lubricating)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin & Bushing RHLH Cyl Bucket(Lock Pin,Lubricating)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Injector & Grease Line Bucket(Leak,Loose)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
         ]
     }
     static navigationOptions = {

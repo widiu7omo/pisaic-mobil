@@ -9,13 +9,13 @@ export default class z2dScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Oil Cooler Upper",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Fan Motor Upper",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hosses Upper",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Oil Cooler Lower",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Fan Motor Lower",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hoses Lower",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pulsation Damper",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Oil Cooler Upper(Condition)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Fan Motor Upper(Condition)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hosses Upper(Crack And Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Oil Cooler Lower(Condition)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Fan Motor Lower(Condition)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hoses Lower(Crack And Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pulsation Damper(Oil Leak And Condition)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
          
         ] 
     }

@@ -34,17 +34,19 @@ export default class ProblemLogScreen extends React.Component{
         super(props);
         this.state = {
             date:"20-12-2019",
+            lokasi:'',
+            job:'',
             wono:'',
-            refisisr:'',
-            pocust:'',
-            prodname:'',
-            modelunit:'',
-            modelengine:'',
-            estjob:'',
-            note:'',
-            note2:'',
-            ttdsdh:'',
-            sdhname:''
+            spv:'',
+            problem:'',
+            dampak:'',
+            start:'',
+            end:'',
+            resp:'',
+            lapor:'',
+            pic:'',
+            mencegah:'',
+            mengatasi:''
         }
     }
     render(){
@@ -56,22 +58,40 @@ export default class ProblemLogScreen extends React.Component{
                     <DatePicker
                     date={this.state.date}
                     format="DD-MM-YYYY"
-                    placeholder="Pilih tanggal"
+                    placeholder="Hari dan Tanggal"
                     showIcon={false}
                     onDateChange={(date)=> {this.setState({date:date})}}/>
-                    <TextInput value={this.state.wono} onChangeText={(wono)=>this.setState({wono})} label="WO No." mode="outlined"></TextInput>
-                    <TextInput value={this.state.refisisr} onChangeText={(refisisr)=>this.setState({refisisr})} label="Refisi SR" mode="outlined"></TextInput>
-                    <TextInput value={this.state.pocust} onChangeText={(pocust)=>this.setState({pocust})} label="PO Cust." mode="outlined"></TextInput>
-                    <TextInput value={this.state.prodname} onChangeText={(prodname)=>this.setState({prodname})} label="Product Name" mode="outlined"></TextInput>
-                    <TextInput value={this.state.modelunit} onChangeText={(modelunit)=>this.setState({modelunit})} label="Model Unit/ Equipment No." mode="outlined"></TextInput>
-                    <TextInput value={this.state.modelengine} onChangeText={(modelengine)=>this.setState({modelengine})} label="Model Engine/ Equipment No." mode="outlined"></TextInput>
-                    <TextInput value={this.state.estjob} onChangeText={(estjob)=>this.setState({estjob})} label="Estimasi Pekerjaan" mode="outlined"></TextInput>
-                    <TextInput multiline={true} value={this.state.note} onChangeText={(note)=>this.setState({note})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput multiline={true} value={this.state.note2} onChangeText={(note2)=>this.setState({note2})} label="Tanda tangan SDH" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput multiline={true} value={this.state.ttdsdh} onChangeText={(ttdsdh)=>this.setState({ttdsdh})} label="SDH Name" mode="outlined" style={{height:200}}></TextInput>
-                    <TextInput multiline={true} value={this.state.sdhname} onChangeText={(sdhname)=>this.setState({sdhname})} label="Catatan" mode="outlined" style={{height:200}}></TextInput>
-
+                    <TextInput value={this.state.lokasi} onChangeText={(lokasi)=>this.setState({lokasi})} label="Lokasi(Workshop,Bay,Rebuild, Nama Pit)" mode="outlined"></TextInput>
+                    <TextInput value={this.state.job} onChangeText={(job)=>this.setState({job})} label="Job Type" mode="outlined"></TextInput>
+                    <TextInput value={this.state.wono} onChangeText={(wono)=>this.setState({wono})} label="Wo No." mode="outlined"></TextInput>
+                    <TextInput value={this.state.spv} onChangeText={(spv)=>this.setState({spv})} label="Supervisor/Mechanic Leader" mode="outlined"></TextInput>
+                    <TextInput value={this.state.problem} onChangeText={(problem)=>this.setState({problem})} label="Problem" mode="outlined"></TextInput>
+                    <TextInput value={this.state.dampak} onChangeText={(dampak)=>this.setState({dampak})} label="Dampak" mode="outlined"></TextInput>
+                    <TextInput value={this.state.start} onChangeText={(start)=>this.setState({start})} label="Start Time" mode="outlined"></TextInput>
+                    <TextInput value={this.state.end} onChangeText={(end)=>this.setState({end})} label="End Time" mode="outlined"></TextInput>
+                    <TextInput value={this.state.resp} onChangeText={(resp)=>this.setState({resp})} label="Resp" mode="outlined"></TextInput>
+                    <TextInput value={this.state.lapor} onChangeText={(lapor)=>this.setState({lapor})} label="Dilaporkan Oleh" mode="outlined"></TextInput>
+                    <TextInput value={this.state.pic} onChangeText={(pic)=>this.setState({pic})} label="PIC Yang Follow Up" mode="outlined"></TextInput>
+                    <TextInput value={this.state.mencegah} onChangeText={(mencegah)=>this.setState({mencegah})} label="Langkah Unrunk Mengatasi Problem Dengan Segera(Yang Dilakukan Saat Itu)" mode="outlined"></TextInput>
+                    <TextInput value={this.state.mengatasi} onChangeText={(mengatasi)=>this.setState({mengatasi})} label="Langkah Untuk Mencegah Problem Terulang Kembali(Saran Perbaikan)" mode="outlined"></TextInput>
+                    {
+                    
+                        <View style={styles.submenu}>
+                            <Button icon="keyboard-arrow-left" mode="contained" style={{marginHorizontal:10}}>Create New</Button>
+                        </View>
+     
+                    
+                    }
+                    <View style={{flexDirection:'row',justifyContent:'flex-end',marginVertical:10,padding:10}}>
+                       
+                       <Button  mode="contained" style={{marginHorizontal:10}}>Save</Button>
+                       <Button  mode="contained">Upload</Button>
+                       <Button  mode="contained" style={{marginHorizontal:10}}>Back</Button>
+                       <Button  mode="contained">Finish</Button>
+                  
+                    </View>
                 </ScrollView>
+
             </View>
         )
     }    

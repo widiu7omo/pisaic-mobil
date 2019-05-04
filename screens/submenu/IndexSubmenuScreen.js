@@ -8,11 +8,11 @@ export default class IndexSubmenuScreen extends React.Component{
         //props
         this.menus = [ 
             { name: 'Periodic Inspection Sheet', screen:'PeriodicInspection'},
-            { name: 'Inspection Camera', screen:'InspectCamScreen'},
+            { name: 'Inspection Camera', screen:'InspectCamera'},
             { name: 'Problem Log', screen: 'ProblemLogScreen'},
-            { name: 'Backlog Entry Sheet', screen: 'BesScreen'},
-            { name: 'Backlog Monitoring Sheet', screen: 'BmsScreen'},
-            { name: 'Cylinder Daily Check Sheet', screen: 'CdcsScreen'}
+            { name: 'Backlog Entry Sheet', screen: 'BacklogEntry'},
+            { name: 'Backlog Monitoring Sheet', screen: 'BacklogMonitor'},
+            { name: 'Cylinder Daily Check Sheet', screen: 'CylinderDaily'}
         ]
     }
     static navigationOptions ={

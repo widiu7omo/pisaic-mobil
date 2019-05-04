@@ -9,13 +9,14 @@ export default class z3eScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Return Filter",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Internal Leak Filter",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Breather Hydraulic Tank",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Lamp",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Mirror LH",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Mirror RH",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hand Rail",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Return Filter(Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Internal Leak Filter(Oil Leak)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Breather Hydraulic Tank(Loose,Dirty,Leak,Crack)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Lamp(Check Function)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Mirror LH(Check Condition,Position)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Mirror RH(Check Condition,Position)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hand Rail(Inspect Condition)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Camera(Wiring Loose,Mounting,Angle)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
            
         ]
     }

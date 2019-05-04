@@ -9,8 +9,8 @@ export default class z2hScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Batteries",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Batteries Switch",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Batteries(Cleaness, Connection,Braket Mounting)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Batteries Switch(Damage, Level Missing)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             
         ] 
     }

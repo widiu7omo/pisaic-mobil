@@ -9,20 +9,20 @@ export default class z3bScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Hose A",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose B",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose C",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose D",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose E",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose F",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose G",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose H",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose J",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose K",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose L",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose M",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose N",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose O",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose A(Crack And Oil Leak, Grommet Half Clamp)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose B(Crack And Oil Leak, Grommet Half Clamp)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose C(Crack And Oil Leak, Grommet Half Clamp)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose D(Crack And Oil Leak, Grommet Half Clamp)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose E(Crack And Oil Leak, Grommet Half Clamp)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose F(Crack And Oil Leak, Grommet Half Clamp)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose G(Crack And Oil Leak, Grommet Half Clamp)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose H(Crack And Oil Leak, Grommet Half Clamp)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose J(Crack And Oil Leak, Grommet Half Clamp)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose K(Crack And Oil Leak, Grommet Half Clamp)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose L(Crack And Oil Leak, Grommet Half Clamp)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose M(Crack And Oil Leak, Grommet Half Clamp)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose N(Crack And Oil Leak, Grommet Half Clamp)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose O(Crack And Oil Leak, Grommet Half Clamp)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
           
         ]
     }

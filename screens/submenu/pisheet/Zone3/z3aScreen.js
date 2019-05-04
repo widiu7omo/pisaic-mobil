@@ -9,13 +9,13 @@ export default class z3aScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Block SRV & ACV Manifold A-B",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Block SRV & ACV Manifold C-D",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Block SRV & ACV Manifold E-F",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Block SRV & ACV Manifold G-H",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Block SRV & ACV Manifold J-K",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Block SRV & ACV Manifold L-M",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Block SRV & ACV Manifold N-O",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Block SRV & ACV Manifold A-B(Oil Leak,Crack,Bolt Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Block SRV & ACV Manifold C-D(Oil Leak,Crack,Bolt Loose)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Block SRV & ACV Manifold E-F(Oil Leak,Crack,Bolt Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Block SRV & ACV Manifold G-H(Oil Leak,Crack,Bolt Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Block SRV & ACV Manifold J-K(Oil Leak,Crack,Bolt Loose)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Block SRV & ACV Manifold L-M(Oil Leak,Crack,Bolt Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Block SRV & ACV Manifold N-O(Oil Leak,Crack,Bolt Loose)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
            
         ]
     }

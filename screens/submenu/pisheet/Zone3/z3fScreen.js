@@ -10,9 +10,9 @@ export default class z3fScreen extends React.Component{
         //ganti kata2 yang ada disini
         inputItems : [
             {name:"Operator Opinion",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Fan Condensor",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Condensor",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose Suction And Discharge Compressor",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Fan Condensor(Damage)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Condensor(Clogged And Leaking)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose Suction And Discharge Compressor(Inspect Condition)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             {name:"Electrical AC Condition",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
            
         ]

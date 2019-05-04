@@ -9,15 +9,15 @@ export default class z1bScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Stick (Crack)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Stick Cylinder LH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pin & Bushing RHLH Stick To Bucket",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Cylinder Protector LH Stick",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Stick Cylinder RH",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Cylinder Protector RH Stick",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pin & Bushing RHLH Cyl Stick",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Injector & Grease Line Stick",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"CLS Preassure Switch & Wiring",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Stick(Crack)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Stick Cylinder LH(Leaking, Scratch, Bending Etc)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin & Bushing RHLH Stick To Bucket( Lock Pin, Lubricating)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cylinder Protector LH Stick(Loose, Damage, Crack)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Stick Cylinder RH(Leaking,Scratch,Bending etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cylinder Protector RH Stick(Loose,Damage,Crack)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin & Bushing RHLH Cyl Stick(Lock Pin,Lubricating)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Injector & Grease Line Stick(Leak,Loose)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"CLS Preassure Switch & Wiring(Broken,Loose)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             {name:"Hose High Presure, Pipe & Clamp To Bucket Cylinder",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
            
         ]

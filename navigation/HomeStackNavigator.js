@@ -101,7 +101,7 @@ export default HomeStack = createStackNavigator({
       z3g:z3gScreen,
 
     //Problem Log
-    ProblemLog:ProblemLogScreen,
+    ProblemLogScreen:ProblemLogScreen,
     //Inspect Camera
     InspectCamera:InspectCameraScreen,
     //Backlog entry sheet

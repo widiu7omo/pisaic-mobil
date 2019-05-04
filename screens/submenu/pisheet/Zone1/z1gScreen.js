@@ -9,10 +9,10 @@ export default class z1gScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Cylinder",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Mounting",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Handrail Ladder Area",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Electric Part",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cylinder(Leaking,Scratch,Bending etc)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Mounting(Crack, Bolt Loose etc)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Handrail Ladder Area(Crack and Missing)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Electric Part(Sensor, Wiring)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             
         ]
     }

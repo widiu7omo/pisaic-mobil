@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text,Image, TouchableOpacity,StyleSheet } from 'react-native'
 import { Button } from 'react-native-paper';
 import Colors from '../constants/Colors'
+
 class LogoTitle extends React.Component{
     constructor(props){
       super(props);

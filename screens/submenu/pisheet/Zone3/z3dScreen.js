@@ -9,12 +9,12 @@ export default class z3dScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Hose & Piping To Bucket LH Bottom",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose & Piping To Bucket RH Bottom",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose & Piping To Bucket LH Rod",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose & Piping To Bucket RH Rod",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose & Piping To Clamp LH",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose & Piping To Clamp RH",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose & Piping To Bucket LH Bottom(Crack,Leak,Clamp Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose & Piping To Bucket RH Bottom(Crack,Leak,Clamp Loose)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose & Piping To Bucket LH Rod(Crack,Leak,Clamp Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose & Piping To Bucket RH Rod(Crack,Leak,Clamp Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose & Piping To Clamp LH(Crack,Leak,Clamp Loose)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose & Piping To Clamp RH(Crack,Leak,Clamp Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
            
         ]
     }

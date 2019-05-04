@@ -9,13 +9,13 @@ export default class z3cScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Pipe To Bucket LH",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pipe To Bucket RH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pipe To Boom LH",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pipe To Boom RH",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pin & Bushing RHLH Boom",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Injector & Grease Line Boom",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Slip Ring",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pipe To Bucket LH(Crack And Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pipe To Bucket RH(Crack And Oil Leak)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pipe To Boom LH(Crack And Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pipe To Boom RH(Crack And Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin & Bushing RHLH Boom(Lock Pin, Lubricating)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Injector & Grease Line Boom(Leak, Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Slip Ring(Loose Bolt Mounting)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
          
         ]
     }

@@ -9,15 +9,15 @@ export default class z1dScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Idler",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Adjusting Track Cylinder/Hic",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Track Roller",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Carrier Roller",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Track Pad",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Pin Track Pad",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Sproket",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Track Tension Condition",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"LH Travel Gear Box Motor & Hose",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Idler(Abnormal Pitting,Leaking, Stopper Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Adjusting Track Cylinder/Hic(Leaking)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Track Roller(Worn,Abnormal Pitting,Leaking)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Carrier Roller(Worn,Abnormal Pitting,Leaking)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Track Pad(Worn,Broken,Abnormal Pitting)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Pin Track Pad(Loose,Wear)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Sproket(Worn,Abnormal Pitting etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Track Tension Condition(Sag)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"LH Travel Gear Box Motor & Hose(Leak,Worn,Damage)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             {name:"Level Thick Of Soil U/C LH",status:'Clean',foto:{name:'',catatan:''},remark:''},
             {name:"Level Thick Of Soil U/C RH",status:'Clean',foto:{name:'',catatan:''},remark:''},
            

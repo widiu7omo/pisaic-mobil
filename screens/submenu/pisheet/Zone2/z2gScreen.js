@@ -9,13 +9,13 @@ export default class z2gScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Hydraulic Tank",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Collector Pipe",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Control Block No.1",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Control Block No.2",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Control Block No.3",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Sensor",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hydraulic Tank(Oil Level And Visual Contamination)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Collector Pipe(Oil Leak)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose(Oil Leak,Crack etc)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Control Block No.1(Leak,Crack,Bolt Loose etc)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Control Block No.2(Leak,Crack,Bolt Loose etc)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Control Block No.3(Oil Leak,Crack,Bolt Loose etc)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Sensor(Wiring Condition)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
            
         ] 
     }

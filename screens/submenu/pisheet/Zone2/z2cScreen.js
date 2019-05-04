@@ -9,11 +9,11 @@ export default class z2cScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Swing Motor",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Gear Box",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Swing Motor Adapter",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Hose And Part Related",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Increasing Valve Swing Break",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Swing Motor(Oil Leak,Bolt Loose etc)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Gear Box(Oil Level,Oil Leak,Bolt Loose etc)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Swing Motor Adapter(Oil Level,Oil Leak,Bolt Loose etc)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Hose And Part Related(Oil Leak)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Increasing Valve Swing Break(Leak)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
          
         ] 
     }

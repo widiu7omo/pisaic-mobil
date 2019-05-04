@@ -9,14 +9,14 @@ export default class z1fScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Swing Circle Bolt",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Mounting Bolt Center Body RHLH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Teeth Swing Circle",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"HV Cable & Connector",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Cable Duct",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Cable Singer",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Swivel Joint",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"HV Cable & Pilot Cable",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Swing Circle Bolt(Loose,Missing)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Mounting Bolt Center Body RHLH(Loose,Missing)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Teeth Swing Circle(Worn,Lubricating)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"HV Cable & Connector(Worn,Crack,Loose,Damage)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cable Duct(Damage,Bolt,Loose)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Cable Singer(Damage,Bolt Loose,Clamp Missing)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Swivel Joint(Leak,Bolt,Loose)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"HV Cable & Pilot Cable(Worn, Damage)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
             
         ]
     }

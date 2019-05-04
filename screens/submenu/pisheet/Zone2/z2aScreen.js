@@ -9,11 +9,11 @@ export default class z2aScreen extends React.Component{
     state = {
         //ganti kata2 yang ada disini
         inputItems : [
-            {name:"Abnormal Noise During Operation",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Drive Motor Support Mounting RHLH",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Connection Box",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Capacitor",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
-            {name:"Fan+Air Intake Screen Housing",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Abnormal Noise During Operation(By Operator)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Drive Motor Support Mounting RHLH(Loose,Missing)",condition:'Bad',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Connection Box(Cover Loose,Crack,Clamp Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Capacitor(Oil Leak, Bolt Loose)",condition:'Good',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
+            {name:"Fan+Air Intake Screen Housing(Clogged,Dirty)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
            ]
     }
     static navigationOptions = {
