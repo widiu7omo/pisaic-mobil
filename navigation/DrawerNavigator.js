@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform,ScrollView, } from 'react-native';
+import { Platform,ScrollView,AsyncStorage } from 'react-native';
 import { DrawerItems, SafeAreaView, createStackNavigator, createDrawerNavigator } from 'react-navigation';
 // import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 import TabBarIcon from '../components/TabBarIcon';
@@ -14,7 +14,6 @@ import HomeStack from '../navigation/HomeStackNavigator'
 //@TODO:goto pi screen
 //@TODO:Create new pi
 //@TODO:Give order
-
 
 //Main screen on DBPisaic
 //doesn't have any nested screen
@@ -54,6 +53,18 @@ AboutStack.navigationOptions = {
     )
 }
 
+const LogoutStack = createStackNavigator({
+  Logout:LogoutMenu
+})
+
+class LogoutMenu {
+  constructor(){
+    super()
+  }
+  __Logout = async () =>{
+    console.log(AsyncStorage)
+  }
+}
 //Main screen of AddUser
 const AddUserStack = createStackNavigator({
     AddUser: AddUserScreen
@@ -94,7 +105,9 @@ const drawerContent = (props) =>
             props.onItemPress({route, focused});
           }
         }} />
+        <Button title="Logout" onPress={DO_SOMETHING_HERE}/>
       </SafeAreaView>
+      
     </ScrollView>
   )
 export default createDrawerNavigator({
