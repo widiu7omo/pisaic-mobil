@@ -33,7 +33,7 @@ export default class AboutScreen extends React.Component{
           headerTitle:<LogoTitle navigation={navigation}/>,
           headerStyle:{backgroundColor:"#FEDA01"}
         }
-      }
+      };
     constructor(){
         super()
     }
@@ -89,4 +89,4 @@ const styles = StyleSheet.create({
         flexDirection:'column',
         padding:10,
     }
-})
+});

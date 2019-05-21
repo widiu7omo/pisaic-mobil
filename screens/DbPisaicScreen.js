@@ -27,7 +27,7 @@ class LogoTitle extends React.Component{
   }
 export default class DbPisaicScreen extends React.Component{
     constructor(){
-        super()
+        super();
         this.dataButtons = [{name:'Periodict Inspection Sheet',action:''},
                             {name:'Inspection Camera',action:''},
                             {name:'Problem Log',action:''},
@@ -41,13 +41,13 @@ export default class DbPisaicScreen extends React.Component{
           headerTitle:<LogoTitle navigation={navigation}/>,
           headerStyle:{backgroundColor:"#FEDA01"}
         }
-      }
+      };
     render(){
         return (
             <View style={styles.container}>
                 {
                     this.dataButtons.map((button,key)=>{
-                        return (<Button mode="contained" key={key} style={styles.subContainer} onPress={()=>this.props.navigation.navigate(button.action)}>{button.name}</Button>)
+                        return (<Button mode="contained" key={key} style={styles.subContainer} onPress={()=>this.props.navigation.navigate(button.actions)}>{button.name}</Button>)
                     })
                     
                 }
@@ -63,4 +63,4 @@ const styles = StyleSheet.create({
         margin:10,
         flexDirection:"column"
     }
-})
+});

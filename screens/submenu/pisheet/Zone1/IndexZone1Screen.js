@@ -9,7 +9,7 @@ export default class IndexZone1Screen extends React.Component{
             headerTitle:<CustomHeader headerName="zoneTitle"></CustomHeader>,
             headerStyle:{backgroundColor:"#FEDA01"},
             headerIcon:null,
-    }
+    };
     constructor(props){
         super(props);
         this.state = {
@@ -25,7 +25,7 @@ export default class IndexZone1Screen extends React.Component{
             note2:'',
             ttdsdh:'',
             sdhname:''
-        }
+        };
         this.z1Menus = [
             {name:"A. Bucket Group",screen:'BucketGroup'},
             {name:"B. Stick Group",screen:'z1b'},
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
     button:{
         margin:10
     }
-})
+});

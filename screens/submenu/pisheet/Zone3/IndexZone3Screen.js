@@ -29,7 +29,7 @@ export default class IndexZone3Screen extends React.Component{
             headerStyle:{backgroundColor:"#FEDA01"},
             headerIcon:null,
         }
-    }
+    };
     constructor(props){
         super(props);
         this.state = {
@@ -45,7 +45,7 @@ export default class IndexZone3Screen extends React.Component{
             note2:'',
             ttdsdh:'',
             sdhname:''
-        }
+        };
         this.z3Menus = [
             {name:"A. Hydraulic",screen:'z3a'},
             {name:"B. ARC Hose",screen:'z3b'},
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
     button:{
         margin:10
     }
-})
+});

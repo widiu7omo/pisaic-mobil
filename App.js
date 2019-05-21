@@ -1,75 +1,122 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
+import {Platform, StatusBar, StyleSheet, View, Text} from 'react-native';
+import {AppLoading, Asset, Font, Icon, SQLite} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import {Provider as PaperProvider, DefaultTheme } from 'react-native-paper'
-import { useScreens } from 'react-native-screens';
+import query from './database/query';
+import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper'
+import {useScreens} from 'react-native-screens';
+
 useScreens();
 const primaryTheme = {
-  ...DefaultTheme,
-  // roundness:2,
-  colors:{
-    ...DefaultTheme.colors,
-    accent:"#FEDA01",
-    primary:"#616161"
-  }
-}
-export default class App extends React.Component {
-  state = {
-    isLoadingComplete: false,
-  };
-
-  render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-      return (
-        <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
-        />
-      );
-    } else {
-      return (
-        <PaperProvider theme={primaryTheme}>
-          <View style={styles.container}>
-            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-            <AppNavigator />
-          </View>
-        </PaperProvider>
-      );
+    ...DefaultTheme,
+    // roundness:2,
+    colors: {
+        ...DefaultTheme.colors,
+        accent: "#FEDA01",
+        primary: "#616161"
     }
-  }
+};
 
-  _loadResourcesAsync = async () => {
-    return Promise.all([
-      Asset.loadAsync([
-        require('./assets/images/robot-dev.png'),
-        require('./assets/images/robot-prod.png'),
-      ]),
-      Font.loadAsync({
-        // This is the font that we are using for our tab bar
-        ...Icon.Ionicons.font,
-        // We include SpaceMono because we use it in HomeScreen.js. Feel free
-        // to remove this if you are not using it in your app
-        'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-      }),
-    ]);
-  };
+export default class App extends React.Component {
+    state = {
+        isLoadingComplete: false,
+    };
 
-  _handleLoadingError = error => {
-    // In this case, you might want to report the error to your error
-    // reporting service, for example Sentry
-    console.warn(error);
-  };
+    componentDidMount() {
+        this.createTable();
+    }
 
-  _handleFinishLoading = () => {
-    this.setState({ isLoadingComplete: true });
-  };
+    createTable = async () => {
+            await query(`create table if not exists units
+                         (
+                             unit_id integer primary key autoincrement not null,
+                             name    varchar
+                         );`, []).then(()=> console.log('unit created'));
+            await query(`create table if not exists users
+                           (
+                               user_id integer primary key autoincrement not null,
+                               name    varchar,
+                               nrp     varchar,
+                               lahir   varchar
+                           );`, []).then(() => console.log('user created'));
+            await query(`delete
+                           from users`);
+            await query(`insert into users
+                           values (null, "AHMAD FIRLI", "80112116", "14031990"),
+                                  (null, "BAKHTIAR RIFAI", "82102014", "12061982"),
+                                  (null, "DWI HINDHARYA P", "82107126", "29091986"),
+                                  (null, "FERIANUS", "82107080", "15061985"),
+                                  (null, "GUNAIDY", "80112121", "15011991"),
+                                  (null, "MUH. AGUS ROMI", "80107179", "14061983"),
+                                  (null, "MUH. YASIN", "80107232", "07031987"),
+                                  (null, "RUSWANTO", "80107138", "17061984"),
+                                  (null, "WAHYUDI", "80110206", "16041988"),
+                                  (null, "YUDHA PRAWIRA ", "80110207", "20111989"),
+                                  (null, "ZAINURI", "80110259", "08061990");
+            `, []).then(()=>console.log('account inserted'));
+            await query(`delete
+                           from units`);
+            await query(`insert into units
+                           values (null, 'SE 3001'),
+                                  (null, 'SE 3002'),
+                                  (null, 'SE 3003'),
+                                  (null, 'SE 3004'),
+                                  (null, 'SE 3005'),
+                                  (null, 'SE 3006'),
+                                  (null, 'SE 3007');`,[]).then(()=>console.log('unit inserted'));
+    }
+
+    render() {
+        if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
+            return (
+                <AppLoading
+                    startAsync={this._loadResourcesAsync}
+                    onError={this._handleLoadingError}
+                    onFinish={this._handleFinishLoading}
+                />
+            );
+        } else {
+            return (
+                <PaperProvider theme={primaryTheme}>
+                    <View style={styles.container}>
+                        {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
+                        <AppNavigator/>
+                    </View>
+                </PaperProvider>
+            )
+        }
+    }
+
+    _loadResourcesAsync = async () => {
+        return Promise.all([
+            Asset.loadAsync([
+                require('./assets/images/robot-dev.png'),
+                require('./assets/images/robot-prod.png'),
+            ]),
+            Font.loadAsync({
+                // This is the font that we are using for our tab bar
+                ...Icon.Ionicons.font,
+                // We include SpaceMono because we use it in HomeScreen.js. Feel free
+                // to remove this if you are not using it in your app
+                'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+            }),
+        ]);
+    };
+
+    _handleLoadingError = error => {
+        // In this case, you might want to report the error to your error
+        // reporting service, for example Sentry
+        console.warn(error);
+    };
+
+    _handleFinishLoading = () => {
+        this.setState({isLoadingComplete: true});
+    };
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
 });

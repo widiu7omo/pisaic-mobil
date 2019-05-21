@@ -50,7 +50,7 @@ export default class KeyboardShift extends Component {
         }
       ).start();
     });
-  }
+  };
 
   handleKeyboardDidHide = () => {
     Animated.timing(

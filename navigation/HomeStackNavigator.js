@@ -53,10 +53,10 @@ import z3gScreen from "../screens/submenu/pisheet/Zone3/z3gScreen";
 //@TODO:goto pi screen
 //@TODO:Create new pi
 //@TODO:Give order
-export default HomeStack = createStackNavigator({ 
+const HomeStack = createStackNavigator({
     //Main Navigation
     Home: HomeScreen,
-    //list Units 
+    //list Units
     ListUnit:ListUnitScreen,
     //Menu in every Unit
     UnitMenu: IndexSubmenuScreen,
@@ -76,7 +76,6 @@ export default HomeStack = createStackNavigator({
     z1f:z1fScreen,
     z1g:z1gScreen,
 
-
     Zone2:IndexZone2Screen,
       //sub Zone2
     z2a:z2aScreen,
@@ -88,7 +87,7 @@ export default HomeStack = createStackNavigator({
     z2g:z2gScreen,
     z2h:z2hScreen,
     z2i:z2iScreen,
-    
+
 
     Zone3:IndexZone3Screen,
       //sub Zone3
@@ -138,3 +137,5 @@ HomeStack.navigationOptions = {
     />
   ),
 };
+
+export default HomeStack;

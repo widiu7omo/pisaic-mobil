@@ -1,7 +1,7 @@
 const tintColor = '#FEDA01';
-const darkColor = '#616161'
-const whiteColor = '#fafafa'
-const primaryColor = '#FEDA01'
+const darkColor = '#616161';
+const whiteColor = '#fafafa';
+const primaryColor = '#FEDA01';
 
 export default {
   tintColor,

@@ -29,7 +29,7 @@ export default class InspectCameraScreen extends React.Component{
             headerStyle:{backgroundColor:"#FEDA01"},
             headerIcon:null,
         }
-    }
+    };
     constructor(props){
         super(props);
         this.state = {
@@ -86,4 +86,4 @@ const styles = StyleSheet.create({
         flexDirection:'column',
         padding:10,
     }
-})
+});

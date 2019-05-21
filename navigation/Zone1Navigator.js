@@ -10,7 +10,7 @@ const Zone1Stack = createStackNavigator({
     //E:EScreen
 },{
     initialRouteName:"Index" 
-})
+});
 export default createStackNavigator({
     Zone1Stack
 })

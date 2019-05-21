@@ -16,12 +16,12 @@ export default class z2cScreen extends React.Component{
             {name:"Increasing Valve Swing Break(Leak)",condition:'',note:'None',priority:'None',foto:{name:'',catatan:''},remark:''},
          
         ] 
-    }
+    };
     static navigationOptions = {
         headerTitle:<CustomHeader headerName="zone"/>,
         headerStyle:{backgroundColor:"#FEDA01"},
         headerIcon:null,
-    }
+    };
     constructor(props){
         super(props);
         
@@ -37,7 +37,7 @@ export default class z2cScreen extends React.Component{
 
     }
     render(){
-        const checked = 'first'
+        const checked = 'first';
         return (
             <KeyboardShift>
                 { ()=>( 
@@ -55,8 +55,8 @@ export default class z2cScreen extends React.Component{
                                         <View>
                                             <RadioButton.Group
                                             onValueChange={condition => {
-                                                const inputItems =[...this.state.inputItems]
-                                                inputItems[key] = {...inputItems[key],condition:condition}
+                                                const inputItems =[...this.state.inputItems];
+                                                inputItems[key] = {...inputItems[key],condition:condition};
                                                 this.setState({inputItems})
                                             }} value={condition}
                                             >
@@ -80,8 +80,8 @@ export default class z2cScreen extends React.Component{
                                                 style={{width: 115}}
                                                 selectedValue={note}
                                                 onValueChange={note => {
-                                                    const inputItems =[...this.state.inputItems]
-                                                    inputItems[key] = {...inputItems[key],note:note}
+                                                    const inputItems =[...this.state.inputItems];
+                                                    inputItems[key] = {...inputItems[key],note:note};
                                                     this.setState({inputItems})
                                                 }
                                                 }>
@@ -98,8 +98,8 @@ export default class z2cScreen extends React.Component{
                                                 style={{width: 115}}
                                                 selectedValue={priority}
                                                 onValueChange={priority => {
-                                                    const inputItems =[...this.state.inputItems]
-                                                    inputItems[key] = {...inputItems[key],priority:priority}
+                                                    const inputItems =[...this.state.inputItems];
+                                                    inputItems[key] = {...inputItems[key],priority:priority};
                                                     this.setState({inputItems})
                                                 }
                                                 }>
@@ -118,8 +118,8 @@ export default class z2cScreen extends React.Component{
                                     <View style={{flexDirection:"column"}}>
                                             <TextInput mode="flat" label="Remark" 
                                             value={remark} onChangeText={(remark)=>{
-                                                const inputItems =[...this.state.inputItems]
-                                                inputItems[key] = {...inputItems[key],remark:remark}
+                                                const inputItems =[...this.state.inputItems];
+                                                inputItems[key] = {...inputItems[key],remark:remark};
                                                 this.setState({inputItems})
                                             }} 
                                             ></TextInput>
@@ -156,4 +156,4 @@ const styles = StyleSheet.create({
     subContainer:{
         flexDirection:'row'
     }
-})
+});

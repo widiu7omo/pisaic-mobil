@@ -3,6 +3,7 @@ import { View, StyleSheet,Image,Text } from 'react-native'
 import { Button } from 'react-native-paper'
 import { ScrollView } from 'react-native-gesture-handler';
 
+//aren't use it
 export default class UnitmenuScreen extends React.Component{
     
     constructor(){
@@ -21,7 +22,7 @@ export default class UnitmenuScreen extends React.Component{
         return {
             title: navigation.getParam('unitName','Nama Unit...')
         }
-    }
+    };
     render(){
         return(
            <View style={styles.container}>
@@ -70,4 +71,4 @@ const styles = StyleSheet.create({
         left:0,
         right:10,
       },
-})
+});

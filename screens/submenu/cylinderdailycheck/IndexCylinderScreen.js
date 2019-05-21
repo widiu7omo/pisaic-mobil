@@ -35,7 +35,7 @@ export default class IndexCylinderScreen extends React.Component{
           headerTitle:<LogoTitle navigation={navigation}/>,
           headerStyle:{backgroundColor:"#FEDA01"}
         }
-      }
+      };
     constructor(){
         super();
 
@@ -49,7 +49,7 @@ export default class IndexCylinderScreen extends React.Component{
     }
     
     render(){
-        const textColor = Colors.primaryColor
+        const textColor = Colors.primaryColor;
       
         return(
             <View style={styles.container}>
@@ -94,4 +94,4 @@ const styles = StyleSheet.create({
     button:{
         margin:10
     }
-})
+});

@@ -17,7 +17,7 @@ export default class DataunitScreen extends React.Component{
             kwhmeter:'',
             start:'',
             finis:'',
-        } 
+        };
         this.submenus = [        
             {name:'Operator',screen:'Btnoperator'},
             {name: 'Mechanic',screen:'Btnmekanik'},
@@ -77,4 +77,4 @@ const styles = StyleSheet.create({
     menuButton:{
         flexDirection:'row'
     }
-})
+});
