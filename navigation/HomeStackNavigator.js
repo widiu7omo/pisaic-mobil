@@ -23,7 +23,7 @@ import DataUnitDailyScreen from "../screens/submenu/cylinderdailycheck/DataUnitD
 import FotoSheetDailyScreen from "../screens/submenu/cylinderdailycheck/FotoSheetDailyScreen";
 import SheetDailyQuestionScreen from "../screens/submenu/cylinderdailycheck/SheetDailyQuestionScreen";
 import SheetDailyScreen from "../screens/submenu/cylinderdailycheck/SheetDailyScreen";
-import BucketGroupScreen from "../screens/submenu/pisheet/Zone1/BucketGroupScreen";
+import z1aScreen from "../screens/submenu/pisheet/Zone1/z1aScreen";
 import z1bScreen from "../screens/submenu/pisheet/Zone1/z1bScreen";
 import z1cScreen from "../screens/submenu/pisheet/Zone1/z1cScreen";
 import z1dScreen from "../screens/submenu/pisheet/Zone1/z1dScreen";
@@ -72,7 +72,7 @@ const HomeStack = createStackNavigator({
 
     Zone1:IndexZone1Screen,
           //sub Zone1
-    BucketGroup:BucketGroupScreen,
+    z1a:z1aScreen,
     z1b:z1bScreen,
     z1c:z1cScreen,
     z1d:z1dScreen,

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         fontWeight: "600"
     }
 });
-export default class z1bScreen extends React.Component {
+export default class z1aScreen extends React.Component {
     componentDidMount() {
         this.fetchInput().then(() => this.setState({loading: false}))
     }
@@ -46,7 +46,7 @@ export default class z1bScreen extends React.Component {
     fetchInput = async () => {
         this.setState({loading: true});
         await query(`select *
-                     from z1b
+                     from z1a
                      where zone1_id = ?`, [1])
             .then(result => {
                 const res = result[0].input_items;

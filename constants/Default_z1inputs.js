@@ -145,7 +145,128 @@ const z1a = [
     }
 ];
 
-const z1b = [ ];
+const z1b = [
+    {
+        "subname": "(Crack)",
+        "name": "Stick",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "(Leaking, Scratch, Bending Etc)",
+        "name": "Stick Cylinder LH",
+        "condition": "Bad",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "(Lock Pin, Lubricating)",
+        "name": "Pin & Bushing RHLH Stick To Bucket",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "(Loose, Damage, Crack)",
+        "name": "Cylinder Protector LH Stick",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "(Leaking,Scratch,Bending etc)",
+        "name": "Stick Cylinder RH",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "(Loose,Damage,Crack)",
+        "name": "Cylinder Protector RH Stick",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "(Lock Pin,Lubricating)",
+        "name": "Pin & Bushing RHLH Cyl Stick",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "(Leak,Loose)",
+        "name": "Injector & Grease Line Stick",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "(Broken,Loose)",
+        "name": "CLS Preassure Switch & Wiring",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "subname": "-",
+        "name": "Hose High Presure, Pipe & Clamp To Bucket Cylinder",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    }
+];
 const z1c = [ ];
 const z1d = [ ];
 const z1e = [ ];

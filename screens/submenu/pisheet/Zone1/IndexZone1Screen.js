@@ -6,7 +6,7 @@ import CustomHeader from '../../../../components/CustomHeader'
 
 export default class IndexZone1Screen extends React.Component{
     static navigationOptions = {
-            headerTitle:<CustomHeader headerName="zoneTitle"></CustomHeader>,
+            headerTitle:<CustomHeader headerName="zoneTitle"/>,
             headerStyle:{backgroundColor:"#FEDA01"},
             headerIcon:null,
     };
@@ -27,7 +27,7 @@ export default class IndexZone1Screen extends React.Component{
             sdhname:''
         };
         this.z1Menus = [
-            {name:"A. Bucket Group",screen:'BucketGroup'},
+            {name:"A. Bucket Group",screen:'z1a'},
             {name:"B. Stick Group",screen:'z1b'},
             {name:"C. Boom Group",screen:'z1c'},
             {name:"D. Track Group LH",screen:'z1d'},

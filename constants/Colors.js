@@ -7,6 +7,8 @@ export default {
   tintColor,
   darkColor,
   primaryColor,
+  pureDark:"#000",
+  disable:"#dddddd",
   inactiveBackground:"#3E3E3E",
   inactive: '#fefefe',
   tabIconDefault: '#616161',

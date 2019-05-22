@@ -50,16 +50,26 @@ export default class App extends React.Component {
                          id         integer primary key autoincrement not null,
                          pisheet_id integer
                      );`, []).then(() => console.log('zone 1 created'));
-        await query(`create table if not exists bucketgroups
+        await query(`create table if not exists z1a
                      (
                          id          integer primary key autoincrement not null,
                          input_items text,
                          zone1_id    integer
-                     );`, []).then(() => console.log('bucketgroup created'));
+                     );`, []).then(() => console.log('zone1a created'));
+        await query(`create table if not exists z1b
+                     (
+                         id          integer primary key autoincrement not null,
+                         input_items text,
+                         zone1_id    integer
+                     );`, []).then(() => console.log('zone1b created'));
         await query(`delete
-                     from bucketgroups`);
-        await query(`insert into bucketgroups
-                     values (null,?,?)`,[defaultInput.z1a,1]).then(()=>console.log('a group inserted'));
+                     from z1a`);
+        await query(`insert into z1a
+                     values (null,?,?)`,[defaultInput.z1a,1]).then(()=>console.log('z1a inserted'));
+        await query(`delete
+                     from z1b`);
+        await query(`insert into z1b
+                     values (null,?,?)`,[defaultInput.z1b,1]).then(()=>console.log('z1b inserted'));
         await query(`delete
                      from users`);
         await query(`insert into users
