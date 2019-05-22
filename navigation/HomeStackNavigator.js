@@ -46,6 +46,7 @@ import z3dScreen from "../screens/submenu/pisheet/Zone3/z3dScreen";
 import z3eScreen from "../screens/submenu/pisheet/Zone3/z3eScreen";
 import z3fScreen from "../screens/submenu/pisheet/Zone3/z3fScreen";
 import z3gScreen from "../screens/submenu/pisheet/Zone3/z3gScreen";
+import ImagePickerScreen from "../screens/submenu/pisheet/ImagePickerScreen";
 
 //Main screen on Home
 //with some of nested screen
@@ -65,6 +66,9 @@ const HomeStack = createStackNavigator({
         //sub Pi
     Dataunit:DataunitScreen,
     Workorder:WorkorderScreen,
+
+    //ImagePicker
+    ImagePicker:ImagePickerScreen,
 
     Zone1:IndexZone1Screen,
           //sub Zone1

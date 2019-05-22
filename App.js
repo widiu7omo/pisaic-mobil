@@ -5,7 +5,7 @@ import AppNavigator from './navigation/AppNavigator';
 import query from './database/query';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper'
 import {useScreens} from 'react-native-screens';
-
+import defaultInput from './constants/Default_z1inputs'
 useScreens();
 const primaryTheme = {
     ...DefaultTheme,
@@ -27,44 +27,65 @@ export default class App extends React.Component {
     }
 
     createTable = async () => {
-            await query(`create table if not exists units
-                         (
-                             unit_id integer primary key autoincrement not null,
-                             name    varchar
-                         );`, []).then(()=> console.log('unit created'));
-            await query(`create table if not exists users
-                           (
-                               user_id integer primary key autoincrement not null,
-                               name    varchar,
-                               nrp     varchar,
-                               lahir   varchar
-                           );`, []).then(() => console.log('user created'));
-            await query(`delete
-                           from users`);
-            await query(`insert into users
-                           values (null, "AHMAD FIRLI", "80112116", "14031990"),
-                                  (null, "BAKHTIAR RIFAI", "82102014", "12061982"),
-                                  (null, "DWI HINDHARYA P", "82107126", "29091986"),
-                                  (null, "FERIANUS", "82107080", "15061985"),
-                                  (null, "GUNAIDY", "80112121", "15011991"),
-                                  (null, "MUH. AGUS ROMI", "80107179", "14061983"),
-                                  (null, "MUH. YASIN", "80107232", "07031987"),
-                                  (null, "RUSWANTO", "80107138", "17061984"),
-                                  (null, "WAHYUDI", "80110206", "16041988"),
-                                  (null, "YUDHA PRAWIRA ", "80110207", "20111989"),
-                                  (null, "ZAINURI", "80110259", "08061990");
-            `, []).then(()=>console.log('account inserted'));
-            await query(`delete
-                           from units`);
-            await query(`insert into units
-                           values (null, 'SE 3001'),
-                                  (null, 'SE 3002'),
-                                  (null, 'SE 3003'),
-                                  (null, 'SE 3004'),
-                                  (null, 'SE 3005'),
-                                  (null, 'SE 3006'),
-                                  (null, 'SE 3007');`,[]).then(()=>console.log('unit inserted'));
-    }
+        await query(`create table if not exists units
+                     (
+                         unit_id integer primary key autoincrement not null,
+                         name    varchar
+                     );`, []).then(() => console.log('unit created'));
+        await query(`create table if not exists users
+                     (
+                         user_id integer primary key autoincrement not null,
+                         name    varchar,
+                         nrp     varchar,
+                         lahir   varchar
+                     );`, []).then(() => console.log('user created'));
+        await query(`create table if not exists pisheets
+                     (
+                         id           integer primary key autoincrement not null,
+                         unit_id      integer,
+                         masterlog_id integer
+                     );`, []).then(() => console.log('pisheets created'));
+        await query(`create table if not exists zone1s
+                     (
+                         id         integer primary key autoincrement not null,
+                         pisheet_id integer
+                     );`, []).then(() => console.log('zone 1 created'));
+        await query(`create table if not exists bucketgroups
+                     (
+                         id          integer primary key autoincrement not null,
+                         input_items text,
+                         zone1_id    integer
+                     );`, []).then(() => console.log('bucketgroup created'));
+        await query(`delete
+                     from bucketgroups`);
+        await query(`insert into bucketgroups
+                     values (null,?,?)`,[defaultInput.z1a,1]).then(()=>console.log('a group inserted'));
+        await query(`delete
+                     from users`);
+        await query(`insert into users
+                     values (null, "AHMAD FIRLI", "80112116", "14031990"),
+                            (null, "BAKHTIAR RIFAI", "82102014", "12061982"),
+                            (null, "DWI HINDHARYA P", "82107126", "29091986"),
+                            (null, "FERIANUS", "82107080", "15061985"),
+                            (null, "GUNAIDY", "80112121", "15011991"),
+                            (null, "MUH. AGUS ROMI", "80107179", "14061983"),
+                            (null, "MUH. YASIN", "80107232", "07031987"),
+                            (null, "RUSWANTO", "80107138", "17061984"),
+                            (null, "WAHYUDI", "80110206", "16041988"),
+                            (null, "YUDHA PRAWIRA ", "80110207", "20111989"),
+                            (null, "ZAINURI", "80110259", "08061990");
+        `, []).then(() => console.log('account inserted'));
+        await query(`delete
+                     from units`);
+        await query(`insert into units
+                     values (null, 'SE 3001'),
+                            (null, 'SE 3002'),
+                            (null, 'SE 3003'),
+                            (null, 'SE 3004'),
+                            (null, 'SE 3005'),
+                            (null, 'SE 3006'),
+                            (null, 'SE 3007');`, []).then(() => console.log('unit inserted'));
+    };
 
     render() {
         if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {

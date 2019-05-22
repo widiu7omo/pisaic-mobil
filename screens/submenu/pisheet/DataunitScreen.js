@@ -37,19 +37,19 @@ export default class DataunitScreen extends React.Component{
                     showIcon={false}
                     onDateChange={(date)=>{this.setState({date:date})}}/>
                     {/* ganti ini this.state. nama statenya, on change , this.setState, sama labelnya. */}
-                    <TextInput value={this.state.location} onChangeText={(location)=>this.setState({location})} label="Location" mode="outlined"></TextInput>
+                    <TextInput value={this.state.location} onChangeText={(location) => this.setState({location})} label="Location" mode="outlined"/>
 
-                    <TextInput value={this.state.snunit} onChangeText={(snunit)=>this.setState({snunit})} label="SN Unit" mode="outlined"></TextInput>
+                    <TextInput value={this.state.snunit} onChangeText={(snunit) => this.setState({snunit})} label="SN Unit" mode="outlined"/>
 
-                    <TextInput value={this.state.smrunit} onChangeText={(smrunit)=>this.setState({smrunit})} label="SMR Unit" mode="outlined"></TextInput>
+                    <TextInput value={this.state.smrunit} onChangeText={(smrunit) => this.setState({smrunit})} label="SMR Unit" mode="outlined"/>
 
-                    <TextInput value={this.state.smrtravel} onChangeText={(smrtravel)=>this.setState({smrtravel})} label="SMR Travel" mode="outlined"></TextInput>
+                    <TextInput value={this.state.smrtravel} onChangeText={(smrtravel) => this.setState({smrtravel})} label="SMR Travel" mode="outlined"/>
 
-                    <TextInput value={this.state.kwhmeter} onChangeText={(kwhmeter)=>this.setState({kwhmeter})} label="KWH Meter" mode="outlined"></TextInput>
+                    <TextInput value={this.state.kwhmeter} onChangeText={(kwhmeter) => this.setState({kwhmeter})} label="KWH Meter" mode="outlined"/>
 
-                    <TextInput value={this.state.start} onChangeText={(start)=>this.setState({start})} label="Start" mode="outlined"></TextInput>
+                    <TextInput value={this.state.start} onChangeText={(start) => this.setState({start})} label="Start" mode="outlined"/>
 
-                    <TextInput value={this.state.finis} onChangeText={(finis)=>this.setState({finis})} label="Finish" mode="outlined"></TextInput>
+                    <TextInput value={this.state.finis} onChangeText={(finis) => this.setState({finis})} label="Finish" mode="outlined"/>
                     {/* {
                         this.submenus.map((submenu,key) =>(
                         <View key={key} style={styles.submenu}>

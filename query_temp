@@ -1,0 +1,375 @@
+CREATE TABLE "additionalfluids" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "airconditionings" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone3_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "archoses" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone3_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "archoseuppers" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone3_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "backlogentrysheets" (
+  "id" integer unsigned NOT NULL ,
+  "daytime" varchar(255)   DEFAULT NULL,
+  "branch" varchar(255)   DEFAULT NULL,
+  "tipe_unit" varchar(255)   DEFAULT NULL,
+  "sumber_temuan" varchar(255)   DEFAULT NULL,
+  "problem" varchar(255)   DEFAULT NULL,
+  "hm_unit" varchar(255)   DEFAULT NULL,
+  "estimasi_job" varchar(255)   DEFAULT NULL,
+  "resp" varchar(255)   DEFAULT NULL,
+  "work_zone" varchar(255)   DEFAULT NULL,
+  "suggest_action" varchar(255)   DEFAULT NULL,
+  "priority" varchar(255)   DEFAULT NULL,
+  "part_number" varchar(255)   DEFAULT NULL,
+  "part_desc" varchar(255)   DEFAULT NULL,
+  "figure" varchar(255)   DEFAULT NULL,
+  "index" varchar(255)   DEFAULT NULL,
+  "quantity" varchar(255)   DEFAULT NULL,
+  "mark" varchar(255)   DEFAULT NULL,
+  "backlog_date" varchar(255)   DEFAULT NULL,
+  "unit_id" integer unsigned NOT NULL,
+  "masterlog_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "boomgroups" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone1_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "bucketgroups" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone1_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "cabins" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone3_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "centerframes" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone1_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "cls" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "cylinderdailychecksheets" (
+  "id" integer unsigned NOT NULL ,
+  "unit_id" integer unsigned NOT NULL,
+  "masterlog_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "dataunitdailychecks" (
+  "id" integer unsigned NOT NULL ,
+  "checking_date" varchar(255)   DEFAULT NULL,
+  "unit_model" varchar(255)   DEFAULT NULL,
+  "branch_site" varchar(255)   DEFAULT NULL,
+  "end_customer" varchar(255)   DEFAULT NULL,
+  "hours_meter" varchar(255)   DEFAULT NULL,
+  "no_form" varchar(255)   DEFAULT NULL,
+  "division" varchar(255)   DEFAULT NULL,
+  "revition" varchar(255)   DEFAULT NULL,
+  "approve_by" varchar(255)   DEFAULT NULL,
+  "ttd_approver" varchar(255)   DEFAULT NULL,
+  "created_by" varchar(255)   DEFAULT NULL,
+  "ttd_creator" varchar(255)   DEFAULT NULL,
+  "cylinderdailychecksheet_id" integer unsigned NOT NULL,
+  "created_at" timestamp NULL DEFAULT NULL,
+  "updated_at" timestamp NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "dataunits" (
+  "id" integer unsigned NOT NULL ,
+  "date" varchar(255)   NOT NULL DEFAULT '00-00-0000',
+  "location" varchar(255)   NOT NULL,
+  "sn_unit" varchar(255)   DEFAULT NULL,
+  "smr_uni" varchar(255)   DEFAULT NULL,
+  "smr_travel" varchar(255)   DEFAULT NULL,
+  "kwh_meter" varchar(255)   DEFAULT NULL,
+  "inspect_start" varchar(255)   DEFAULT NULL,
+  "inspect_end" varchar(255)   DEFAULT NULL,
+  "operator_name" varchar(255)   DEFAULT NULL,
+  "tanggal_teknisi_tiba" varchar(255)   DEFAULT NULL,
+  "tanggal_teknisi_meninggalkan" varchar(255)   DEFAULT NULL,
+  "tanggal_teknisi_selesai" varchar(255)   DEFAULT NULL,
+  "hasil_pekerjaan_teknisi_selesai" varchar(255)   DEFAULT NULL,
+  "hasil_pekerjaan_teknisi_memuaskan" varchar(255)   DEFAULT NULL,
+  "penilaian_teknisi" varchar(255)   DEFAULT NULL,
+  "ttd_operator" varchar(255)   DEFAULT NULL,
+  "mekanik_name" varchar(255)   DEFAULT NULL,
+  "ttd_mekanik" varchar(255)   DEFAULT NULL,
+  "mekanik_leader_name" varchar(255)   DEFAULT NULL,
+  "ttd_mekanik_leader_name" varchar(255)   DEFAULT NULL,
+  "supervisor_name" varchar(255)   DEFAULT NULL,
+  "catatan_supervisor" varchar(255)   DEFAULT NULL,
+  "ttd_supervisor" varchar(255)   DEFAULT NULL,
+  "pisheet_id" integer unsigned NOT NULL,
+  "created_at" timestamp NULL DEFAULT NULL,
+  "updated_at" timestamp NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "electrics" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "hydraulics" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "hydraulicz3s" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone3_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "inspect_cameras" (
+  "id" integer unsigned NOT NULL ,
+  "pemeriksa" varchar(255)   NOT NULL,
+  "tanggal_pemeriksaan" varchar(255)   NOT NULL,
+  "nama_komponen" varchar(255)   NOT NULL,
+  "foto" varchar(255)   DEFAULT NULL,
+  "ttd_pemeriksa" varchar(255)   DEFAULT NULL,
+  "unit_id" integer unsigned NOT NULL,
+  "masterlog_id" integer unsigned NOT NULL,
+  "created_at" timestamp NULL DEFAULT NULL,
+  "updated_at" timestamp NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "ladders" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone1_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "maindrivemotors" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "masterlogs" (
+  "id" integer unsigned NOT NULL ,
+  "name" varchar(255)   NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "migrations" (
+  "id" integer unsigned NOT NULL ,
+  "migration" varchar(255)   NOT NULL,
+  "batch" integer NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "oilcenters" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "pdgpumps" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "pipeboomstickclamps" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone3_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "pisheets" (
+  "id" integer unsigned NOT NULL ,
+  "unit_id" integer unsigned NOT NULL,
+  "masterlog_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "problemlogs" (
+  "id" integer unsigned NOT NULL ,
+  "daydate" varchar(255)   DEFAULT NULL,
+  "lokasi" varchar(255)   DEFAULT NULL,
+  "jobtype" varchar(255)   DEFAULT NULL,
+  "wo_no" varchar(255)   DEFAULT NULL,
+  "sv_or_ml" varchar(255)   DEFAULT NULL,
+  "problem" varchar(255)   DEFAULT NULL,
+  "dampak" varchar(255)   DEFAULT NULL,
+  "start_time" varchar(255)   DEFAULT NULL,
+  "end_time" varchar(255)   DEFAULT NULL,
+  "resp" varchar(255)   DEFAULT NULL,
+  "pelapor" varchar(255)   DEFAULT NULL,
+  "langkah_sementara" text   DEFAULT NULL,
+  "langkah_permanen" text   DEFAULT NULL,
+  "unit_id" integer unsigned NOT NULL,
+  "masterlog_id" integer unsigned NOT NULL,
+  "created_at" timestamp NULL DEFAULT NULL,
+  "updated_at" timestamp NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "relateds" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone3_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "sheetdailychecks" (
+  "id" integer unsigned NOT NULL ,
+  "boom_cylinder_l" text   DEFAULT NULL,
+  "boom_cylinder_r" text   DEFAULT NULL,
+  "stick_cylinder_l" text   DEFAULT NULL,
+  "stick_cylinder_r" text   DEFAULT NULL,
+  "bucket_cylinder_l" text   DEFAULT NULL,
+  "bucket_cylinder_r" text   DEFAULT NULL,
+  "bulkclamp_cylinder_l" text   DEFAULT NULL,
+  "bulkclamp_cylinder_r" text   DEFAULT NULL,
+  "hydraulic_tank" text   DEFAULT NULL,
+  "control_value" text   DEFAULT NULL,
+  "cylinderdailychecksheet_id" integer unsigned NOT NULL,
+  "created_at" timestamp NULL DEFAULT NULL,
+  "updated_at" timestamp NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "sls" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "stickgroups" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone1_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "swings" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone2_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "tracklhgroups" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone1_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "trackrhgroups" (
+  "id" integer unsigned NOT NULL ,
+  "input_items" text   DEFAULT NULL,
+  "zone1_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "units" (
+  "id" integer unsigned NOT NULL ,
+  "name" varchar(255)   NOT NULL,
+  "created_at" timestamp NULL DEFAULT NULL,
+  "updated_at" timestamp NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "users" (
+  "id" integer unsigned NOT NULL ,
+  "name" varchar(255)   NOT NULL,
+  "email" varchar(255)   DEFAULT NULL,
+  "username" varchar(255)   DEFAULT NULL,
+  "email_verified_at" timestamp NULL DEFAULT NULL,
+  "password" varchar(255)   NOT NULL,
+  "created_at" timestamp NULL DEFAULT NULL,
+  "updated_at" timestamp NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
+);
+CREATE TABLE "workorders" (
+  "id" integer unsigned NOT NULL ,
+  "date" varchar(255)   NOT NULL DEFAULT '00-00-0000',
+  "wo_no" varchar(255)   DEFAULT NULL,
+  "revisi_sr" varchar(255)   DEFAULT NULL,
+  "po_cus" varchar(255)   DEFAULT NULL,
+  "product_name" varchar(255)   NOT NULL,
+  "model_unit" varchar(255)   DEFAULT NULL,
+  "model_engine" varchar(255)   DEFAULT NULL,
+  "estimasi_job" varchar(255)   DEFAULT NULL,
+  "catatan" text   DEFAULT NULL,
+  "ttd_sdh" varchar(255)   DEFAULT NULL,
+  "sdh_name" varchar(255)   DEFAULT NULL,
+  "pisheet_id" integer unsigned NOT NULL,
+  "created_at" timestamp NULL DEFAULT NULL,
+  "updated_at" timestamp NULL DEFAULT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "zone1s" (
+  "id" integer unsigned NOT NULL ,
+  "pisheet_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "zone2s" (
+  "id" integer unsigned NOT NULL ,
+  "pisheet_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+CREATE TABLE "zone3s" (
+  "id" integer unsigned NOT NULL ,
+  "pisheet_id" integer unsigned NOT NULL,
+  PRIMARY KEY ("id")
+
+);
+
