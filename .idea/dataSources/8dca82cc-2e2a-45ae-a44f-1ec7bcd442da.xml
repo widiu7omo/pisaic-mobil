@@ -45,7 +45,7 @@
     <column id="16" parent="7" name="seq">
       <Position>2</Position>
     </column>
-    <column id="17" parent="8" name="unit_id">
+    <column id="17" parent="8" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <SequenceIdentity>1</SequenceIdentity>
@@ -55,10 +55,10 @@
       <DataType>varchar|0s</DataType>
     </column>
     <key id="19" parent="8">
-      <ColNames>unit_id</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="20" parent="9" name="user_id">
+    <column id="20" parent="9" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -77,7 +77,7 @@
       <DataType>varchar|0s</DataType>
     </column>
     <key id="24" parent="9">
-      <ColNames>user_id</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>

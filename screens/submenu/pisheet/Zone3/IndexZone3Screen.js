@@ -1,7 +1,7 @@
 import React from 'react'
 import { Component,Image, View,StyleSheet,ScrollView, Text ,TouchableOpacity} from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
-import DatePicker from 'react-native-datepicker'
+import {z3groups} from "../../../../constants/Default_groups";
 
 class LogoTitle extends React.Component{
     constructor(props){
@@ -46,15 +46,7 @@ export default class IndexZone3Screen extends React.Component{
             ttdsdh:'',
             sdhname:''
         };
-        this.z3Menus = [
-            {name:"A. Hydraulic",screen:'z3a'},
-            {name:"B. ARC Hose",screen:'z3b'},
-            {name:"C. Pipe In Boom, Stick & Clamp",screen:'z3c'},
-            {name:"D. ARC Hose Upper",screen:'z3d'},
-            {name:"E. Related",screen:'z3e'},
-            {name:"F. Air Conditioning",screen:'z3f'},
-            {name:"G. Cabin",screen:'z3g'},
-         ]
+        this.z3Menus = z3groups;
     }
     render(){
         return (

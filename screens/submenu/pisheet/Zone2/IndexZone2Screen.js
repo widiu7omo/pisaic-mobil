@@ -2,6 +2,7 @@ import React from 'react'
 import { Component,Image, View,StyleSheet,ScrollView, Text ,TouchableOpacity} from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
 import DatePicker from 'react-native-datepicker'
+import {z2groups} from "../../../../constants/Default_groups";
 
 class LogoTitle extends React.Component{
     constructor(props){
@@ -46,17 +47,7 @@ export default class IndexZone2Screen extends React.Component{
             ttdsdh:'',
             sdhname:''
         };
-        this.z2Menus = [
-            {name:"A. Main Drive Motor",screen:'z2a'},
-            {name:"B. PDG And Pump",screen:'z2b'},
-            {name:"C. Swing",screen:'z2c'},
-            {name:"D. Oil Center",screen:'z2d'},
-            {name:"E. Central Lubrication System (CLS)",screen:'z2e'},
-            {name:"F. Swing Lubrication System (SLS)",screen:'z2f'},
-            {name:"G. Hydraulic",screen:'z2g'},
-            {name:"H. Electric",screen:'z2h'},
-            {name:"Additional Of Fluid (Oil, Coolant, Grease)",screen:'z2i'},
-        ]
+        this.z2Menus = z2groups;
     }
     render(){
         return (

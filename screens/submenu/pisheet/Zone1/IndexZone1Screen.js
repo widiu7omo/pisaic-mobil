@@ -1,8 +1,8 @@
 import React from 'react'
 import {Image, View,StyleSheet,ScrollView, Text ,TouchableOpacity} from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
-import DatePicker from 'react-native-datepicker'
 import CustomHeader from '../../../../components/CustomHeader'
+import {z1groups} from "../../../../constants/Default_groups";
 
 export default class IndexZone1Screen extends React.Component{
     static navigationOptions = {
@@ -26,15 +26,7 @@ export default class IndexZone1Screen extends React.Component{
             ttdsdh:'',
             sdhname:''
         };
-        this.z1Menus = [
-            {name:"A. Bucket Group",screen:'z1a'},
-            {name:"B. Stick Group",screen:'z1b'},
-            {name:"C. Boom Group",screen:'z1c'},
-            {name:"D. Track Group LH",screen:'z1d'},
-            {name:"E. Track Group RH",screen:'z1e'},
-            {name:"F. Center Frame",screen:'z1f'},
-            {name:"G. Ladder",screen:'z1g'},
-        ]
+        this.z1Menus = z1groups;
     }
     render(){
         return (

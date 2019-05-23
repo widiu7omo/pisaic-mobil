@@ -1,11 +1,9 @@
 import React from 'react';
 import {Button, TextInput} from 'react-native-paper';
 import {
-    ActivityIndicator,
     Platform,
     Text,
     AsyncStorage,
-    StatusBar,
     StyleSheet,
     View,
 } from 'react-native';
@@ -18,7 +16,6 @@ export default class LoginScreen extends React.Component {
             username: '',
             password: ''
         }
-
     }
 
     render() {
@@ -50,7 +47,8 @@ export default class LoginScreen extends React.Component {
     }
 
     _signInAsync = async () => {
-        await AsyncStorage.setItem('userToken', 'abc');
+        await AsyncStorage.setItem('userToken','abc');
+        await AsyncStorage.setItem('isUsed','yeyeye');
         this.props.navigation.navigate('Main');
     };
 }

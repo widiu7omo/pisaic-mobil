@@ -67,20 +67,20 @@ export default class ListUnitScreen extends React.Component {
         this.update();
     }
 
-    update() {
+    update = async () => {
         this.setState({loading: true});
-        query(`select name
-               from units`, [])
+        await query(`select *
+                     from units`, [])
             .then(units => {
                 console.log(units);
                 this.setState({loading: false})
                 this.setState({units: units});
             });
-    }
+    };
 
     goTo = unit => {
         console.log(unit);
-        this.props.navigation.navigate('UnitMenu', {unitName: unit})
+        this.props.navigation.navigate('UnitMenu', {unitName: unit.name,idUnit:unit.id})
     };
 
     render() {
@@ -104,12 +104,12 @@ export default class ListUnitScreen extends React.Component {
                         {
                             loading ? (<ActivityIndicator style={{marginTop: 20}}/>) :
                                 <FlatList data={units}
-                                          renderItem={({item,index}) => {
+                                          renderItem={({item, index}) => {
                                               return (<Button key={index} style={styles.cardContent} mode="contained"
-                                                              onPress={()=>goTo(item.name)}>{item.name}</Button>)
+                                                              onPress={() => goTo(item)}>{item.name}</Button>)
                                           }}
                                           extraData={this.state}
-                                          keyExtractor={(item)=>item.name}>
+                                          keyExtractor={(item) => item.name}>
                                 </FlatList>
                         }
                     </View>
