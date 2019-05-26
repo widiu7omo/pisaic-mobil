@@ -116,46 +116,6 @@ export const createTableMaster = async () => {
     VALUES ` + valueZone, []).then(() => console.log('zones inserted'));
 };
 
-export const _partSecondTable = async () => {
-
-    await query(`SELECT id FROM zones`,[]).then((rows)=>{
-        _setZone(rows);
-    });
-
-    await query(`DELETE
-                 FROM groups`);
-
-    const zoneids = _getZone();
-    let groupIndex = 0;
-    zoneids.map(async (zone,i)=>{
-        if(i>1){
-            let valueGroup = '';
-            console.log(zone.id)
-            groups[i-2].forEach((group,j)=>{
-                valueGroup += `(NULL,"${group.name}","${group.screen}","${zone.id}")`;
-                if (j === groups[i-2].length - 1) {
-                    return
-                }
-                valueGroup += ','
-            });
-            console.log(valueGroup);
-            await query(`INSERT INTO groups VALUES ` + valueGroup, []).then(() => console.log(`groups ${i-2} inserted`));
-            groupIndex++;
-        }
-    })
-
-    // let valueGroup1 = '';
-    // z1groups.map((z1, index) => {
-    //     valueGroup1 += `(NULL,"${z1.name}","${z1.screen}")`;
-    //     if (index === z1.length - 1) {
-    //         return
-    //     }
-    //     valueGroup1 += ','
-    // });
-    // await query(`INSERT INTO groups
-    // VALUES ` + valueGroup1, []).then(() => console.log('groups1 inserted'));
-}
-
 export const _createSecondMasterTable = async () => {
     const beingUsed = await AsyncStorage.getItem('isUsed');
     console.log(beingUsed);
@@ -188,6 +148,39 @@ export const _createSecondMasterTable = async () => {
                      input_items       TEXT
                  );`, []).then(() => console.log('group_kind_unit_zones created'))
 }
+
+export const _partSecondTable = async () => {
+
+    const beingUsed = await AsyncStorage.getItem('isUsed');
+    console.log(beingUsed);
+    if (beingUsed) {
+        return;
+    }
+    await query(`SELECT id FROM zones`,[]).then((rows)=>{
+        _setZone(rows);
+    });
+
+    await query(`DELETE
+                 FROM groups`);
+
+    const zoneids = _getZone();
+    let groupIndex = 0;
+    zoneids.map(async (zone,i)=>{
+        if(i>1){
+            let valueGroup = '';
+            groups[i-2].forEach((group,j)=>{
+                valueGroup += `(NULL,"${group.name}","${group.screen}","${zone.id}")`;
+                if (j === groups[i-2].length - 1) {
+                    return
+                }
+                valueGroup += ','
+            });
+            await query(`INSERT INTO groups VALUES ` + valueGroup, []).then(() => console.log(`groups ${i-2} inserted`));
+            groupIndex++;
+        }
+    })
+}
+
 export const _createMasterData = async () => {
     const beingUsed = await AsyncStorage.getItem('isUsed');
     console.log(beingUsed);

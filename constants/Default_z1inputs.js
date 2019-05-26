@@ -147,8 +147,8 @@ const z1a = [
 
 const z1b = [
     {
-        "subname": "(Crack)",
         "name": "Stick",
+        "subname": "(Crack)",
         "condition": "Good",
         "note": "None",
         "priority": "None",
@@ -159,8 +159,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "(Leaking, Scratch, Bending Etc)",
         "name": "Stick Cylinder LH",
+        "subname": "(Leaking, Scratch, Bending Etc)",
         "condition": "Bad",
         "note": "None",
         "priority": "None",
@@ -171,8 +171,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "(Lock Pin, Lubricating)",
         "name": "Pin & Bushing RHLH Stick To Bucket",
+        "subname": "( Lock Pin, Lubricating)",
         "condition": "Good",
         "note": "None",
         "priority": "None",
@@ -183,8 +183,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "(Loose, Damage, Crack)",
         "name": "Cylinder Protector LH Stick",
+        "subname": "(Loose, Damage, Crack)",
         "condition": "Good",
         "note": "None",
         "priority": "None",
@@ -195,8 +195,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "(Leaking,Scratch,Bending etc)",
         "name": "Stick Cylinder RH",
+        "subname": "(Leaking,Scratch,Bending etc)",
         "condition": "",
         "note": "None",
         "priority": "None",
@@ -207,8 +207,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "(Loose,Damage,Crack)",
         "name": "Cylinder Protector RH Stick",
+        "subname": "(Loose,Damage,Crack)",
         "condition": "",
         "note": "None",
         "priority": "None",
@@ -219,8 +219,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "(Lock Pin,Lubricating)",
         "name": "Pin & Bushing RHLH Cyl Stick",
+        "subname": "(Lock Pin,Lubricating)",
         "condition": "",
         "note": "None",
         "priority": "None",
@@ -231,8 +231,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "(Leak,Loose)",
         "name": "Injector & Grease Line Stick",
+        "subname": "(Leak,Loose)",
         "condition": "",
         "note": "None",
         "priority": "None",
@@ -243,8 +243,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "(Broken,Loose)",
         "name": "CLS Preassure Switch & Wiring",
+        "subname": "(Broken,Loose)",
         "condition": "",
         "note": "None",
         "priority": "None",
@@ -255,8 +255,8 @@ const z1b = [
         "remark": ""
     },
     {
-        "subname": "-",
         "name": "Hose High Presure, Pipe & Clamp To Bucket Cylinder",
+        "subname": "-",
         "condition": "",
         "note": "None",
         "priority": "None",
@@ -267,11 +267,516 @@ const z1b = [
         "remark": ""
     }
 ];
-const z1c = [ ];
-const z1d = [ ];
-const z1e = [ ];
-const z1f = [ ];
-const z1g = [ ];
+const z1c = [
+    {
+        "name": "Boom",
+        "subname": " (Crack)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Boom Cylinder LH",
+        "subname": "(Leaking, Scratch,Bending etc)",
+        "condition": "Bad",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Cylinder Protector LH Boom",
+        "subname": "(Loose,Damage,Crack)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Boom Cylinder RH",
+        "subname": "(Leaking,Scratch,Bending etc)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Cylinder Protector RH Boom",
+        "subname": "(Loose,Damage,Crack)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Pin & Bushing RHLH Cyl Boom",
+        "subname": "(Lock Pin,Lubricating)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Pin & Bushing RHLH Boom To Stick",
+        "subname": "(Lock Pin,Lubricating)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Hose High Presure, Pipe & Clamp To Boom Cylinder",
+        "subname": "-",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Hose High Presure, Pipe & Clamp To Stick Cylinder",
+        "subname": "-",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Hose High Presure, Pipe & Clamp To Clamp Cylinder",
+        "subname": "-",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    }
+];
+const z1d = [
+    {
+        "name": "Idler",
+        "subname": "(Abnormal Pitting,Leaking, Stopper Loose)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Adjusting Track Cylinder/Hic",
+        "subname": "(Leaking)",
+        "condition": "Bad",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Track Roller",
+        "subname": "(Worn,Abnormal Pitting,Leaking)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Carrier Roller",
+        "subname": "(Worn,Abnormal Pitting,Leaking)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Track Pad",
+        "subname": "(Worn,Broken,Abnormal Pitting)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Pin Track Pad",
+        "subname": "(Loose,Wear)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Sproket",
+        "subname": "(Worn,Abnormal Pitting etc)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Track Tension Condition",
+        "subname": "(Sag)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "LH Travel Gear Box Motor & Hose",
+        "subname": "(Leak,Worn,Damage)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Level Thick Of Soil U/C LH",
+        "subname": "-",
+        "status": "Clean",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Level Thick Of Soil U/C RH",
+        "subname": "-",
+        "status": "Clean",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    }
+];
+const z1e = [
+    {
+        "name": "Idler",
+        "subname": "(Abnormal Pitting,Leaking,Stoper Loose)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Adjusting Track Cylinder/Hic",
+        "subname": "(Lleaking)",
+        "condition": "Bad",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Track Roller",
+        "subname": "(Worn,Abnormal Ptting,Leaking)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Carrier Roller",
+        "subname": "(Worn,Abnormal Pitting,Leaking)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Track Pad",
+        "subname": "(Worn,Broken,Abnormal Pitting)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Pin Track Pad",
+        "subname": "(Loose,Wear)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Sproket",
+        "subname": "(Worn,Abnormal Pitting etc)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Track Tension Condition",
+        "subname": "(Sag)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "RH Travel Gear Box Motor & Hose",
+        "subname": "(Leak,Worn,Damage)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    }
+];
+const z1f = [
+    {
+        "name": "Swing Circle Bolt",
+        "subname": "(Loose,Missing)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Mounting Bolt Center Body RHLH",
+        "subname": "(Loose,Missing)",
+        "condition": "Bad",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Teeth Swing Circle",
+        "subname": "(Worn,Lubricating)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "HV Cable & Connector",
+        "subname": "(Worn,Crack,Loose,Damage)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Cable Duct",
+        "subname": "(Damage,Bolt,Loose)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Cable Singer",
+        "subname": "(Damage,Bolt Loose,Clamp Missing)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Swivel Joint",
+        "subname": "(Leak,Bolt,Loose)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "HV Cable & Pilot Cable",
+        "subname": "(Worn, Damage)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    }
+];
+const z1g = [
+    {
+        "name": "Cylinder",
+        "subname": "(Leaking,Scratch,Bending etc)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Mounting",
+        "subname": "(Crack, Bolt Loose etc)",
+        "condition": "Bad",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Handrail Ladder Area",
+        "subname": "(Crack and Missing)",
+        "condition": "Good",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    },
+    {
+        "name": "Electric Part",
+        "subname": "(Sensor, Wiring)",
+        "condition": "",
+        "note": "None",
+        "priority": "None",
+        "foto": {
+            "name": "",
+            "catatan": ""
+        },
+        "remark": ""
+    }
+];
 export default {
     z1a:JSON.stringify(z1a),
     z1b:JSON.stringify(z1b),

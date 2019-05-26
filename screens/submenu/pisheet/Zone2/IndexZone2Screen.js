@@ -1,70 +1,74 @@
 import React from 'react'
-import { Component,Image, View,StyleSheet,ScrollView, Text ,TouchableOpacity} from 'react-native'
+import { View, StyleSheet, ScrollView, FlatList, ActivityIndicator} from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
-import DatePicker from 'react-native-datepicker'
-import {z2groups} from "../../../../constants/Default_groups";
+import CustomHeader from '../../../../components/CustomHeader'
+import query from "../../../../database/query";
+import Colors from "../../../../constants/Colors";
 
-class LogoTitle extends React.Component{
-    constructor(props){
-      super(props);
-    }
-    render(){
-      return (
-        <View style={{flexDirection:'row'}}>
-          <TouchableOpacity onPress={()=>this.props.navigation.openDrawer()}>
-          {/* <Image 
-          source={require('../../assets/images/iconut.png')}
-          style={{marginHorizontal:5,width:40,height:40}}/> */}
-          </TouchableOpacity> 
-          <View style={{flexDirection:'column'}}>
-            <Text style={{fontSize:25,fontWeight:'bold'}}>{this.props.navigation.getParam('headerTitle','Nama Menu...')}</Text>
-          </View>
-        </View>
-      )
-    }
-  }
 export default class IndexZone2Screen extends React.Component{
-    static navigationOptions = ({navigation}) => {
-        return {
-            headerTitle:<LogoTitle navigation={navigation}/>,
-            headerStyle:{backgroundColor:"#FEDA01"},
-            headerIcon:null,
-        }
+    static navigationOptions = {
+        headerTitle:<CustomHeader headerName="zoneTitle"/>,
+        headerStyle:{backgroundColor:"#FEDA01"},
+        headerIcon:null,
     };
     constructor(props){
         super(props);
         this.state = {
-            date:"20-12-2019",
-            wono:'',
-            refisisr:'',
-            pocust:'',
-            prodname:'',
-            modelunit:'',
-            modelengine:'',
-            estjob:'',
-            note:'',
-            note2:'',
-            ttdsdh:'',
-            sdhname:''
+            groups:[],
+            loading:false
         };
-        this.z2Menus = z2groups;
     }
+    getTable = async () => {
+        console.log(this.props.navigation.getParam('zone_id'));
+        const zone_id = this.props.navigation.getParam('zone_id');
+        await query(`select * from groups where zone_id=?`, [zone_id])
+            .then(result => {
+                console.log(result);
+                this.setState({groups: result});
+                this.setState({loading: false});
+            })
+    };
+
+    componentDidMount() {
+        this.setState({loading: true});
+        this.getTable()
+
+    }
+    goTo = submenu => {
+        this.props.navigation.navigate(submenu.screen, {
+            zone: submenu.name,
+            unit: this.props.navigation.getParam('unit', 'Unit Name'),
+            group_id:submenu.id
+        })
+    };
+
     render(){
+        const {groups,loading} = this.state;
         return (
             <View style={styles.container}>
-            {/* bring your input here */}
+                {/* bring your input here */}
                 {/* <Text>This is from workorder</Text> */}
+
                 <ScrollView style={styles.inputField}>
-                   {
-                       this.z2Menus.map((menu,key)=>
-                       (
-                           <Button style={styles.button} key={key} onPress={()=>this.props.navigation.navigate(menu.screen,{zone:menu.name,unit:this.props.navigation.getParam('unit')})} mode="contained">{menu.name}</Button>
-                       ))
-                   }
+                    {
+                        loading?<ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/>
+                            :<FlatList data={groups}
+                                       renderItem={({item}) => {
+                                           return (
+                                               <View style={styles.submenu}>
+                                                   <Button style={styles.button} mode="contained"
+                                                           onPress={() => this.goTo(item)}>{item.name}</Button>
+
+                                               </View>)
+                                       }}
+                                       extraData={this.state}
+                                       keyExtractor={(item) => item.name}>
+                            </FlatList>
+                    }
                 </ScrollView>
             </View>
         )
-    }    
+    }
 }
 const styles = StyleSheet.create({
     container:{

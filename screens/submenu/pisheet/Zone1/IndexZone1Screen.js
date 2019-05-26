@@ -1,8 +1,9 @@
 import React from 'react'
-import {Image, View,StyleSheet,ScrollView, Text ,TouchableOpacity} from 'react-native'
+import { View, StyleSheet, ScrollView, FlatList, ActivityIndicator} from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
 import CustomHeader from '../../../../components/CustomHeader'
-import {z1groups} from "../../../../constants/Default_groups";
+import query from "../../../../database/query";
+import Colors from "../../../../constants/Colors";
 
 export default class IndexZone1Screen extends React.Component{
     static navigationOptions = {
@@ -13,32 +14,56 @@ export default class IndexZone1Screen extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            date:"20-12-2019",
-            wono:'',
-            refisisr:'',
-            pocust:'',
-            prodname:'',
-            modelunit:'',
-            modelengine:'',
-            estjob:'',
-            note:'',
-            note2:'',
-            ttdsdh:'',
-            sdhname:''
+            groups:[],
+            loading:false
         };
-        this.z1Menus = z1groups;
     }
+    getTable = async () => {
+        console.log(this.props.navigation.getParam('zone_id'));
+        const zone_id = this.props.navigation.getParam('zone_id');
+        await query(`select * from groups where zone_id=?`, [zone_id])
+            .then(result => {
+                console.log(result);
+                this.setState({groups: result});
+                this.setState({loading: false});
+            })
+    };
+
+    componentDidMount() {
+        this.setState({loading: true});
+        this.getTable()
+
+    }
+    goTo = submenu => {
+        this.props.navigation.navigate(submenu.screen, {
+            zone: submenu.name,
+            unit: this.props.navigation.getParam('unit', 'Unit Name'),
+            group_id:submenu.id
+        })
+    };
+
     render(){
+        const {groups,loading} = this.state;
         return (
             <View style={styles.container}>
             {/* bring your input here */}
                 {/* <Text>This is from workorder</Text> */}
+
                 <ScrollView style={styles.inputField}>
                    {
-                       this.z1Menus.map((menu,key)=>
-                       (
-                           <Button style={styles.button} key={key} onPress={()=>this.props.navigation.navigate(menu.screen,{zone:menu.name,unit:this.props.navigation.getParam('unit')})} mode="contained">{menu.name}</Button>
-                       ))
+                       loading?<ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/>
+                       :<FlatList data={groups}
+                                 renderItem={({item}) => {
+                                     return (
+                                         <View style={styles.submenu}>
+                                             <Button style={styles.button} mode="contained"
+                                                     onPress={() => this.goTo(item)}>{item.name}</Button>
+
+                                         </View>)
+                                 }}
+                                 extraData={this.state}
+                                 keyExtractor={(item) => item.name}>
+                       </FlatList>
                    }
                 </ScrollView>
             </View>
