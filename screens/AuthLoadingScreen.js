@@ -6,8 +6,9 @@ import {
     View,
 } from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
-import query from "../database/query";
-import defaultInput from "../constants/Default_z1inputs";
+// import query from "../database/query";
+// import defaultInput from "../constants/Default_z1inputs";
+// import {createTransactionTable} from "../constants/Default_tables";
 
 export default class AuthLoadingScreen extends React.Component {
     constructor(props) {
@@ -25,57 +26,33 @@ export default class AuthLoadingScreen extends React.Component {
         if (beingUsed) {
             return;
         }
-        await query(`create table if not exists pisheets
-                     (
-                         id      integer primary key autoincrement not null,
-                         unit_id integer
-                     );`, []).then(() => console.log('pisheets created'));
-        await query(`create table if not exists zone1s
-                     (
-                         id         integer primary key autoincrement not null,
-                         pisheet_id integer
-                     );`, []).then(() => console.log('zone 1 created'));
-        await query(`create table if not exists zone2s
-                     (
-                         id         integer primary key autoincrement not null,
-                         pisheet_id integer
-                     );`, []).then(() => console.log('zone 2 created'));
-        await query(`create table if not exists zone3s
-                     (
-                         id         integer primary key autoincrement not null,
-                         pisheet_id integer
-                     );`, []).then(() => console.log('zone 3 created'));
-        await query(`select * from units`, []).then( async results => {
-            let param = [];
-            await query(`delete from pisheets`).then(()=>console.log('delete pisheets'))
-            await results.forEach( result => {
-                const q = "insert into pisheets values (null,?)";
-                param.push(result.id);
-                query(q, param);
-                param = [];
-            })
-        }).then(()=>console.log('insert batch to pisheets'));
-        await query(`create table if not exists z1a
-                     (
-                         id          integer primary key autoincrement not null,
-                         input_items text,
-                         zone1_id    integer
-                     );`, []).then(() => console.log('zone1a created'));
-        await query(`create table if not exists z1b
-                     (
-                         id          integer primary key autoincrement not null,
-                         input_items text,
-                         zone1_id    integer
-                     );`, []).then(() => console.log('zone1b created'));
+        //create table kind_units
+        // kind_unit_zones
+        // group_kind_unit_zones
+        // createTransactionTable();
 
-        await query(`delete
-                     from z1a`);
-        await query(`insert into z1a
-                     values (null, ?, ?)`, [defaultInput.z1a, 1]).then(() => console.log('z1a inserted'));
-        await query(`delete
-                     from z1b`);
-        await query(`insert into z1b
-                     values (null, ?, ?)`, [defaultInput.z1b, 1]).then(() => console.log('z1b inserted'));
+        //table temporary
+        // await query(`create table if not exists z1a
+        //              (
+        //                  id          integer primary key autoincrement not null,
+        //                  input_items text,
+        //                  zone1_id    integer
+        //              );`, []).then(() => console.log('zone1a created'));
+        // await query(`create table if not exists z1b
+        //              (
+        //                  id          integer primary key autoincrement not null,
+        //                  input_items text,
+        //                  zone1_id    integer
+        //              );`, []).then(() => console.log('zone1b created'));
+        //
+        // await query(`delete
+        //              from z1a`);
+        // await query(`insert into z1a
+        //              values (null, ?, ?)`, [defaultInput.z1a, 1]).then(() => console.log('z1a inserted'));
+        // await query(`delete
+        //              from z1b`);
+        // await query(`insert into z1b
+        //              values (null, ?, ?)`, [defaultInput.z1b, 1]).then(() => console.log('z1b inserted'));
 
     }
     // Fetch the token from storage then navigate to our appropriate place

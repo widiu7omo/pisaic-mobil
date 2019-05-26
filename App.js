@@ -4,7 +4,10 @@ import {AppLoading, Asset, Font, Icon, SQLite} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper'
 import {useScreens} from 'react-native-screens';
-import {createTableMaster} from './constants/Default_tables'
+// import {initializeData, initializeDB} from "./constants/Default_initialize_db";
+import downloadDb from './database/connection'
+import {initializeData} from "./constants/Default_initialize_db";
+// import {createTableMaster} from './constants/Default_tables'
 
 useScreens();
 const primaryTheme = {
@@ -21,7 +24,6 @@ export default class App extends React.Component {
     state = {
         isLoadingComplete: false,
     };
-    //create main table,
     //@TODO: make data sync from firebase
 
     render() {
@@ -46,12 +48,15 @@ export default class App extends React.Component {
     }
 
     _loadResourcesAsync = async () => {
-        //create table first
-        await createTableMaster();
         return Promise.all([
+            //create table first
+            await downloadDb(),
+            // await query.openExistDB(),
+            // await initializeData(),
+            // await createTableMaster();
             Asset.loadAsync([
-                require('./assets/images/robot-dev.png'),
-                require('./assets/images/robot-prod.png'),
+                // require('./assets/images/robot-dev.png'),
+                // require('./assets/images/robot-prod.png'),
             ]),
             Font.loadAsync({
                 // This is the font that we are using for our tab bar

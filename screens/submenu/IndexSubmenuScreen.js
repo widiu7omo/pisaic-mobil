@@ -3,7 +3,6 @@ import {View, StyleSheet, Image, Text, ScrollView, FlatList, ActivityIndicator} 
 import {Button} from 'react-native-paper'
 import CustomHeader from '../../components/CustomHeader'
 import query from '../../database/query'
-import {kinds} from '../../constants/Default_kinds';
 import Colors from "../../constants/Colors";
 
 export default class IndexSubmenuScreen extends React.Component {
@@ -44,8 +43,8 @@ export default class IndexSubmenuScreen extends React.Component {
         //sampai sini
         this.props.navigation.navigate(menu.screen, {
             subMenuTitle: menu.name,
-            idKind:menu.id,
-            idUnit:this.props.navigation.getParam('idUnit'),
+            idKind: menu.id,
+            idUnit: this.props.navigation.getParam('idUnit'),
             unit: this.props.navigation.getParam('unitName')
         })
     };
@@ -66,17 +65,18 @@ export default class IndexSubmenuScreen extends React.Component {
                     </View>
                 </View>
                 <ScrollView>
-                    <View style={{justifyContent: "center",flex:1}}>
-                    {loading ? <ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/> :
-                        <FlatList data={menus}
-                                  renderItem={({item}) => {
-                                      return (<Button style={styles.menusContent} mode="contained"
-                                                      onPress={() => this.goTo(item)}>{item.name}</Button>)
-                                  }}
-                                  extraData={this.state}
-                                  keyExtractor={(item) => item.name}>
-                        </FlatList>
-                    }
+                    <View style={{justifyContent: "center", flex: 1}}>
+                        {loading ?
+                            <ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/> :
+                            <FlatList data={menus}
+                                      renderItem={({item}) => {
+                                          return (<Button style={styles.menusContent} mode="contained"
+                                                          onPress={() => this.goTo(item)}>{item.name}</Button>)
+                                      }}
+                                      extraData={this.state}
+                                      keyExtractor={(item) => item.name}>
+                            </FlatList>
+                        }
                     </View>
                 </ScrollView>
             </View>

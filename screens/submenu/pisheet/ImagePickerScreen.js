@@ -55,7 +55,7 @@ export default class ImagePickerScreen extends React.Component {
             if (result.cancelled) {
                 this.setState({selection: null});
             } else {
-                const resultImage = this._compressImage(result.uri);
+                const resultImage = await this._compressImage(result.uri);
                 //resultImage return promise
                 resultImage.then(result=>
                     //compressed image that store to database
@@ -63,7 +63,7 @@ export default class ImagePickerScreen extends React.Component {
                 this.setState({selection: result});
                 const dataFoto = {...this.state.dataFoto};
                 dataFoto.uri = result.uri;
-                this.setState({dataFoto});
+                await this.setState({dataFoto});
             }
         };
         return (
