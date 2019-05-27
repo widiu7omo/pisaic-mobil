@@ -2,37 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50bebdf5-d789-4c08-9378-5a25cdbcd327" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/Default_tables.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Default_tables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Default_z1inputs.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Default_z1inputs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Default_z2inputs.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Default_z2inputs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Default_z3inputs.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Default_z3inputs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/DrawerNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/DrawerNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/AuthLoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/AuthLoadingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/DbPisaicScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/DbPisaicScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/ListUnitScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/ListUnitScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/submenu/IndexSubmenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/IndexSubmenuScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/ImagePickerScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/ImagePickerScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/IndexZone1Screen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/IndexZone1Screen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1bScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1bScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1cScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1cScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1dScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1dScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1eScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1eScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1fScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1fScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1gScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1gScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/IndexZone2Screen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/IndexZone2Screen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2aScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2aScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2bScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2bScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2cScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2cScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2dScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2dScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2eScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2eScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2fScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2fScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2gScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2gScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2hScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2hScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2iScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2iScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/IndexZone3Screen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/IndexZone3Screen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3aScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3aScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3bScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3bScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3cScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3cScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3dScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3dScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3eScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3eScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3fScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3fScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3gScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3gScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -70,28 +60,62 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SQLite - db_pisaic.db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SQLite - db_pisaic.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SQLite - db_pisaic.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SQLite - db_pisaic.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="users: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/constants/Default_z1inputs.js">
+        <entry file="file://$PROJECT_DIR$/screens/dbpisaic/PisheetDbScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            <state relative-caret-position="224">
+              <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1288">
-              <caret line="92" column="39" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
+            <state relative-caret-position="99">
+              <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/screens/HomeScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -99,50 +123,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/constants/Default_tables.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1148">
-              <caret line="82" column="16" lean-forward="true" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
+            <state relative-caret-position="133">
+              <caret line="52" column="26" lean-forward="true" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
-                <element signature="e#4414#5685#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f50eea60-ea54-4cbb-8655-6e7bf57a67f7/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/groups">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true">
-                <filter text="" />
-              </filtering>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/group_kind_unit_zones">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true">
-                <filter text="" />
-              </filtering>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/kind_units">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true">
-                <filter text="" />
-              </filtering>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/constants/Data_to_update.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,15 +155,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>UNIT</find>
-      <find>actions</find>
-      <find>``</find>
-      <find>update</find>
-      <find>refresh</find>
       <find>console</find>
       <find>loading</find>
       <find>useScreens</find>
-      <find>console.log</find>
       <find>_getIndex</find>
       <find>goTo</find>
       <find>Foto</find>
@@ -174,7 +165,6 @@
       <find>fd</find>
       <find>tambah</find>
       <find>ImagePicker</find>
-      <find>foto</find>
       <find>show tables;</find>
       <find>`</find>
       <find>bucket</find>
@@ -188,10 +178,19 @@
       <find>groups</find>
       <find>z1groups</find>
       <find>Gauge</find>
+      <find>dataFoto</find>
+      <find>uri</find>
+      <find>foto</find>
+      <find>Document</find>
+      <find>DocumentDir</find>
+      <find>connected</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>unit</replace>
       <replace>WORKORDER</replace>
+      <replace>foto</replace>
+      <replace>name</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -200,40 +199,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/DataunitScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/ImagePickerScreen.js" />
-        <option value="$PROJECT_DIR$/constants/Default_Input.js" />
-        <option value="$PROJECT_DIR$/constants/Default_z2input.js" />
-        <option value="$PROJECT_DIR$/constants/Colors.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/BucketGroupScreen.js" />
-        <option value="$PROJECT_DIR$/navigation/HomeStackNavigator.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1bScreen.js" />
-        <option value="$PROJECT_DIR$/screens/settings/indexScreen.js" />
-        <option value="$PROJECT_DIR$/navigation/DrawerNavigator.js" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d11e2635-e646-494c-bcbf-2c8828f0c35e/console.sql" />
-        <option value="$PROJECT_DIR$/screens/ListUnitScreen.js" />
         <option value="$PROJECT_DIR$/screens/LoginScreen.js" />
         <option value="$PROJECT_DIR$/constants/Default_kinds.js" />
         <option value="$PROJECT_DIR$/constants/Default_zones.js" />
-        <option value="$PROJECT_DIR$/App.js" />
-        <option value="$PROJECT_DIR$/database/query.js" />
         <option value="$PROJECT_DIR$/constants/Default_groups.js" />
-        <option value="$PROJECT_DIR$/screens/AuthLoadingScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/IndexSubmenuScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/IndexZone1Screen.js" />
         <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/IndexZone2Screen.js" />
         <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/IndexZone3Screen.js" />
         <option value="$PROJECT_DIR$/constants/Default_z1inputs.js" />
         <option value="$PROJECT_DIR$/constants/Default_z2inputs.js" />
         <option value="$PROJECT_DIR$/constants/Default_z3inputs.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1cScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1dScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1eScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1fScreen.js" />
-        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1gScreen.js" />
         <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2aScreen.js" />
         <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2bScreen.js" />
         <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2cScreen.js" />
@@ -250,7 +225,31 @@
         <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3eScreen.js" />
         <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3gScreen.js" />
         <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3fScreen.js" />
+        <option value="$PROJECT_DIR$/database/query.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/IndexSubmenuScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1bScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1cScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1dScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1eScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1fScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1gScreen.js" />
+        <option value="$PROJECT_DIR$/screens/ListUnitScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/IndexZone1Screen.js" />
+        <option value="$PROJECT_DIR$/screens/AuthLoadingScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/ImagePickerScreen.js" />
+        <option value="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js" />
+        <option value="$PROJECT_DIR$/navigation/DrawerNavigator.js" />
+        <option value="$PROJECT_DIR$/screens/DbPisaicScreen.js" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f50eea60-ea54-4cbb-8655-6e7bf57a67f7/console.sql" />
+        <option value="8dca82cc-2e2a-45ae-a44f-1ec7bcd442da/schema/main/table/users.sql" />
+        <option value="$PROJECT_DIR$/screens/HomeScreen.js" />
+        <option value="$PROJECT_DIR$/database/checkConnection.js" />
+        <option value="$PROJECT_DIR$/constants/config.js" />
+        <option value="$PROJECT_DIR$/screens/dbpisaic/PisheetDbScreen.js" />
+        <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/constants/Default_tables.js" />
+        <option value="$PROJECT_DIR$/constants/Data_to_update.js" />
       </list>
     </option>
   </component>
@@ -282,44 +281,7 @@
             <path>
               <item name="pisaic-mobil" type="b2602c69:ProjectViewProjectNode" />
               <item name="pisaic-mobil" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pisaic-mobil" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pisaic-mobil" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="submenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pisaic-mobil" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pisaic-mobil" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="submenu" type="462c0819:PsiDirectoryNode" />
-              <item name="pisheet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pisaic-mobil" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pisaic-mobil" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="submenu" type="462c0819:PsiDirectoryNode" />
-              <item name="pisheet" type="462c0819:PsiDirectoryNode" />
-              <item name="Zone1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pisaic-mobil" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pisaic-mobil" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="submenu" type="462c0819:PsiDirectoryNode" />
-              <item name="pisheet" type="462c0819:PsiDirectoryNode" />
-              <item name="Zone2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pisaic-mobil" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pisaic-mobil" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="submenu" type="462c0819:PsiDirectoryNode" />
-              <item name="pisheet" type="462c0819:PsiDirectoryNode" />
-              <item name="Zone3" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -333,6 +295,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
+    <property name="database.data.extractors.current.id" value="SQL Inserts" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
@@ -395,13 +358,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165643000" />
+    <option name="totallyTimeSpent" value="222937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="698" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15530303" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15530303" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -420,20 +383,20 @@
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3281787" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32931036" />
-      <window_info anchor="bottom" id="SQL Generator" order="15" weight="0.3298611" />
+      <window_info anchor="bottom" id="SQL Generator" order="15" weight="0.32874355" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.2128788" />
+      <window_info anchor="right" id="Database" order="3" weight="0.2128788" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24166666" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15530303" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289256" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3298969" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32874355" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -441,182 +404,108 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50151515" side_tool="true" weight="0.4492255" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848485" weight="0.14408234" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848485" weight="0.39759037" />
       <window_info anchor="bottom" id="GraphQL" order="11" weight="0.32931036" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Database Console" order="13" visible="true" weight="0.3281787" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.3281787" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32931036" />
-      <window_info anchor="bottom" id="SQL Generator" order="15" weight="0.3298611" />
+      <window_info anchor="bottom" id="SQL Generator" order="15" weight="0.32874355" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.2128788" />
+      <window_info anchor="right" id="Database" order="3" weight="0.2128788" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7b293031-951c-4036-9f56-a186098595b4/console.sql">
+    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/IndexZone1Screen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/connection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constants/Default_kinds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/98c465b0-99de-4646-aacd-c73ebf3685eb/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Storage/AsyncStorage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://98c465b0-99de-4646-aacd-c73ebf3685eb/schema/main/table/groups">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="83" selection-start-line="4" selection-start-column="83" selection-end-line="4" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/UnitmenuScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
+        <state relative-caret-position="197">
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="39" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constants/Default_zones.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/HomeScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/AuthLoadingScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constants/Default_groups.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/ListUnitScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="74" column="35" lean-forward="true" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+        <state relative-caret-position="280">
+          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone3/IndexZone3Screen.js">
+    <entry file="file://$PROJECT_DIR$/screens/ListUnitScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="184">
+          <caret line="82" column="29" lean-forward="true" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1gScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/IndexZone2Screen.js">
+    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1fScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="106">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/IndexZone1Screen.js">
+    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1eScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        <state relative-caret-position="34">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/IndexSubmenuScreen.js">
+    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1dScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="69" column="115" lean-forward="true" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="115" />
+        <state relative-caret-position="58">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/LoginScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/AuthLoadingScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -628,237 +517,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1cScreen.js">
+    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/ImagePickerScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
+        <state relative-caret-position="165">
+          <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#1277#1527#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1dScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1eScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1fScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1gScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2aScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2bScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2cScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2dScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2eScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2fScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2gScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2hScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone2/z2iScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3aScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1bScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3bScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3cScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constants/Default_z3inputs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7984">
-          <caret line="578" column="22" selection-start-line="578" selection-start-column="17" selection-end-line="578" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3dScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3eScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2912">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3fScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone3/z3gScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2182">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f2eeeee6-ca58-41c4-9708-4e81c589fd5c/console.sql">
+    <entry file="file://$PROJECT_DIR$/screens/main/CekProgressPi.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/group_kind_unit_zones">
+    <entry file="file://$PROJECT_DIR$/screens/main/CreateNewPi.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-render-html/src/HTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="1078" column="12" selection-start-line="1078" selection-start-column="12" selection-end-line="1078" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-data-export/dist/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/expo/build/Expo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="221" column="31" lean-forward="true" selection-start-line="221" selection-start-column="31" selection-end-line="221" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jest-expo/src/setup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/navigation/DrawerNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/DbPisaicScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="59" column="55" selection-start-line="59" selection-start-column="55" selection-end-line="59" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="251" column="40" selection-start-line="251" selection-start-column="40" selection-end-line="251" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#577#1293#0" />
+            <element signature="e#4720#10260#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/js2excel/dist/js2excel.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/js2excel/types/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/js2excel/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/f50eea60-ea54-4cbb-8655-6e7bf57a67f7">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>f50eea60-ea54-4cbb-8655-6e7bf57a67f7</OriginalElement>
+          <nodes>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.groups</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.kinds</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.android_metadata</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.workorders</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.zones</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.group_kind_unit_zones</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.sqlite_master</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.users</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.dataunits</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.kind_units</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.sqlite_sequence</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.units</node>
+            <node x="" y="">f50eea60-ea54-4cbb-8655-6e7bf57a67f7.TABLE:main.kind_unit_zones</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.9314586994727593" x="280.5" y="264.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f50eea60-ea54-4cbb-8655-6e7bf57a67f7/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8dca82cc-2e2a-45ae-a44f-1ec7bcd442da/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://8dca82cc-2e2a-45ae-a44f-1ec7bcd442da/schema/main/table/users.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="88" selection-end-line="10" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8dca82cc-2e2a-45ae-a44f-1ec7bcd442da/schema/main/table/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true">
@@ -867,7 +671,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/kind_units">
+    <entry file="das://8dca82cc-2e2a-45ae-a44f-1ec7bcd442da/schema/main/table/units">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d11e2635-e646-494c-bcbf-2c8828f0c35e/schema/main/table/units">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d11e2635-e646-494c-bcbf-2c8828f0c35e/schema/main/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/units">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/dataunits">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/kinds">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f50eea60-ea54-4cbb-8655-6e7bf57a67f7/schema/main/table/zones">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true">
@@ -885,33 +752,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f50eea60-ea54-4cbb-8655-6e7bf57a67f7/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constants/Default_tables.js">
+    <entry file="file://$PROJECT_DIR$/constants/Default_z1inputs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1148">
-          <caret line="82" column="16" lean-forward="true" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
+        <state relative-caret-position="196">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@react-native-community/netinfo/lib/typescript/src/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="94" column="14" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Network/NetInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="229" column="6" selection-start-line="229" selection-start-column="6" selection-end-line="229" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/HomeScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/checkConnection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/dbpisaic/PisheetDbScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <element signature="e#4414#5685#0" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/constants/Default_z1inputs.js">
+    <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        <state relative-caret-position="99">
+          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js">
+    <entry file="file://$PROJECT_DIR$/constants/Default_tables.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="92" column="39" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
+        <state relative-caret-position="133">
+          <caret line="52" column="26" lean-forward="true" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants/Data_to_update.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

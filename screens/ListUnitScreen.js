@@ -72,14 +72,14 @@ export default class ListUnitScreen extends React.Component {
         await query(`select *
                      from units`, [])
             .then(units => {
-                console.log(units);
+                // console.log(units);
                 this.setState({loading: false})
                 this.setState({units: units});
             });
     };
 
     goTo = unit => {
-        console.log(unit);
+        // console.log(unit);
         this.props.navigation.navigate('UnitMenu', {unitName: unit.name,idUnit:unit.id})
     };
 

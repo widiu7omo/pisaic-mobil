@@ -21,7 +21,7 @@ export default class IndexSubmenuScreen extends React.Component {
         await query(`select *
                      from kinds`, [])
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 this.setState({menus: result});
                 this.setState({loading: false});
             })
@@ -40,14 +40,33 @@ export default class IndexSubmenuScreen extends React.Component {
         headerIcon: null,
     };
 
-    goTo = menu => {
+    goTo = async menu => {
         //sampai sini
-        this.props.navigation.navigate(menu.screen, {
-            subMenuTitle: menu.name,
-            idKind:menu.id,
-            idUnit:this.props.navigation.getParam('idUnit'),
-            unit: this.props.navigation.getParam('unitName')
+        let kind_id = menu.id;
+        let unit_id = this.props.navigation.getParam('idUnit');
+        //insert first
+       await query(`INSERT OR
+               REPLACE
+               INTO kind_units (id, kind_id, unit_id)
+               VALUES ((SELECT id FROM kind_units WHERE kind_id = ? AND unit_id = ?), ?, ?);`,
+            [kind_id, unit_id, kind_id, unit_id]);
+        //retrive last id
+        await query(`select seq as kind_unit_id 
+               from sqlite_sequence
+               where name = "kind_units"`).then(res => {
+                   // console.log(res);
+            this.props.navigation.navigate(menu.screen, {
+                subMenuTitle: menu.name,
+                idKind: kind_id,
+                idUnit: unit_id,
+                kind_unit_id:res[0].kind_unit_id,
+                unit: this.props.navigation.getParam('unitName')
+
+            });
+
         })
+
+
     };
 
     render() {
@@ -66,17 +85,18 @@ export default class IndexSubmenuScreen extends React.Component {
                     </View>
                 </View>
                 <ScrollView>
-                    <View style={{justifyContent: "center",flex:1}}>
-                    {loading ? <ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/> :
-                        <FlatList data={menus}
-                                  renderItem={({item}) => {
-                                      return (<Button style={styles.menusContent} mode="contained"
-                                                      onPress={() => this.goTo(item)}>{item.name}</Button>)
-                                  }}
-                                  extraData={this.state}
-                                  keyExtractor={(item) => item.name}>
-                        </FlatList>
-                    }
+                    <View style={{justifyContent: "center", flex: 1}}>
+                        {loading ?
+                            <ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/> :
+                            <FlatList data={menus}
+                                      renderItem={({item}) => {
+                                          return (<Button style={styles.menusContent} mode="contained"
+                                                          onPress={() => this.goTo(item)}>{item.name}</Button>)
+                                      }}
+                                      extraData={this.state}
+                                      keyExtractor={(item) => item.name}>
+                            </FlatList>
+                        }
                     </View>
                 </ScrollView>
             </View>

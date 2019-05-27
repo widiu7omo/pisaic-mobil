@@ -6,8 +6,6 @@ import {
     View,
 } from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
-import query from "../database/query";
-import defaultInput from "../constants/Default_z1inputs";
 import {_createSecondMasterTable,_partSecondTable} from '../constants/Default_tables'
 
 export default class AuthLoadingScreen extends React.Component {

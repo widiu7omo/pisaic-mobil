@@ -2,18 +2,29 @@ import query from '../database/query'
 import {kinds} from './Default_kinds'
 import {zones} from "./Default_zones";
 import {groups} from "./Default_groups";
-import {AsyncStorage} from "react-native";
+import {AsyncStorage, Alert} from "react-native";
 import defaultInput from "./Default_z1inputs";
+import {apiUri} from "./config";
+// import {checkConnection} from '../database/checkConnection'
 
 let zoneids = [];
+
 function _getZone() {
     return zoneids;
 }
-function _setZone(zone){
+
+function _setZone(zone) {
     zoneids = zone;
 }
 
 export const createTableMaster = async () => {
+    // checkConnection().then(isConnected => {
+    //     if (isConnected === false) {
+    //         Alert.alert('Gagal', "Anda tidak terkoneksi dengan internet. Pastikan untuk terkoneksi internet untuk membuka pertama kali")
+    //         return;
+    //     }
+    //     console.log('connected');
+    // });
     await query(`DROP TABLE IF EXISTS units`);
     await query(`DROP TABLE IF EXISTS users`);
 
@@ -21,46 +32,57 @@ export const createTableMaster = async () => {
     await query(`CREATE TABLE units
                  (
                      id   INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                     name TEXT
+                     name TEXT,
+                     status INTEGER NULL DEFAULT 0
                  )`, []).then(() => console.log('unit created'));
     await query(`CREATE TABLE users
                  (
                      id    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                      name  TEXT,
                      nrp   TEXT,
-                     lahir TEXT
+                     lahir TEXT,
+                     status INTEGER NULL DEFAULT 0
                  )`, []).then(() => console.log('user created'));
 
     //users insert
     await query(`DELETE
                  FROM users`);
     //fetch from firebase, and intialize data
-    await query(`INSERT INTO users
-                 VALUES (NULL, "AHMAD FIRLI", "80112116", "14031990"),
-                        (NULL, "BAKHTIAR RIFAI", "82102014", "12061982"),
-                        (NULL, "DWI HINDHARYA P", "82107126", "29091986"),
-                        (NULL, "FERIANUS", "82107080", "15061985"),
-                        (NULL, "GUNAIDY", "80112121", "15011991"),
-                        (NULL, "MUH. AGUS ROMI", "80107179", "14061983"),
-                        (NULL, "MUH. YASIN", "80107232", "07031987"),
-                        (NULL, "RUSWANTO", "80107138", "17061984"),
-                        (NULL, "WAHYUDI", "80110206", "16041988"),
-                        (NULL, "YUDHA PRAWIRA ", "80110207", "20111989"),
-                        (NULL, "ZAINURI", "80110259", "08061990");
-    `, []).then(() => console.log('account inserted'));
+    await fetch(apiUri+"sync.php?data=users", {method: "GET"})
+        .then(res => res.json()).then(res => {
+            let sqli = '';
+            let keys = Object.keys(res[0]).join(',');
+            res.forEach((user, index) => {
+                sqli += `(${user.id},'${user.name}','${user.lahir}','${user.nrp}')`;
+                if (res.length === index + 1) {
+                    return;
+                }
+                sqli += ','
+            });
+            query(`INSERT INTO users (${keys})
+                 VALUES ${sqli};`, []).then(() => console.log('account inserted'));
+        });
+
     //units insert
     await query(`DELETE
                  FROM units`);
-    await query(`INSERT INTO units
-                 VALUES (NULL, 'SE 3001'),
-                        (NULL, 'SE 3002'),
-                        (NULL, 'SE 3003'),
-                        (NULL, 'SE 3004'),
-                        (NULL, 'SE 3005'),
-                        (NULL, 'SE 3006'),
-                        (NULL, 'SE 3007');`, []).then(() => console.log('unit inserted'));
+    await fetch(apiUri+"sync.php?data=units", {method: "GET"})
+        .then(res => res.json()).then(res => {
+            let sqli = '';
+            let keys = Object.keys(res[0]).join(',');
+            res.forEach((user, index) => {
+                sqli += `(${user.id},'${user.name}')`;
+                if (res.length === index + 1) {
+                    return;
+                }
+                sqli += ','
+            });
+            query(`INSERT INTO units (${keys})
+                 VALUES ${sqli};`, []).then(() => console.log('unit inserted'));
+        });
 
     const beingUsed = await AsyncStorage.getItem('isUsed');
+    console.log(beingUsed);
     if (beingUsed) {
         return;
     }
@@ -118,7 +140,7 @@ export const createTableMaster = async () => {
 
 export const _createSecondMasterTable = async () => {
     const beingUsed = await AsyncStorage.getItem('isUsed');
-    console.log(beingUsed);
+    // console.log(beingUsed);
     if (beingUsed) {
         return;
     }
@@ -131,32 +153,37 @@ export const _createSecondMasterTable = async () => {
                  (
                      id      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                      kind_id INTEGER,
-                     unit_id INTEGER
+                     unit_id INTEGER,
+                     status DEFAULT 0
+
                  );`, []).then(() => console.log('kind_units created'));
 
     await query(`CREATE TABLE kind_unit_zones
                  (
                      id           INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                      kind_unit_id INTEGER,
-                     zone_id      INTEGER
+                     zone_id      INTEGER,
+                     status DEFAULT 0
                  );`, []).then(() => console.log('kind_unit_zones created'))
     await query(`CREATE TABLE group_kind_unit_zones
                  (
                      id                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                      kind_unit_zone_id INTEGER,
                      group_id          INTEGER,
-                     input_items       TEXT
+                     input_items       TEXT,
+                     status DEFAULT 0
                  );`, []).then(() => console.log('group_kind_unit_zones created'))
 }
 
 export const _partSecondTable = async () => {
 
     const beingUsed = await AsyncStorage.getItem('isUsed');
-    console.log(beingUsed);
+    // console.log(beingUsed);
     if (beingUsed) {
         return;
     }
-    await query(`SELECT id FROM zones`,[]).then((rows)=>{
+    await query(`SELECT id
+                 FROM zones`, []).then((rows) => {
         _setZone(rows);
     });
 
@@ -165,17 +192,18 @@ export const _partSecondTable = async () => {
 
     const zoneids = _getZone();
     let groupIndex = 0;
-    zoneids.map(async (zone,i)=>{
-        if(i>1){
+    zoneids.map(async (zone, i) => {
+        if (i > 1) {
             let valueGroup = '';
-            groups[i-2].forEach((group,j)=>{
+            groups[i - 2].forEach((group, j) => {
                 valueGroup += `(NULL,"${group.name}","${group.screen}","${zone.id}")`;
-                if (j === groups[i-2].length - 1) {
+                if (j === groups[i - 2].length - 1) {
                     return
                 }
                 valueGroup += ','
             });
-            await query(`INSERT INTO groups VALUES ` + valueGroup, []).then(() => console.log(`groups ${i-2} inserted`));
+            await query(`INSERT INTO groups
+            VALUES ` + valueGroup, []).then(() => console.log(`groups ${i - 2} inserted`));
             groupIndex++;
         }
     })

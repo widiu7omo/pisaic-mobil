@@ -1,6 +1,6 @@
 import React from 'react'
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList,ActivityIndicator} from 'react-native'
-import { Button} from 'react-native-paper'
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, ActivityIndicator} from 'react-native'
+import {Button} from 'react-native-paper'
 import {ViewPagerAndroid} from 'react-native-gesture-handler';
 import CustomHeader from "../../../components/CustomHeader";
 import {zones} from "../../../constants/Default_zones";
@@ -19,8 +19,8 @@ export default class IndexPiSheetScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading:false,
-            submenus:[]
+            loading: false,
+            submenus: []
         }
     }
 
@@ -28,47 +28,63 @@ export default class IndexPiSheetScreen extends React.Component {
         await query(`select *
                      from zones`, [])
             .then(result => {
-                console.log(result);
-                this.setState({submenus:result})
+                // console.log(result);
+                this.setState({submenus: result})
                 this.setState({loading: false});
             })
     };
 
     componentDidMount() {
+        // console.log(this.props.navigation.getParam('kind_unit_id'));
+        query(`select *
+               from kind_units`).then(res => console.log(res));
         this.setState({loading: true});
         this.getTable()
 
     }
 
 
-    goTo = submenu => {
-        this.props.navigation.navigate(submenu.screen, {
-            zoneTitle: submenu.screen,
-            unit: this.props.navigation.getParam('unit', 'Unit Name'),
-            zone_id:submenu.id,
+    goTo = async submenu => {
+        let kind_unit_id = this.props.navigation.getParam('kind_unit_id');
+        let zone_id = submenu.id;
+        await query(`INSERT OR
+                     REPLACE
+                     INTO kind_unit_zones (id, kind_unit_id, zone_id)
+                     VALUES ((SELECT id FROM kind_unit_zones WHERE kind_unit_id = ? AND zone_id = ?), ?, ?);`,
+            [kind_unit_id, zone_id, kind_unit_id, zone_id]);
+        await query(`select seq as kind_unit_zone_id
+                     from sqlite_sequence
+                     where name = "kind_unit_zones"`).then(res => {
+            this.props.navigation.navigate(submenu.screen, {
+                zoneTitle: submenu.screen,
+                unit: this.props.navigation.getParam('unit', 'Unit Name'),
+                zone_id: zone_id,
+                kind_unit_zone_id: res[0].kind_unit_zone_id,
+            })
         })
     };
+
     render() {
-        const {submenus,loading} = this.state;
+        const {submenus, loading} = this.state;
         return (
             <View style={styles.container}>
 
 
                 <ScrollView style={styles.inputField}>
                     {
-                        loading?<ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/>:
-                        <FlatList data={submenus}
-                                  renderItem={({item}) => {
-                                      return (
-                                          <View style={styles.submenu}>
-                                              <Button style={styles.menuButton} mode="contained"
-                                                      onPress={() => this.goTo(item)}>{item.name}</Button>
+                        loading ? <ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/> :
+                            <FlatList data={submenus}
+                                      renderItem={({item}) => {
+                                          return (
+                                              <View style={styles.submenu}>
+                                                  <Button style={styles.menuButton} mode="contained"
+                                                          onPress={() => this.goTo(item)}>{item.name}</Button>
 
-                                          </View>)
-                                  }}
-                                  extraData={this.state}
-                                  keyExtractor={(item) => item.name}>
-                        </FlatList>
+                                              </View>)
+                                      }}
+                                      extraData={this.state}
+                                      keyExtractor={(item) => item.name}>
+                            </FlatList>
                     }
                     <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginVertical: 10, padding: 10}}>
 

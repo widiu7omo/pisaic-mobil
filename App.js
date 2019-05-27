@@ -1,10 +1,12 @@
 import React from 'react';
-import {Platform, StatusBar, StyleSheet, View, Text, AsyncStorage} from 'react-native';
+import {Platform, StatusBar, StyleSheet, View, Text, AsyncStorage, NetInfo} from 'react-native';
 import {AppLoading, Asset, Font, Icon, SQLite} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper'
 import {useScreens} from 'react-native-screens';
 import {createTableMaster} from './constants/Default_tables'
+import {checkUsers} from './constants/Data_to_update'
+import query from './database/query'
 
 useScreens();
 const primaryTheme = {
@@ -20,9 +22,31 @@ const primaryTheme = {
 export default class App extends React.Component {
     state = {
         isLoadingComplete: false,
+        connection: false,
     };
     //create main table,
     //@TODO: make data sync from firebase
+    componentDidMount() {
+        NetInfo.isConnected.addEventListener(
+            'connectionChange',
+            this.handleConnectionChange
+        );
+    }
+    componentWillMount() {
+        NetInfo.isConnected.addEventListener(
+            'connectionChange',
+            this.handleConnectionChange
+        );
+    }
+    handleConnectionChange = async isConnected => {
+        if(isConnected){
+            checkUsers().then(res=>console.log(res));
+            console.log('youre online');
+        }
+        this.setState({
+            connection: isConnected,
+        });
+    };
 
     render() {
         if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {

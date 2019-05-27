@@ -1,11 +1,12 @@
 import React from 'react';
-import {Alert, ScrollView, View, Platform, Image, TouchableOpacity} from 'react-native';
+import {Alert, ScrollView, View, Platform, Image, AsyncStorage} from 'react-native';
 import {ImagePicker, Permissions, ImageManipulator} from 'expo';
 import {NavigationEvents} from 'react-navigation';
 import CustomHeader from "../../../components/CustomHeader";
 import {Title, Button, Card, Avatar, TextInput} from "react-native-paper";
 import {Ionicons} from '@expo/vector-icons';
 import Colors from "../../../constants/Colors";
+import KeyboardShift from "../../../components/KeyboardShift";
 
 export default class ImagePickerScreen extends React.Component {
     static navigationOptions = {
@@ -21,17 +22,30 @@ export default class ImagePickerScreen extends React.Component {
         }
     };
 
+    constructor(props) {
+        super(props);
+        AsyncStorage.removeItem('dataFoto');
+    }
+
     async componentDidFocus() {
         await Permissions.askAsync(Permissions.CAMERA);
         await Permissions.askAsync(Permissions.CAMERA_ROLL);
     }
 
-    _compressImage = async (uri) =>{
-        const CompressedImage = await ImageManipulator.manipulateAsync(uri,[],{compress:0.6});
+    _compressImage = async (uri) => {
+        const CompressedImage = await ImageManipulator.manipulateAsync(uri, [], {compress: 0.6});
         // console.log(CompressedImage);
         //return promise
         return CompressedImage;
     };
+    _saveFoto = async (dataFoto) => {
+        dataFoto['indexItem'] = this.props.navigation.getParam('indexItem');
+        let foto = JSON.stringify(dataFoto);
+        await AsyncStorage.setItem('dataFoto', foto);
+        this.props.navigation.state.params.onGoBack();
+        this.props.navigation.goBack();
+    };
+
     render() {
         const showCamera = async () => {
             let result = await ImagePicker.launchCameraAsync({});
@@ -57,7 +71,7 @@ export default class ImagePickerScreen extends React.Component {
             } else {
                 const resultImage = this._compressImage(result.uri);
                 //resultImage return promise
-                resultImage.then(result=>
+                resultImage.then(result =>
                     //compressed image that store to database
                     console.log(result));
                 this.setState({selection: result});
@@ -67,20 +81,24 @@ export default class ImagePickerScreen extends React.Component {
             }
         };
         return (
-            <ScrollView style={{padding: 10}}>
-                <NavigationEvents onDidFocus={this.componentDidFocus}/>
-                <View style={{margin: 5}}>
-                    {
-                        this.CardPhoto(showCamera, showPicker)
-                    }
-                </View>
+            <KeyboardShift>
+                {() => (
+                    <ScrollView style={{padding: 10}}>
+                        <NavigationEvents onDidFocus={this.componentDidFocus}/>
+                        <View style={{margin: 5}}>
+                            {
+                                this.CardPhoto(showCamera, showPicker)
+                            }
+                        </View>
 
-            </ScrollView>
+                    </ScrollView>
+                )}
+            </KeyboardShift>
         );
     }
 
     CardPhoto = (camera, picker) => (
-        <View style={{flexDirection: "column",paddingBottom: 20}}>
+        <View style={{flexDirection: "column", paddingBottom: 20}}>
             <Card elevation={2}>
                 <Card.Title title="Foto Component" subtitle="Pilih Foto"/>
                 <Card.Content>
@@ -105,14 +123,16 @@ export default class ImagePickerScreen extends React.Component {
                            this.setState({dataFoto})
                        }}
                        label="Catatan" mode="outlined" style={{height: 200}}/>
-            <View style={{flexDirection:"row",justifyContent:"flex-end",alignItems:"flex-end",marginTop:15}}>
-                <Button mode="contained" style={{marginLeft: 5}} onPress={() => this.props.navigation.goBack()}>Kembali</Button>
-                <Button mode="contained" style={{marginLeft: 5}} onPress={() => Alert.alert(JSON.stringify(this.state.dataFoto))}> Simpan</Button>
+            <View style={{flexDirection: "row", justifyContent: "flex-end", alignItems: "flex-end", marginTop: 15}}>
+                <Button mode="contained" style={{marginLeft: 5}}
+                        onPress={() => this.props.navigation.goBack()}>Kembali</Button>
+                <Button mode="contained" style={{marginLeft: 5}}
+                        onPress={() => this._saveFoto(this.state.dataFoto)}> Simpan</Button>
             </View>
         </View>
     );
     _maybeRenderSelection = () => {
-        const {selection,dataFoto} = this.state;
+        const {selection, dataFoto} = this.state;
 
         if (!selection) {
             return;

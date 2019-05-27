@@ -10,6 +10,7 @@ import AddUserScreen from '../screens/AddUserScreen';
 import DbPisaicScreen from '../screens/DbPisaicScreen';
 import HomeStack from './HomeStackNavigator';
 import indexScreen from "../screens/settings/indexScreen";
+import PisheetDbScreen from "../screens/dbpisaic/PisheetDbScreen";
 //Main screen on Home
 //with some of nested screen
 //@TODO:cek status 
@@ -20,7 +21,8 @@ import indexScreen from "../screens/settings/indexScreen";
 //Main screen on DBPisaic
 //doesn't have any nested screen
 const DatabasePisaicStack = createStackNavigator({
-    DbPisaic: DbPisaicScreen
+    DbPisaic: DbPisaicScreen,
+    PisheetDb:PisheetDbScreen
 });
 
 DatabasePisaicStack.navigationOptions = {

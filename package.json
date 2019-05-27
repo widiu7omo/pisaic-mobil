@@ -24,7 +24,6 @@
     "react-native-wizard": "^1.0.1",
     "react-navigation": "^3.0.9",
     "react-navigation-material-bottom-tabs": "^1.0.0",
-    "redux-thunk": "^2.3.0",
     "why-did-you-update": "^1.0.6"
   },
   "devDependencies": {

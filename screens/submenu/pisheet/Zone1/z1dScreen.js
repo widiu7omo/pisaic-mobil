@@ -1,11 +1,12 @@
 import React from 'react'
-import {FlatList, View, StyleSheet, ScrollView, Text, Picker, ActivityIndicator} from 'react-native'
+import {FlatList, View, StyleSheet, ScrollView, Text, Picker, ActivityIndicator,Alert} from 'react-native'
 import {Card, Button, TextInput, RadioButton} from 'react-native-paper'
 import CustomHeader from '../../../../components/CustomHeader'
 import KeyboardShift from '../../../../components/KeyboardShift'
 import {normalize} from "../../../../constants/FontSize";
 import query from "../../../../database/query"
 import Colors from "../../../../constants/Colors";
+import input from "../../../../constants/Default_z1inputs";
 
 const styles = StyleSheet.create({
     container: {
@@ -43,13 +44,38 @@ export default class z1aScreen extends React.Component {
         this.fetchInput().then(() => this.setState({loading: false}))
     }
 
+    saveInput = async () => {
+        let group_id = this.props.navigation.getParam('group_id');
+        let kind_unit_zone_id = this.props.navigation.getParam('kind_unit_zone_id');
+        let input_items = JSON.stringify(this.state.inputItems);
+        console.log(input_items);
+        await query(`INSERT OR
+                     REPLACE
+                     INTO group_kind_unit_zones (id, kind_unit_zone_id, group_id, input_items)
+                     VALUES ((SELECT id FROM group_kind_unit_zones WHERE kind_unit_zone_id = ? AND group_id = ?), ?, ?,
+                             ?);`,
+            [kind_unit_zone_id, group_id, kind_unit_zone_id, group_id,input_items]);
+        await query(`select seq as group_kind_unit_zone_id
+                     from sqlite_sequence
+                     where name = "group_kind_unit_zones"`).then(res => {
+            console.log(res);
+            Alert.alert('Success','Data berhasil tersimpan');
+        })
+    };
     fetchInput = async () => {
+        let group_id = this.props.navigation.getParam('group_id');
+        let kind_unit_zone_id = this.props.navigation.getParam('kind_unit_zone_id');
         this.setState({loading: true});
         await query(`select *
-                     from z1a
-                     where zone1_id = ?`, [1])
+                     from group_kind_unit_zones
+                     where group_id = ?
+                       and kind_unit_zone_id = ?`, [group_id, kind_unit_zone_id])
             .then(result => {
-                const res = result[0].input_items;
+                let res = input.z1d;
+                console.log(result);
+                if (result.length === 1) {
+                    res = result[0].input_items;
+                }
                 const parsedRes = JSON.parse(res);
                 this.setState({inputItems: parsedRes});
             })
@@ -213,7 +239,7 @@ export default class z1aScreen extends React.Component {
                                                 style={{marginHorizontal: 10}}
                                                 onPress={() => this.props.navigation.goBack()}>Kembali</Button>
                                         <Button icon="save" mode="contained"
-                                                onPress={() => console.log(this.state)}>Simpan</Button>
+                                                onPress={() => this.saveInput()}>Simpan</Button>
                                     </View>
 
 
