@@ -2,7 +2,11 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="SQLite - db_pisaic.db" uuid="8dca82cc-2e2a-45ae-a44f-1ec7bcd442da">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" dbms="SQLITE" exact-version="3.25.1" exact-driver-version="3.25">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <user-name>root</user-name>
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
     <data-source name="pisaic_mobile.db" uuid="d11e2635-e646-494c-bcbf-2c8828f0c35e">

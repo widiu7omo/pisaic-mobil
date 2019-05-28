@@ -4,9 +4,8 @@ import {AppLoading, Asset, Font, Icon, SQLite} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper'
 import {useScreens} from 'react-native-screens';
-import {createTableMaster} from './constants/Default_tables'
-import {checkUsers} from './constants/Data_to_update'
-import query from './database/query'
+import {createTableOffline, initMasterTable, secondPartTableOffline, syncMasterData} from './constants/Default_tables'
+import user from './constants/UserController'
 
 useScreens();
 const primaryTheme = {
@@ -24,6 +23,12 @@ export default class App extends React.Component {
         isLoadingComplete: false,
         connection: false,
     };
+
+    constructor(props) {
+        super(props);
+
+    }
+
     //create main table,
     //@TODO: make data sync from firebase
     componentDidMount() {
@@ -32,7 +37,7 @@ export default class App extends React.Component {
             this.handleConnectionChange
         );
     }
-    componentWillMount() {
+    componentWillUnmount() {
         NetInfo.isConnected.addEventListener(
             'connectionChange',
             this.handleConnectionChange
@@ -40,8 +45,18 @@ export default class App extends React.Component {
     }
     handleConnectionChange = async isConnected => {
         if(isConnected){
-            checkUsers().then(res=>console.log(res));
-            console.log('youre online');
+            await initMasterTable()
+                .then(()=>{
+                    syncMasterData()
+                    user.sync();
+                });
+            const userToken = await AsyncStorage.getItem('userToken');
+            if(!userToken){
+                await createTableOffline().then(()=>{
+                    secondPartTableOffline();
+                })
+            }
+
         }
         this.setState({
             connection: isConnected,
@@ -62,7 +77,7 @@ export default class App extends React.Component {
                 <PaperProvider theme={primaryTheme}>
                     <View style={styles.container}>
                         {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
-                        <AppNavigator/>
+                        <AppNavigator screenProps={{isConnected:this.state.connection}}/>
                     </View>
                 </PaperProvider>
             )
@@ -70,8 +85,6 @@ export default class App extends React.Component {
     }
 
     _loadResourcesAsync = async () => {
-        //create table first
-        await createTableMaster();
         return Promise.all([
             Asset.loadAsync([
                 // require('./assets/images/robot-dev.png'),

@@ -5,7 +5,6 @@ import {groups} from "./Default_groups";
 import {AsyncStorage, Alert} from "react-native";
 import defaultInput from "./Default_z1inputs";
 import {apiUri} from "./config";
-// import {checkConnection} from '../database/checkConnection'
 
 let zoneids = [];
 
@@ -17,78 +16,50 @@ function _setZone(zone) {
     zoneids = zone;
 }
 
-export const createTableMaster = async () => {
-    // checkConnection().then(isConnected => {
-    //     if (isConnected === false) {
-    //         Alert.alert('Gagal', "Anda tidak terkoneksi dengan internet. Pastikan untuk terkoneksi internet untuk membuka pertama kali")
-    //         return;
-    //     }
-    //     console.log('connected');
-    // });
-    await query(`DROP TABLE IF EXISTS units`);
-    await query(`DROP TABLE IF EXISTS users`);
-
-    //TODO:add IF NOT EXIST THEN,if table are fixed
-    await query(`CREATE TABLE units
-                 (
-                     id   INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                     name TEXT,
-                     status INTEGER NULL DEFAULT 0
-                 )`, []).then(() => console.log('unit created'));
-    await query(`CREATE TABLE users
-                 (
-                     id    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                     name  TEXT,
-                     nrp   TEXT,
-                     lahir TEXT,
-                     status INTEGER NULL DEFAULT 0
-                 )`, []).then(() => console.log('user created'));
-
-    //users insert
-    await query(`DELETE
-                 FROM users`);
-    //fetch from firebase, and intialize data
-    await fetch(apiUri+"sync.php?data=users", {method: "GET"})
-        .then(res => res.json()).then(res => {
-            let sqli = '';
-            let keys = Object.keys(res[0]).join(',');
-            res.forEach((user, index) => {
-                sqli += `(${user.id},'${user.name}','${user.lahir}','${user.nrp}')`;
-                if (res.length === index + 1) {
-                    return;
-                }
-                sqli += ','
-            });
-            query(`INSERT INTO users (${keys})
-                 VALUES ${sqli};`, []).then(() => console.log('account inserted'));
-        });
-
-    //units insert
-    await query(`DELETE
-                 FROM units`);
-    await fetch(apiUri+"sync.php?data=units", {method: "GET"})
-        .then(res => res.json()).then(res => {
-            let sqli = '';
-            let keys = Object.keys(res[0]).join(',');
-            res.forEach((user, index) => {
-                sqli += `(${user.id},'${user.name}')`;
-                if (res.length === index + 1) {
-                    return;
-                }
-                sqli += ','
-            });
-            query(`INSERT INTO units (${keys})
-                 VALUES ${sqli};`, []).then(() => console.log('unit inserted'));
-        });
+//#1
+export const initMasterTable = async () => {
 
     const beingUsed = await AsyncStorage.getItem('isUsed');
     console.log(beingUsed);
     if (beingUsed) {
         return;
     }
+    //drop table
+    await query(`DROP TABLE IF EXISTS units`);
+    await query(`DROP TABLE IF EXISTS users`);
+
     await query(`DROP TABLE IF EXISTS kinds`);
     await query(`DROP TABLE IF EXISTS zones`);
     await query(`DROP TABLE IF EXISTS groups`);
+
+    await query(`DROP TABLE IF EXISTS kind_units`);
+    await query(`DROP TABLE IF EXISTS kind_unit_zones`);
+    await query(`DROP TABLE IF EXISTS group_kind_unit_zones`);
+
+    //create table
+    await query(`CREATE TABLE IF NOT EXISTS units
+                 (
+                     id     INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                     name   TEXT,
+                     status INTEGER                           NULL DEFAULT 0
+                 )`, []).then(() => console.log('unit created'));
+    await query(`CREATE TABLE IF NOT EXISTS users
+                 (
+                     id     INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                     name   TEXT,
+                     nrp    TEXT,
+                     lahir  TEXT,
+                     status INTEGER                           NULL DEFAULT 0
+                 )`, []).then(() => console.log('user created'));
+    await query(`CREATE TABLE kind_units
+                 (
+                     id      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                     kind_id INTEGER,
+                     unit_id INTEGER,
+                     status DEFAULT 0
+
+                 );`, []).then(() => console.log('kind_units created'));
+
 
     await query(`CREATE TABLE kinds
                  (
@@ -111,6 +82,74 @@ export const createTableMaster = async () => {
                  ); `, []).then(() => console.log('groups created'))
 
 
+    await query(`CREATE TABLE kind_unit_zones
+                 (
+                     id           INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                     kind_unit_id INTEGER,
+                     zone_id      INTEGER,
+                     status DEFAULT 0
+                 );`, []).then(() => console.log('kind_unit_zones created'))
+    await query(`CREATE TABLE group_kind_unit_zones
+                 (
+                     id                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                     kind_unit_zone_id INTEGER,
+                     group_id          INTEGER,
+                     input_items       TEXT,
+                     status DEFAULT 0
+                 );`, []).then(() => console.log('group_kind_unit_zones created'))
+
+}
+//#2
+export const syncMasterData = async () => {
+    //sync user and units
+    // await query(`DELETE
+    //              FROM units`);
+    await fetch(apiUri + "sync.php?data=units", {method: "GET"})
+        .then(res => res.json()).then(res => {
+            let sqli = '';
+            let keys = Object.keys(res[0]).join(',');
+            res.forEach((unit, index) => {
+                sqli += `((SELECT id from units where name = '${unit.name}'),'${unit.name}',1)`;
+                if (res.length === index + 1) {
+                    return;
+                }
+                sqli += ','
+            });
+            query(`INSERT OR
+            REPLACE INTO units (${keys},status)
+                 VALUES ${sqli};`, []).then(() => console.log('unit inserted'));
+        });
+
+    // await query(`DELETE
+    //              FROM users`);
+    //fetch from server, and initialize data
+    await fetch(apiUri + "sync.php?data=users", {method: "GET"})
+        .then(res => res.json()).then(res => {
+            let sqli = '';
+            let keys = Object.keys(res[0]).join(',');
+            res.forEach((user, index) => {
+                sqli += `((SELECT id from users where name = '${user.name}'),'${user.name}','${user.lahir}','${user.nrp}',1)`;
+                if (res.length === index + 1) {
+                    return;
+                }
+                sqli += ','
+            });
+            //add status = 1 cz data synced with server
+            query(`INSERT OR
+            REPLACE INTO users (${keys},status)
+                 VALUES ${sqli};`, []).then(() => console.log('account inserted'));
+        });
+
+}
+//#3
+export const createTableOffline = async () => {
+
+    //no longer needed to update when app already used
+    const beingUsed = await AsyncStorage.getItem('isUsed');
+    console.log(beingUsed);
+    if (beingUsed) {
+        return;
+    }
     await query(`DELETE
                  FROM kinds`);
     let valueKind = '';
@@ -136,46 +175,9 @@ export const createTableMaster = async () => {
     });
     await query(`INSERT INTO zones
     VALUES ` + valueZone, []).then(() => console.log('zones inserted'));
-};
-
-export const _createSecondMasterTable = async () => {
-    const beingUsed = await AsyncStorage.getItem('isUsed');
-    // console.log(beingUsed);
-    if (beingUsed) {
-        return;
-    }
-
-    await query(`DROP TABLE IF EXISTS kind_units`);
-    await query(`DROP TABLE IF EXISTS kind_unit_zones`);
-    await query(`DROP TABLE IF EXISTS group_kind_unit_zones`)
-
-    await query(`CREATE TABLE kind_units
-                 (
-                     id      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                     kind_id INTEGER,
-                     unit_id INTEGER,
-                     status DEFAULT 0
-
-                 );`, []).then(() => console.log('kind_units created'));
-
-    await query(`CREATE TABLE kind_unit_zones
-                 (
-                     id           INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                     kind_unit_id INTEGER,
-                     zone_id      INTEGER,
-                     status DEFAULT 0
-                 );`, []).then(() => console.log('kind_unit_zones created'))
-    await query(`CREATE TABLE group_kind_unit_zones
-                 (
-                     id                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                     kind_unit_zone_id INTEGER,
-                     group_id          INTEGER,
-                     input_items       TEXT,
-                     status DEFAULT 0
-                 );`, []).then(() => console.log('group_kind_unit_zones created'))
 }
-
-export const _partSecondTable = async () => {
+//#4
+export const secondPartTableOffline = async () => {
 
     const beingUsed = await AsyncStorage.getItem('isUsed');
     // console.log(beingUsed);

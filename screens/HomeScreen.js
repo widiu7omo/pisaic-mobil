@@ -41,7 +41,6 @@ export default class HomeScreen extends React.Component {
 
     constructor(props) {
         super(props);
-
         //admin menu, workorder,cek status,goto pi, create pi
         //spv menu, give order,cek status,goto pi
         this.state = {

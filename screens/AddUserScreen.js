@@ -1,7 +1,7 @@
 import React from 'react'
 import {TouchableOpacity, View, ScrollView, Image, Text, Alert, AsyncStorage} from 'react-native'
 import {TextInput, Button} from 'react-native-paper'
-import query from '../database/query'
+import user from "../constants/UserController"
 
 class LogoTitle extends React.Component {
     constructor(props) {
@@ -46,23 +46,21 @@ export default class AddUserScreen extends React.Component {
     };
 
     save(newUser) {
+        console.log(this.props.screenProps);
         console.log(newUser);
-        query('insert into users values (null,?,?,?)', [newUser.name, newUser.nrp, newUser.lahir])
-            .then(() => {
-                this.success = true;
-                Alert.alert("Success", "User berhasil ditambahkan",
-                    [{
-                        text: 'OK', onPress: () => {
-                            this.props.navigation.navigate('User')
-                        }
-                    }]);
-                console.log('sucess')
-            })
-            .catch(err => {
-                console.log('fail', err);
-                this.err = err;
-                this.success = false;
-            })
+        user.insert(newUser,this.props.screenProps.isConnected).then(() => {
+            this.success = true;
+            Alert.alert("Success", "User berhasil ditambahkan",
+                [{
+                    text: 'OK', onPress: () => {
+                        this.props.navigation.navigate('User')
+                    }
+                }]);
+        }).catch(err => {
+            console.log('fail', err);
+            this.err = err;
+            this.success = false;
+        })
     }
 
     render() {
@@ -91,7 +89,7 @@ export default class AddUserScreen extends React.Component {
                                onChangeText={(value) => this.setState({lahir: value})} placeholder="Tanggal Lahir"/>
 
                     <Button style={{margin: 15}} mode="contained" onPress={() => {
-                        console.log(this.state)
+                        console.log(this.state);
                         this.save(this.state);
                     }
                     }>Tambah User</Button>
