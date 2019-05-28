@@ -37,22 +37,25 @@ export default class App extends React.Component {
             this.handleConnectionChange
         );
     }
+
     componentWillUnmount() {
         NetInfo.isConnected.addEventListener(
             'connectionChange',
             this.handleConnectionChange
         );
     }
+
     handleConnectionChange = async isConnected => {
-        if(isConnected){
+        if (isConnected) {
             await initMasterTable()
-                .then(()=>{
-                    syncMasterData()
-                    user.sync();
+                .then(() => {
+                    syncMasterData().then(() => {
+                        user.sync(this.state.connection);
+                    })
                 });
             const userToken = await AsyncStorage.getItem('userToken');
-            if(!userToken){
-                await createTableOffline().then(()=>{
+            if (!userToken) {
+                await createTableOffline().then(() => {
                     secondPartTableOffline();
                 })
             }
@@ -77,7 +80,7 @@ export default class App extends React.Component {
                 <PaperProvider theme={primaryTheme}>
                     <View style={styles.container}>
                         {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
-                        <AppNavigator screenProps={{isConnected:this.state.connection}}/>
+                        <AppNavigator screenProps={{isConnected: this.state.connection}}/>
                     </View>
                 </PaperProvider>
             )

@@ -1,7 +1,7 @@
 import React from 'react'
 import {TouchableOpacity, View, ScrollView, Image, Text, RefreshControl} from 'react-native'
+import user from '../constants/UserController';
 import {DataTable, Button, ActivityIndicator} from 'react-native-paper'
-import query from '../database/query'
 
 class LogoTitle extends React.Component {
     constructor(props) {
@@ -47,20 +47,22 @@ export default class UserScreen extends React.Component {
         }
     }
 
-
     componentDidMount() {
         this.update()
     }
 
-    update = () => {
+    update = async () => {
         this.loading = true;
+        let isConnected = this.props.screenProps.isConnected;
         this.setState({refreshing: true});
-        query(`select *
-               from users`, [],)
+        await user.select(null,isConnected)
             .then(users => {
+                console.log(users);
                 this.loading = false;
-                // console.log(users);
-                this.setState({users: users})
+
+                if(typeof users === 'object'){
+                    this.setState({users: users})
+                }
                 this.setState({refreshing: false})
             })
             .catch(err => console.log(err));
