@@ -118,7 +118,7 @@ export const syncMasterData = async () => {
             query(`INSERT OR
             REPLACE INTO units (${keys},status)
                  VALUES ${sqli};`, []).then(() => console.log('unit inserted'));
-        });
+        }).catch(()=>Alert.alert('Failed','Failed retrive data, can\'t connect to server...'));
 
     // await query(`DELETE
     //              FROM users`);
@@ -138,7 +138,7 @@ export const syncMasterData = async () => {
             query(`INSERT OR
             REPLACE INTO users (${keys},status)
                  VALUES ${sqli};`, []).then(() => console.log('account inserted'));
-        });
+        }).catch(()=>Alert.alert('Failed','Failed retrive data, can\'t connect to server...'));;
 
 }
 //#3

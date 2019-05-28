@@ -1,6 +1,7 @@
 import query from '../database/query'
 import {apiUri} from "./config";
 import {checkDataTable} from "./Data_to_update";
+import {Alert} from "react-native";
 //data always object not array
 const createFormData = (body) => {
     // body is array
@@ -34,7 +35,10 @@ async function insert(data,isConnected) {
                 });
                 query(`INSERT INTO users (${keys},status)
                  VALUES ${sqli};`, []).then(() => console.log('user inserted local status 1'));
-            })
+            }).catch((err)=>{
+                console.log(err);
+                Alert.alert('Failed','Failed insert data')
+            });
         } else {
             console.log('im offline');
             //offline

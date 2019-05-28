@@ -14,12 +14,6 @@ import Colors from '../constants/Colors'
 import query from '../database/query'
 import {Button, ActivityIndicator} from 'react-native-paper';
 
-// if (process.env.NODE_ENV !== 'production') {
-//     const {whyDidYouUpdate} = require('why-did-you-update');
-//     whyDidYouUpdate(React);
-// }
-// const db = SQLite.openDatabase('db_piasic.db');
-
 class LogoTitle extends React.Component {
     constructor(props) {
         super(props);

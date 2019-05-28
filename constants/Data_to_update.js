@@ -1,5 +1,6 @@
 import query from '../database/query';
 import {apiUri} from "./config";
+import {Alert} from "react-native";
 //sesuaikan dengan data table;
 //create form ini hanya untuk single user
 const createFormData = (body,table) => {
@@ -31,7 +32,7 @@ export const checkDataTable = async (table) => {
                     console.log(`update ${table} to server`)
                 }
 
-            });
+            }).catch(()=>Alert.alert('Failed','Failed connect to server, get local data...'));
 
         }
     });
