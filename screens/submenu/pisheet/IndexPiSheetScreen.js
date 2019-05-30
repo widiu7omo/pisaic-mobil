@@ -7,6 +7,7 @@ import {zones} from "../../../constants/Default_zones";
 import query from "../../../database/query";
 import Colors from "../../../constants/Colors";
 import {checkDataTable} from "../../../constants/Data_to_update";
+import {ID} from "../../../constants/Unique";
 
 //if you want to get unit name on subheader, then send param from navigate function with "unit" param
 
@@ -48,24 +49,35 @@ export default class IndexPiSheetScreen extends React.Component {
     goTo = async submenu => {
         let kind_unit_id = this.props.navigation.getParam('kind_unit_id');
         let zone_id = submenu.id;
-        await query(`INSERT OR
-                     REPLACE
-                     INTO kind_unit_zones (id, kind_unit_id, zone_id)
-                     VALUES ((SELECT id FROM kind_unit_zones WHERE kind_unit_id = ? AND zone_id = ?), ?, ?);`,
-            [kind_unit_id, zone_id, kind_unit_id, zone_id]);
-        if(this.props.screenProps.isConnected){
-            await checkDataTable('kind_unit_zones').then(console.log('synced kind_unit_zones'));
-        }
-        await query(`select seq as kind_unit_zone_id
-                     from sqlite_sequence
-                     where name = "kind_unit_zones"`).then(res => {
-            this.props.navigation.navigate(submenu.screen, {
-                zoneTitle: submenu.screen,
-                unit: this.props.navigation.getParam('unit', 'Unit Name'),
-                zone_id: zone_id,
-                kind_unit_zone_id: res[0].kind_unit_zone_id,
-            })
-        })
+        await query(`SELECT id
+                     FROM kind_unit_zones
+                     WHERE kind_unit_id = ?
+                       AND zone_id = ?`, [kind_unit_id, zone_id])
+            .then(async res => {
+                //generate new id
+                let kind_unit_zone_id = ID();
+                //if found
+                if (res.length > 0) {
+                    //replace generated id with existing id
+                    kind_unit_zone_id = res[0].id;
+                }
+                //insert or replace with kind_unit_id
+                await query(`INSERT OR
+                             REPLACE
+                             INTO kind_unit_zones (id, kind_unit_id, zone_id)
+                             VALUES (?, ?, ?);`, [kind_unit_zone_id, kind_unit_id, zone_id]);
+
+                if (this.props.screenProps.isConnected) {
+                    await checkDataTable('kind_unit_zones').then(console.log('synced kind_unit_zones'));
+                }
+                await this.props.navigation.navigate(submenu.screen, {
+                    zoneTitle: submenu.screen,
+                    unit: this.props.navigation.getParam('unit', 'Unit Name'),
+                    zone_id: zone_id,
+                    kind_unit_zone_id: kind_unit_zone_id,
+                });
+
+            });
     };
 
     render() {

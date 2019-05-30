@@ -5,6 +5,7 @@ import CustomHeader from '../../components/CustomHeader'
 import query from '../../database/query'
 import {checkDataTable} from '../../constants/Data_to_update'
 import Colors from "../../constants/Colors";
+import {ID} from "../../constants/Unique";
 
 export default class IndexSubmenuScreen extends React.Component {
     constructor(props) {
@@ -44,31 +45,37 @@ export default class IndexSubmenuScreen extends React.Component {
         //sampai sini
         let kind_id = menu.id;
         let unit_id = this.props.navigation.getParam('idUnit');
-        //insert first
-       await query(`INSERT OR
-               REPLACE
-               INTO kind_units (id, kind_id, unit_user_id)
-               VALUES ((SELECT id FROM kind_units WHERE kind_id = ? AND unit_user_id = ?), ?, ?);`,
-            [kind_id, unit_id, kind_id, unit_id]);
-       if(this.props.screenProps.isConnected){
-           await checkDataTable('kind_units').then(console.log('synced kind_units'));
-       }
-        //retrive last id
-        await query(`select seq as kind_unit_id 
-               from sqlite_sequence
-               where name = "kind_units"`).then(res => {
-                   // console.log(res);
-            this.props.navigation.navigate(menu.screen, {
-                subMenuTitle: menu.name,
-                idKind: kind_id,
-                idUnit: unit_id,
-                kind_unit_id:res[0].kind_unit_id,
-                unit: this.props.navigation.getParam('unitName')
+        //retrieve existing id from local
+        await query(`SELECT id
+                     FROM kind_units
+                     WHERE kind_id = ?
+                       AND unit_user_id = ?`, [kind_id, unit_id])
+            .then(async res => {
+                //generate new id
+                let kind_unit_id = ID();
+                //if found
+                if (res.length > 0) {
+                    //replace generated id with existing id
+                    kind_unit_id = res[0].id;
+                }
+                //insert or replace with kind_unit_id
+                await query(`INSERT OR
+                             REPLACE
+                             INTO kind_units (id, kind_id, unit_user_id)
+                             VALUES (?, ?, ?);`, [kind_unit_id, kind_id, unit_id]);
+
+                if (this.props.screenProps.isConnected) {
+                    await checkDataTable('kind_units').then(console.log('synced kind_units'));
+                }
+                await this.props.navigation.navigate(menu.screen, {
+                    subMenuTitle: menu.name,
+                    idKind: kind_id,
+                    idUnit: unit_id,
+                    kind_unit_id: kind_unit_id,
+                    unit: this.props.navigation.getParam('unitName')
+                });
 
             });
-
-        })
-
 
     };
 

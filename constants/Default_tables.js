@@ -1,7 +1,4 @@
 import query from '../database/query'
-import {kinds} from './Default_kinds'
-import {zones} from "./Default_zones";
-import {groups} from "./Default_groups";
 import {AsyncStorage, Alert} from "react-native";
 import defaultInput from "./Default_z1inputs";
 import {apiUri} from "./config";

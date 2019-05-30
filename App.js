@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, StatusBar, StyleSheet, View, Text, AsyncStorage, NetInfo} from 'react-native';
+import {Platform, StatusBar, StyleSheet, View, Alert, AsyncStorage, NetInfo} from 'react-native';
 import {AppLoading, Asset, Font, Icon, SQLite} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper'
@@ -7,7 +7,6 @@ import {useScreens} from 'react-native-screens';
 import {createTableOffline, initMasterTable, secondPartTableOffline, syncMasterData} from './constants/Default_tables'
 import user from './constants/UserController'
 import {checkDataTable} from "./constants/Data_to_update";
-import {init} from './constants/Init'
 useScreens();
 const primaryTheme = {
     ...DefaultTheme,
@@ -46,12 +45,22 @@ export default class App extends React.Component {
     }
 
     handleConnectionChange = async isConnected => {
+        this.setState({
+            connection: isConnected,
+        });
+
         if (isConnected) {
             await initMasterTable()
                 .then(() => {
-                    syncMasterData().then(() => {
-                        user.sync(this.state.connection);
-                        checkDataTable('kind_units').then(console.log('synced kind_units'))
+                    syncMasterData().then(async () => {
+                        // user.sync(this.state.connection);
+                        await checkDataTable('users').then(console.log('synced users'))
+                        await checkDataTable('units').then(console.log('synced users'))
+                        await checkDataTable('kind_units').then(console.log('synced kind_units'))
+                        await checkDataTable('kind_unit_zones').then(console.log('synced kind_unit_zones'))
+                        await checkDataTable('group_kind_unit_zones').then(console.log('synced group_kind_unit_zones'))
+                        await checkDataTable('unit_users').then(console.log('synced unit_users'))
+
                     })
                 });
             const userToken = await AsyncStorage.getItem('userToken');
@@ -62,9 +71,10 @@ export default class App extends React.Component {
             }
 
         }
-        this.setState({
-            connection: isConnected,
-        });
+        else {
+            Alert.alert('Koneksi Gagal','Gagal terkoneksi dengan internet. Periksa kembali konektifitas anda')
+        }
+
     };
 
     render() {

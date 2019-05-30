@@ -18,6 +18,7 @@ import query from "../../../../database/query"
 import Colors from "../../../../constants/Colors";
 import input from "../../../../constants/Default_z1inputs";
 import {checkDataTable} from "../../../../constants/Data_to_update";
+import {ID} from "../../../../constants/Unique";
 
 const styles = StyleSheet.create({
     container: {
@@ -62,21 +63,32 @@ export default class z1aScreen extends React.Component {
         let kind_unit_zone_id = this.props.navigation.getParam('kind_unit_zone_id');
         let input_items = JSON.stringify(this.state.inputItems);
         console.log(input_items);
-        await query(`INSERT OR
-                     REPLACE
-                     INTO group_kind_unit_zones (id, kind_unit_zone_id, group_id, input_items)
-                     VALUES ((SELECT id FROM group_kind_unit_zones WHERE kind_unit_zone_id = ? AND group_id = ?), ?, ?,
-                             ?);`,
-            [kind_unit_zone_id, group_id, kind_unit_zone_id, group_id, input_items]);
-        if(this.props.screenProps.isConnected){
-            await checkDataTable('group_kind_unit_zones').then(console.log('synced group_kind_unit_zones'));
-        }
-        await query(`select seq as group_kind_unit_zone_id
-                     from sqlite_sequence
-                     where name = "group_kind_unit_zones"`).then(res => {
-            console.log(res);
-            Alert.alert('Success', 'Data berhasil tersimpan');
-        })
+
+        await query(`SELECT id
+                     FROM group_kind_unit_zones
+                     WHERE kind_unit_zone_id = ?
+                       AND group_id = ?`, [kind_unit_zone_id, group_id])
+            .then(async res => {
+                //generate new id
+                let group_kind_unit_zone_id = ID();
+                //if found
+                if (res.length > 0) {
+                    //replace generated id with existing id
+                    group_kind_unit_zone_id = res[0].id;
+                }
+                //insert or replace with kind_unit_id
+                await query(`INSERT OR
+                             REPLACE
+                             INTO group_kind_unit_zones (id, kind_unit_zone_id, group_id, input_items)
+                             VALUES (?, ?, ?, ?);`, [group_kind_unit_zone_id, group_id, kind_unit_zone_id, group_id, input_items])
+                    .then(() => Alert.alert('Success', 'Data berhasil tersimpan'));
+
+                if (this.props.screenProps.isConnected) {
+                    await checkDataTable('group_kind_unit_zones').then(console.log('synced group_kind_unit_zones'));
+                }
+
+
+            });
     };
     fetchInput = async () => {
         let group_id = this.props.navigation.getParam('group_id');
@@ -120,11 +132,11 @@ export default class z1aScreen extends React.Component {
         }
     }
 
-    ImagePicker = (item,index) => {
+    ImagePicker = (item, index) => {
         console.log(item);
         this.props.navigation.navigate('ImagePicker', {
             zonekind: item.name,
-            indexItem:index,
+            indexItem: index,
             unit: this.props.navigation.getParam('unit'),
             onGoBack: () => this.getFromImagePicker()
 
@@ -138,12 +150,12 @@ export default class z1aScreen extends React.Component {
         const indexFoto = parsedFoto.indexItem;
         const inputItems = [...this.state.inputItems];
         const foto = {
-            name:parsedFoto.uri,
-            catatan:parsedFoto.catatanFoto
+            name: parsedFoto.uri,
+            catatan: parsedFoto.catatanFoto
 
         };
         console.log(foto);
-        inputItems[indexFoto] = {...inputItems[indexFoto],foto:foto};
+        inputItems[indexFoto] = {...inputItems[indexFoto], foto: foto};
         this.setState({inputItems})
         console.log(this.state.inputItems)
     };
@@ -218,7 +230,7 @@ export default class z1aScreen extends React.Component {
                                                   <Text style={styles.viewFoto}>Foto</Text>
                                                   <Button icon="add-a-photo" dark={true}
                                                           mode="contained"
-                                                          onPress={() => this.ImagePicker(item,index)}>Foto</Button>
+                                                          onPress={() => this.ImagePicker(item, index)}>Foto</Button>
                                               </View>
                                           </View>
                                       </View>
