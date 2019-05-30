@@ -17,6 +17,7 @@ import {normalize} from "../../../../constants/FontSize";
 import query from "../../../../database/query"
 import Colors from "../../../../constants/Colors";
 import input from "../../../../constants/Default_z1inputs";
+import {checkDataTable} from "../../../../constants/Data_to_update";
 
 const styles = StyleSheet.create({
     container: {
@@ -67,6 +68,9 @@ export default class z1aScreen extends React.Component {
                      VALUES ((SELECT id FROM group_kind_unit_zones WHERE kind_unit_zone_id = ? AND group_id = ?), ?, ?,
                              ?);`,
             [kind_unit_zone_id, group_id, kind_unit_zone_id, group_id, input_items]);
+        if(this.props.screenProps.isConnected){
+            await checkDataTable('group_kind_unit_zones').then(console.log('synced group_kind_unit_zones'));
+        }
         await query(`select seq as group_kind_unit_zone_id
                      from sqlite_sequence
                      where name = "group_kind_unit_zones"`).then(res => {

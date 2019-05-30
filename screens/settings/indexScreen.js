@@ -35,13 +35,14 @@ export default class indexScreen extends React.Component {
         await query(`SELECT name FROM sqlite_master WHERE type='table'`).then(res=>{
             let success = false;
             res.forEach(async table=>{
-                if(table.name !== 'sqlite_sequence'){
-                    await query(`DROP TABLE IF EXISTS ${table.name}`).then(()=>success = true)
+                if(table.name !== 'sqlite_sequence'
+                    && table.name !== 'groups'
+                    && table.name !== 'kinds'
+                    && table.name !== 'zones'){
+                    await query(`DROP TABLE IF EXISTS ${table.name}`).then(()=>
+                        Alert.alert('Success',"All tables are droped. re-launch your app"))
                 }
             });
-            if(success){
-                Alert.alert('Success',"All tables are droped. re-launch your app");
-            }
         })
     }
     static navigationOptions = {

@@ -24,206 +24,202 @@
     <table id="14" parent="2" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <table id="15" parent="2" name="units"/>
-    <table id="16" parent="2" name="users"/>
-    <table id="17" parent="2" name="workorders"/>
-    <table id="18" parent="2" name="zones"/>
-    <column id="19" parent="6" name="locale">
+    <table id="15" parent="2" name="unit_users"/>
+    <table id="16" parent="2" name="units"/>
+    <table id="17" parent="2" name="users"/>
+    <table id="18" parent="2" name="workorders"/>
+    <table id="19" parent="2" name="zones"/>
+    <column id="20" parent="6" name="locale">
       <Position>1</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="20" parent="7" name="id">
+    <column id="21" parent="7" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="21" parent="7" name="unit_id">
+    <column id="22" parent="7" name="unit_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <key id="22" parent="7">
+    <key id="23" parent="7">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="23" parent="8" name="id">
+    <column id="24" parent="8" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="24" parent="8" name="kind_unit_zone_id">
+    <column id="25" parent="8" name="kind_unit_zone_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="25" parent="8" name="group_id">
+    <column id="26" parent="8" name="group_id">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="26" parent="8" name="input_items">
+    <column id="27" parent="8" name="input_items">
       <Position>4</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="27" parent="8" name="status">
+    <column id="28" parent="8" name="status">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <key id="28" parent="8">
+    <key id="29" parent="8">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="29" parent="9" name="id">
+    <column id="30" parent="9" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="30" parent="9" name="name">
+    <column id="31" parent="9" name="name">
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="31" parent="9" name="zone_id">
+    <column id="32" parent="9" name="zone_id">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="32" parent="9" name="screen">
+    <column id="33" parent="9" name="screen">
       <Position>4</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <key id="33" parent="9">
+    <key id="34" parent="9">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="34" parent="10" name="id">
+    <column id="35" parent="10" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="35" parent="10" name="kind_unit_id">
+    <column id="36" parent="10" name="kind_unit_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="36" parent="10" name="zone_id">
+    <column id="37" parent="10" name="zone_id">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="37" parent="10" name="status">
-      <Position>4</Position>
-      <DataType>int|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
-    </column>
-    <key id="38" parent="10">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="39" parent="11" name="id">
-      <Position>1</Position>
-      <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="40" parent="11" name="kind_id">
-      <Position>2</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <column id="41" parent="11" name="unit_id">
-      <Position>3</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <column id="42" parent="11" name="status">
+    <column id="38" parent="10" name="status">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <key id="43" parent="11">
+    <key id="39" parent="10">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="44" parent="12" name="id">
+    <column id="40" parent="11" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="45" parent="12" name="name">
+    <column id="41" parent="11" name="kind_id">
       <Position>2</Position>
-      <DataType>TEXT|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="46" parent="12" name="screen">
+    <column id="42" parent="11" name="unit_user_id">
       <Position>3</Position>
-      <DataType>TEXT|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
     </column>
-    <key id="47" parent="12">
+    <column id="43" parent="11" name="status">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <key id="44" parent="11">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="48" parent="13" name="type">
+    <column id="45" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="47" parent="12" name="screen">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <key id="48" parent="12">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="13" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="49" parent="13" name="name">
+    <column id="50" parent="13" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="50" parent="13" name="tbl_name">
+    <column id="51" parent="13" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="51" parent="13" name="rootpage">
+    <column id="52" parent="13" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="52" parent="13" name="sql">
+    <column id="53" parent="13" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="53" parent="14" name="name">
+    <column id="54" parent="14" name="name">
       <Position>1</Position>
     </column>
-    <column id="54" parent="14" name="seq">
+    <column id="55" parent="14" name="seq">
       <Position>2</Position>
     </column>
-    <column id="55" parent="15" name="id">
+    <column id="56" parent="15" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="56" parent="15" name="name">
+    <column id="57" parent="15" name="user_id">
       <Position>2</Position>
-      <DataType>TEXT|0s</DataType>
+      <DataType>int|0s</DataType>
     </column>
-    <column id="57" parent="15" name="status">
+    <column id="58" parent="15" name="unit_id">
       <Position>3</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="59" parent="15" name="status">
+      <Position>4</Position>
       <DataType>int|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <key id="58" parent="15">
+    <key id="60" parent="15">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="59" parent="16" name="id">
+    <column id="61" parent="16" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="60" parent="16" name="name">
+    <column id="62" parent="16" name="name">
       <Position>2</Position>
-      <DataType>TEXT|0s</DataType>
-    </column>
-    <column id="61" parent="16" name="nrp">
-      <Position>3</Position>
-      <DataType>TEXT|0s</DataType>
-    </column>
-    <column id="62" parent="16" name="lahir">
-      <Position>4</Position>
       <DataType>TEXT|0s</DataType>
     </column>
     <column id="63" parent="16" name="status">
-      <Position>5</Position>
+      <Position>3</Position>
       <DataType>int|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
     </column>
@@ -237,29 +233,56 @@
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="66" parent="17" name="unit_id">
+    <column id="66" parent="17" name="name">
       <Position>2</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>TEXT|0s</DataType>
     </column>
-    <key id="67" parent="17">
+    <column id="67" parent="17" name="nrp">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="68" parent="17" name="lahir">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="69" parent="17" name="status">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <key id="70" parent="17">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="68" parent="18" name="id">
+    <column id="71" parent="18" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="69" parent="18" name="name">
+    <column id="72" parent="18" name="unit_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="73" parent="18">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="74" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="75" parent="19" name="name">
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="70" parent="18" name="screen">
+    <column id="76" parent="19" name="screen">
       <Position>3</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <key id="71" parent="18">
+    <key id="77" parent="19">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

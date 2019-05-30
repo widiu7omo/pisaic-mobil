@@ -7,7 +7,6 @@ const createFormData = (body, table) => {
     const data = new FormData();
     body.forEach(row => {
         delete row.status;
-        delete row.id;
     });
     data.append(table, JSON.stringify(body));
     console.log(JSON.stringify(body));

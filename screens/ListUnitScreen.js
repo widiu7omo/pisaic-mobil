@@ -63,8 +63,8 @@ export default class ListUnitScreen extends React.Component {
 
     update = async () => {
         this.setState({loading: true});
-        await query(`select *
-                     from units`, [])
+        await query(`select units.name,unit_users.id
+                     from unit_users left join units on unit_users.unit_id = units.id`, [])
             .then(units => {
                 // console.log(units);
                 this.setState({loading: false})

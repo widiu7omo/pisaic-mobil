@@ -3,7 +3,7 @@ import {View, StyleSheet, Image, Text, ScrollView, FlatList, ActivityIndicator} 
 import {Button} from 'react-native-paper'
 import CustomHeader from '../../components/CustomHeader'
 import query from '../../database/query'
-import {kinds} from '../../constants/Default_kinds';
+import {checkDataTable} from '../../constants/Data_to_update'
 import Colors from "../../constants/Colors";
 
 export default class IndexSubmenuScreen extends React.Component {
@@ -47,9 +47,12 @@ export default class IndexSubmenuScreen extends React.Component {
         //insert first
        await query(`INSERT OR
                REPLACE
-               INTO kind_units (id, kind_id, unit_id)
-               VALUES ((SELECT id FROM kind_units WHERE kind_id = ? AND unit_id = ?), ?, ?);`,
+               INTO kind_units (id, kind_id, unit_user_id)
+               VALUES ((SELECT id FROM kind_units WHERE kind_id = ? AND unit_user_id = ?), ?, ?);`,
             [kind_id, unit_id, kind_id, unit_id]);
+       if(this.props.screenProps.isConnected){
+           await checkDataTable('kind_units').then(console.log('synced kind_units'));
+       }
         //retrive last id
         await query(`select seq as kind_unit_id 
                from sqlite_sequence

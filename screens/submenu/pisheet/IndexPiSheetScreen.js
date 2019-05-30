@@ -6,6 +6,7 @@ import CustomHeader from "../../../components/CustomHeader";
 import {zones} from "../../../constants/Default_zones";
 import query from "../../../database/query";
 import Colors from "../../../constants/Colors";
+import {checkDataTable} from "../../../constants/Data_to_update";
 
 //if you want to get unit name on subheader, then send param from navigate function with "unit" param
 
@@ -52,6 +53,9 @@ export default class IndexPiSheetScreen extends React.Component {
                      INTO kind_unit_zones (id, kind_unit_id, zone_id)
                      VALUES ((SELECT id FROM kind_unit_zones WHERE kind_unit_id = ? AND zone_id = ?), ?, ?);`,
             [kind_unit_id, zone_id, kind_unit_id, zone_id]);
+        if(this.props.screenProps.isConnected){
+            await checkDataTable('kind_unit_zones').then(console.log('synced kind_unit_zones'));
+        }
         await query(`select seq as kind_unit_zone_id
                      from sqlite_sequence
                      where name = "kind_unit_zones"`).then(res => {

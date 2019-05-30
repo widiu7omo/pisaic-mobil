@@ -60,7 +60,7 @@ export default class HomeScreen extends React.Component {
     };
     goTo = (menu) => {
         this.props.navigation.navigate(menu.screen, {headerTitle: menu.name})
-    }
+    };
 
     render() {
         const textColor = Colors.primaryColor;

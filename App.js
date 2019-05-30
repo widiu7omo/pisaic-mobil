@@ -6,7 +6,8 @@ import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper'
 import {useScreens} from 'react-native-screens';
 import {createTableOffline, initMasterTable, secondPartTableOffline, syncMasterData} from './constants/Default_tables'
 import user from './constants/UserController'
-
+import {checkDataTable} from "./constants/Data_to_update";
+import {init} from './constants/Init'
 useScreens();
 const primaryTheme = {
     ...DefaultTheme,
@@ -26,7 +27,6 @@ export default class App extends React.Component {
 
     constructor(props) {
         super(props);
-
     }
 
     //create main table,
@@ -51,6 +51,7 @@ export default class App extends React.Component {
                 .then(() => {
                     syncMasterData().then(() => {
                         user.sync(this.state.connection);
+                        checkDataTable('kind_units').then(console.log('synced kind_units'))
                     })
                 });
             const userToken = await AsyncStorage.getItem('userToken');

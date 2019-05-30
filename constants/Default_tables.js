@@ -5,6 +5,8 @@ import {groups} from "./Default_groups";
 import {AsyncStorage, Alert} from "react-native";
 import defaultInput from "./Default_z1inputs";
 import {apiUri} from "./config";
+import {checkDataTable} from "./Data_to_update";
+import {ID} from "./Unique";
 
 let zoneids = [];
 
@@ -32,6 +34,7 @@ export const initMasterTable = async () => {
     await query(`DROP TABLE IF EXISTS zones`);
     await query(`DROP TABLE IF EXISTS groups`);
 
+    await query(`DROP TABLE IF EXISTS unit_users`);
     await query(`DROP TABLE IF EXISTS kind_units`);
     await query(`DROP TABLE IF EXISTS kind_unit_zones`);
     await query(`DROP TABLE IF EXISTS group_kind_unit_zones`);
@@ -39,61 +42,66 @@ export const initMasterTable = async () => {
     //create table
     await query(`CREATE TABLE IF NOT EXISTS units
                  (
-                     id     INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                     id     TEXT PRIMARY KEY NOT NULL,
                      name   TEXT,
-                     status INTEGER                           NULL DEFAULT 0
+                     status INTEGER          NULL DEFAULT 0
                  )`, []).then(() => console.log('unit created'));
     await query(`CREATE TABLE IF NOT EXISTS users
                  (
-                     id     INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                     id     TEXT PRIMARY KEY NOT NULL,
                      name   TEXT,
                      nrp    TEXT,
                      lahir  TEXT,
-                     status INTEGER                           NULL DEFAULT 0
+                     status INTEGER          NULL DEFAULT 0
                  )`, []).then(() => console.log('user created'));
+    await query(`CREATE TABLE IF NOT EXISTS unit_users
+                 (
+                     id      TEXT PRIMARY KEY NOT NULL,
+                     user_id TEXT,
+                     unit_id TEXT,
+                     status DEFAULT 0
+                 );`, []).then(() => console.log('unit_users created'))
     await query(`CREATE TABLE kind_units
                  (
-                     id      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                     kind_id INTEGER,
-                     unit_id INTEGER,
+                     id           TEXT PRIMARY KEY NOT NULL,
+                     kind_id      TEXT,
+                     unit_user_id TEXT,
                      status DEFAULT 0
 
                  );`, []).then(() => console.log('kind_units created'));
 
-
     await query(`CREATE TABLE kinds
                  (
-                     id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                     id     TEXT PRIMARY KEY NOT NULL,
                      name   TEXT,
                      screen TEXT
                  )`, []).then(() => console.log('kind created'));
     await query(`CREATE TABLE zones
                  (
-                     id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                     id     TEXT PRIMARY KEY NOT NULL,
                      name   TEXT,
                      screen TEXT
                  );`, []).then(() => console.log('zones created'))
     await query(`CREATE TABLE groups
                  (
-                     id      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                     id      TEXT PRIMARY KEY NOT NULL,
                      name    TEXT,
                      screen  TEXT,
-                     zone_id INTEGER
+                     zone_id TEXT
                  ); `, []).then(() => console.log('groups created'))
-
 
     await query(`CREATE TABLE kind_unit_zones
                  (
-                     id           INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                     kind_unit_id INTEGER,
-                     zone_id      INTEGER,
+                     id           TEXT PRIMARY KEY NOT NULL,
+                     kind_unit_id TEXT,
+                     zone_id      TEXT,
                      status DEFAULT 0
                  );`, []).then(() => console.log('kind_unit_zones created'))
     await query(`CREATE TABLE group_kind_unit_zones
                  (
-                     id                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                     kind_unit_zone_id INTEGER,
-                     group_id          INTEGER,
+                     id                TEXT PRIMARY KEY NOT NULL,
+                     kind_unit_zone_id TEXT,
+                     group_id          TEXT,
                      input_items       TEXT,
                      status DEFAULT 0
                  );`, []).then(() => console.log('group_kind_unit_zones created'))
@@ -109,7 +117,7 @@ export const syncMasterData = async () => {
             let sqli = '';
             let keys = Object.keys(res[0]).join(',');
             res.forEach((unit, index) => {
-                sqli += `((SELECT id from units where name = '${unit.name}'),'${unit.name}',1)`;
+                sqli += `(COALESCE((SELECT id from units where name = '${unit.name}'),'${unit.id}'),'${unit.name}',1)`;
                 if (res.length === index + 1) {
                     return;
                 }
@@ -118,7 +126,7 @@ export const syncMasterData = async () => {
             query(`INSERT OR
             REPLACE INTO units (${keys},status)
                  VALUES ${sqli};`, []).then(() => console.log('unit inserted'));
-        }).catch(()=>Alert.alert('Failed','Failed retrive data, can\'t connect to server...'));
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...'));
 
     // await query(`DELETE
     //              FROM users`);
@@ -128,7 +136,7 @@ export const syncMasterData = async () => {
             let sqli = '';
             let keys = Object.keys(res[0]).join(',');
             res.forEach((user, index) => {
-                sqli += `((SELECT id from users where name = '${user.name}'),'${user.name}','${user.lahir}','${user.nrp}',1)`;
+                sqli += `(COALESCE((SELECT id from users where name = '${user.name}'),'${user.id}'),'${user.name}','${user.lahir}','${user.nrp}',1)`;
                 if (res.length === index + 1) {
                     return;
                 }
@@ -137,8 +145,25 @@ export const syncMasterData = async () => {
             //add status = 1 cz data synced with server
             query(`INSERT OR
             REPLACE INTO users (${keys},status)
-                 VALUES ${sqli};`, []).then(() => console.log('account inserted'));
-        }).catch(()=>Alert.alert('Failed','Failed retrive data, can\'t connect to server...'));;
+                 VALUES ${sqli};`, []).then(() => {
+                console.log('account inserted');
+
+                ///==========test user unit table
+                query(`INSERT OR
+                       REPLACE
+                       INTO unit_users(id, user_id, unit_id)
+                       values (COALESCE((SELECT id from unit_users where user_id = '2vgj5q2q0$9u8zteqoy' and unit_id = '7u9hwievk$c2vh2z31f'),'${ID()}'), '2vgj5q2q0$9u8zteqoy', '7u9hwievk$c2vh2z31f')`).then(() => {
+                    query(`SELECT units.name as unit, users.name as mekanik
+                           from unit_users
+                                    left join users on unit_users.user_id = users.id
+                                    left join units on unit_users.unit_id = units.id`)
+                        .then(res => {
+                            checkDataTable('unit_users').then(console.log('synced kind_units'));
+                            console.log(res)
+                        });
+                });
+            });
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...'));
 
 }
 //#3
@@ -150,31 +175,40 @@ export const createTableOffline = async () => {
     if (beingUsed) {
         return;
     }
+
+
     await query(`DELETE
                  FROM kinds`);
-    let valueKind = '';
-    kinds.map((kind, index) => {
-        valueKind += `(NULL,"${kind.name}","${kind.screen}")`;
-        if (index === kinds.length - 1) {
-            return
-        }
-        valueKind += ','
-    });
-    await query(`INSERT INTO kinds
-    VALUES ` + valueKind, []).then(() => console.log('kinds inserted'));
+    await fetch(apiUri + "sync.php?data=kinds", {method: "GET"})
+        .then(res => res.json()).then(async kinds => {
+            let valueKind = '';
+            kinds.map((kind, index) => {
+                valueKind += `("${kind.id}","${kind.name}","${kind.screen}")`;
+                if (index === kinds.length - 1) {
+                    return
+                }
+                valueKind += ','
+            });
+            await query(`INSERT INTO kinds
+            VALUES ` + valueKind, []).then(() => console.log('kinds inserted'));
+        });
+
 
     await query(`DELETE
                  FROM zones`);
-    let valueZone = '';
-    zones.map((zone, index) => {
-        valueZone += `(NULL,"${zone.name}","${zone.screen}")`;
-        if (index === zones.length - 1) {
-            return
-        }
-        valueZone += ','
-    });
-    await query(`INSERT INTO zones
-    VALUES ` + valueZone, []).then(() => console.log('zones inserted'));
+    await fetch(apiUri + "sync.php?data=zones", {method: "GET"})
+        .then(res => res.json()).then(async zones => {
+            let valueZone = '';
+            zones.map((zone, index) => {
+                valueZone += `("${zone.id}","${zone.name}","${zone.screen}")`;
+                if (index === zones.length - 1) {
+                    return
+                }
+                valueZone += ','
+            });
+            await query(`INSERT INTO zones
+            VALUES ` + valueZone, []).then(() => console.log('zones inserted'));
+        })
 }
 //#4
 export const secondPartTableOffline = async () => {
@@ -196,17 +230,21 @@ export const secondPartTableOffline = async () => {
     let groupIndex = 0;
     zoneids.map(async (zone, i) => {
         if (i > 1) {
-            let valueGroup = '';
-            groups[i - 2].forEach((group, j) => {
-                valueGroup += `(NULL,"${group.name}","${group.screen}","${zone.id}")`;
-                if (j === groups[i - 2].length - 1) {
-                    return
-                }
-                valueGroup += ','
-            });
-            await query(`INSERT INTO groups
-            VALUES ` + valueGroup, []).then(() => console.log(`groups ${i - 2} inserted`));
-            groupIndex++;
+            await fetch(`${apiUri}sync.php?data=groups&where=zone_id,"${zone.id}"`, {method: "GET"})
+                .then(res => res.json()).then(async groups => {
+                    let valueGroup = '';
+                    console.log(groups);
+                    groups.forEach((group, j) => {
+                        valueGroup += `("${group.id}","${group.name}","${group.screen}","${zone.id}")`;
+                        if (j === groups.length - 1) {
+                            return
+                        }
+                        valueGroup += ','
+                    });
+                    await query(`INSERT INTO groups 
+                    VALUES ` + valueGroup, []).then(() => console.log(`groups zone id ${zone.id} inserted`));
+                    groupIndex++;
+                })
         }
     })
 }
