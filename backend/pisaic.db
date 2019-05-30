@@ -1,0 +1,85 @@
+create table android_metadata
+(
+    locale TEXT
+);
+
+create table dataunits
+(
+    id INTEGER not null
+        primary key autoincrement,
+    unit_id INTEGER
+);
+
+create table group_kind_unit_zones
+(
+    id INTEGER not null
+        primary key autoincrement,
+    kind_unit_zone_id INTEGER,
+    group_id INTEGER,
+    input_items TEXT
+);
+
+create table groups
+(
+    id INTEGER not null
+        primary key autoincrement,
+    name TEXT,
+    zone_id INTEGER,
+    screen TEXT
+);
+
+create table kind_unit_zones
+(
+    id INTEGER not null
+        primary key autoincrement,
+    kind_unit_id INTEGER,
+    zone_id INTEGER
+);
+
+create table kind_units
+(
+    id INTEGER not null
+        primary key autoincrement,
+    kind_id INTEGER,
+    unit_id INTEGER
+);
+
+create table kinds
+(
+    id INTEGER not null
+        primary key autoincrement,
+    name TEXT,
+    screen TEXT
+);
+
+create table units
+(
+    id INTEGER not null
+        primary key autoincrement,
+    name TEXT
+);
+
+create table users
+(
+    id INTEGER not null
+        primary key autoincrement,
+    name TEXT,
+    nrp TEXT,
+    lahir TEXT
+);
+
+create table workorders
+(
+    id INTEGER not null
+        primary key autoincrement,
+    unit_id INTEGER
+);
+
+create table zones
+(
+    id INTEGER not null
+        primary key autoincrement,
+    name TEXT,
+    screen TEXT
+);
+
