@@ -1,16 +1,16 @@
 import React from 'react'
 import {
-    FlatList,
-    View,
-    StyleSheet,
-    AsyncStorage,
-    ScrollView,
-    Text,
-    Picker,
     ActivityIndicator,
-    Alert
+    Alert,
+    AsyncStorage,
+    FlatList,
+    Picker,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View
 } from 'react-native'
-import {Card, Button, TextInput, RadioButton} from 'react-native-paper'
+import {Button, Card, RadioButton, TextInput} from 'react-native-paper'
 import CustomHeader from '../../../../components/CustomHeader'
 import KeyboardShift from '../../../../components/KeyboardShift'
 import {normalize} from "../../../../constants/FontSize";
@@ -19,6 +19,7 @@ import Colors from "../../../../constants/Colors";
 import input from "../../../../constants/Default_z1inputs";
 import {checkDataTable} from "../../../../constants/Data_to_update";
 import {ID} from "../../../../constants/Unique";
+import {apiUri} from "../../../../constants/config";
 
 const styles = StyleSheet.create({
     container: {
@@ -138,29 +139,76 @@ export default class z1aScreen extends React.Component {
     ImagePicker = (item, index) => {
         console.log(item);
         this.props.navigation.navigate('ImagePicker', {
-            zonekind: item.name,
+            groupItem: item.name,
+            kind_unit_zone_id:this.props.navigation.getParam('kind_unit_zone_id'),
             indexItem: index,
             unit: this.props.navigation.getParam('unit'),
             onGoBack: () => this.getFromImagePicker()
 
         });
     };
+    //excuted after user save photo
     getFromImagePicker = async () => {
         const dataFoto = await AsyncStorage.getItem('dataFoto');
         console.log(dataFoto);
         const parsedFoto = JSON.parse(dataFoto);
-        console.log(parsedFoto.indexItem);
-        const indexFoto = parsedFoto.indexItem;
-        const inputItems = [...this.state.inputItems];
+
+        //generate object foto
         const foto = {
             name: parsedFoto.uri,
             catatan: parsedFoto.catatanFoto
-
         };
+        //push to object before save
         console.log(foto);
+        const indexFoto = parsedFoto.indexItem;
+        const inputItems = [...this.state.inputItems];
         inputItems[indexFoto] = {...inputItems[indexFoto], foto: foto};
-        this.setState({inputItems})
-        console.log(this.state.inputItems)
+        this.setState({inputItems});
+        console.log(this.state.inputItems[indexFoto])
+
+        //if connect to internet then directly push
+        if(this.props.screenProps.isConnected){
+            foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id;
+            foto['index_foto'] = parsedFoto.indexItem;
+            console.log(foto);
+
+            const uriPart = foto.name.split('.');
+            const fileExtension = uriPart[uriPart.length - 1];
+            let formData = new FormData();
+
+            let photoData = {uri: foto.name, name: foto.index_foto, type:fileExtension};
+            console.log(photoData);
+            // delete foto.name;
+            let detailPhoto = foto;
+            //result always jpg cz before save it, image are compress
+            formData.append('photo', {uri: foto.name, name: 'photo', type: `image/jpg`});
+            let options = {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'multipart/form-data;'
+                },
+                method:"POST",
+                body:formData
+            };
+            await fetch(`${apiUri}upload.php?image=groups`,options).then(res=>{
+
+                console.log(res)
+            });
+        }
+        //if not, push to async storage (QUEUE)
+        else{
+            foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id
+            foto['index_foto'] = parsedFoto.indexItem
+            let fotoQueue = await AsyncStorage.getItem('fotoQueue')
+            let parsedFotoQueue = JSON.parse(fotoQueue);
+            if(typeof parsedFotoQueue === 'object'){
+                parsedFotoQueue.push(foto);
+                await AsyncStorage.setItem('fotoQueue',JSON.stringify(parsedFotoQueue));
+
+            }
+        }
+
+
     };
 
     PickerOption = (option, index, OptionSelect, kind) => (

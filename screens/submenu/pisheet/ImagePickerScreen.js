@@ -10,7 +10,7 @@ import KeyboardShift from "../../../components/KeyboardShift";
 
 export default class ImagePickerScreen extends React.Component {
     static navigationOptions = {
-        headerTitle: <CustomHeader headerName="zonekind"/>,
+        headerTitle: <CustomHeader headerName="groupItem"/>,
         headerStyle: {backgroundColor: "#FEDA01"},
         headerIcon: null,
     };
@@ -40,6 +40,10 @@ export default class ImagePickerScreen extends React.Component {
     };
     _saveFoto = async (dataFoto) => {
         dataFoto['indexItem'] = this.props.navigation.getParam('indexItem');
+        dataFoto['kind_unit_zone_id'] = this.props.navigation.getParam('kind_unit_zone_id');
+
+
+
         let foto = JSON.stringify(dataFoto);
         await AsyncStorage.setItem('dataFoto', foto);
         this.props.navigation.state.params.onGoBack();
@@ -71,13 +75,14 @@ export default class ImagePickerScreen extends React.Component {
             } else {
                 const resultImage = this._compressImage(result.uri);
                 //resultImage return promise
-                resultImage.then(result =>
-                    //compressed image that store to database
-                    console.log(result));
-                this.setState({selection: result});
-                const dataFoto = {...this.state.dataFoto};
-                dataFoto.uri = result.uri;
-                this.setState({dataFoto});
+                resultImage.then(compressedJpg =>{
+                    //compressed image
+                    this.setState({selection: compressedJpg});
+                    const dataFoto = {...this.state.dataFoto};
+                    dataFoto.uri = compressedJpg.uri;
+                    this.setState({dataFoto});
+                });
+
             }
         };
         return (
@@ -138,15 +143,7 @@ export default class ImagePickerScreen extends React.Component {
             return;
         }
         const media =
-            selection.type === 'video' ? (
-                <Video
-                    source={{uri: selection.uri}}
-                    style={{width: 300, height: 300}}
-                    resizeMode="contain"
-                    shouldPlay
-                    isLooping
-                />
-            ) : (
+            (
                 <Image
                     source={{uri: selection.uri}}
                     style={{width: 300, height: 300, resizeMode: 'contain'}}

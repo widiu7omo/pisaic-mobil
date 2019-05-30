@@ -172,8 +172,9 @@ export const createTableOffline = async () => {
     if (beingUsed) {
         return;
     }
-
-
+    //set initial fotoQueue as array
+    let fotoQueue = JSON.stringify([]);
+    await AsyncStorage.setItem('fotoQueue',fotoQueue);
     await query(`DELETE
                  FROM kinds`);
     await fetch(apiUri + "sync.php?data=kinds", {method: "GET"})
@@ -230,7 +231,6 @@ export const secondPartTableOffline = async () => {
             await fetch(`${apiUri}sync.php?data=groups&where=zone_id,"${zone.id}"`, {method: "GET"})
                 .then(res => res.json()).then(async groups => {
                     let valueGroup = '';
-                    console.log(groups);
                     groups.forEach((group, j) => {
                         valueGroup += `("${group.id}","${group.name}","${group.screen}","${zone.id}")`;
                         if (j === groups.length - 1) {

@@ -100,6 +100,7 @@ export default class App extends React.Component {
     }
 
     _loadResourcesAsync = async () => {
+        //set queuePhoto
         return Promise.all([
             Asset.loadAsync([
                 // require('./assets/images/robot-dev.png'),
