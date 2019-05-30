@@ -62,13 +62,13 @@ export default class z1aScreen extends React.Component {
         let group_id = this.props.navigation.getParam('group_id');
         let kind_unit_zone_id = this.props.navigation.getParam('kind_unit_zone_id');
         let input_items = JSON.stringify(this.state.inputItems);
-        console.log(input_items);
 
         await query(`SELECT id
                      FROM group_kind_unit_zones
                      WHERE kind_unit_zone_id = ?
                        AND group_id = ?`, [kind_unit_zone_id, group_id])
             .then(async res => {
+                console.log('hasil dari db lokal');
                 //generate new id
                 let group_kind_unit_zone_id = ID();
                 //if found
@@ -80,8 +80,11 @@ export default class z1aScreen extends React.Component {
                 await query(`INSERT OR
                              REPLACE
                              INTO group_kind_unit_zones (id, kind_unit_zone_id, group_id, input_items)
-                             VALUES (?, ?, ?, ?);`, [group_kind_unit_zone_id, group_id, kind_unit_zone_id, group_id, input_items])
-                    .then(() => Alert.alert('Success', 'Data berhasil tersimpan'));
+                             VALUES (?, ?, ?, ?);`, [group_kind_unit_zone_id, kind_unit_zone_id, group_id, input_items])
+                    .then(() => {
+                        query(`select * from group_kind_unit_zones`).then(res=>console.log(res));
+                        Alert.alert('Success', 'Data berhasil tersimpan')
+                    });
 
                 if (this.props.screenProps.isConnected) {
                     await checkDataTable('group_kind_unit_zones').then(console.log('synced group_kind_unit_zones'));

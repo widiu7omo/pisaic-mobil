@@ -56,10 +56,11 @@ export default class App extends React.Component {
                         // user.sync(this.state.connection);
                         await checkDataTable('users').then(console.log('synced users'))
                         await checkDataTable('units').then(console.log('synced users'))
+                        await checkDataTable('unit_users').then(console.log('synced unit_users'))
                         await checkDataTable('kind_units').then(console.log('synced kind_units'))
                         await checkDataTable('kind_unit_zones').then(console.log('synced kind_unit_zones'))
                         await checkDataTable('group_kind_unit_zones').then(console.log('synced group_kind_unit_zones'))
-                        await checkDataTable('unit_users').then(console.log('synced unit_users'))
+
 
                     })
                 });
