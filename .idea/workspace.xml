@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50bebdf5-d789-4c08-9378-5a25cdbcd327" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/909886979_1559211410" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Data_to_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Data_to_update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Default_tables.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Default_tables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Default_zones.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Default_zones.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/FontSize.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/FontSize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Init.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/DrawerNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/DrawerNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/ListUnitScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/ListUnitScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/dbpisaic/PisheetDbScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/dbpisaic/PisheetDbScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/ImagePickerScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/ImagePickerScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/submenu/pisheet/Zone1/z1aScreen.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -111,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="14">
-              <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -384,15 +367,16 @@
       <workItem from="1559049413998" duration="25504000" />
       <workItem from="1559129035909" duration="8094000" />
       <workItem from="1559176214079" duration="49000" />
-      <workItem from="1559176295450" duration="82180000" />
+      <workItem from="1559176295450" duration="83064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372631000" />
+    <option name="totallyTimeSpent" value="373515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="700" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14621212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -408,7 +392,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50151515" side_tool="true" weight="0.4492255" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49848485" visible="true" weight="0.94682676" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848485" weight="0.94682676" />
       <window_info anchor="bottom" id="GraphQL" order="11" weight="0.32931036" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32761577" />
@@ -850,7 +834,7 @@
     <entry file="file://$PROJECT_DIR$/screens/submenu/pisheet/IndexPiSheetScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Alert, Styleet, AsyncStorage,TouchableOpacity, ScrollView, FlatList, ActivityIndicator} from 'react-native'
+import {View, Alert, AsyncStorage,StyleSheet, ScrollView, FlatList, ActivityIndicator} from 'react-native'
 import {Button} from 'react-native-paper'
 import CustomHeader from "../../../components/CustomHeader";
 import query from "../../../database/query";
