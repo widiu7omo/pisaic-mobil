@@ -19,7 +19,7 @@ import Colors from "../../../../constants/Colors";
 import input from "../../../../constants/Default_z1inputs";
 import {checkDataTable} from "../../../../constants/Data_to_update";
 import {ID} from "../../../../constants/Unique";
-import {apiUri} from "../../../../constants/config";
+import {Uploader} from "../../../../constants/Uploader"
 
 const styles = StyleSheet.create({
     container: {
@@ -69,7 +69,7 @@ export default class z1aScreen extends React.Component {
                      WHERE kind_unit_zone_id = ?
                        AND group_id = ?`, [kind_unit_zone_id, group_id])
             .then(async res => {
-                console.log('hasil dari db lokal');
+                // console.log('hasil dari db lokal');
                 //generate new id
                 let group_kind_unit_zone_id = ID();
                 //if found
@@ -83,7 +83,7 @@ export default class z1aScreen extends React.Component {
                              INTO group_kind_unit_zones (id, kind_unit_zone_id, group_id, input_items)
                              VALUES (?, ?, ?, ?);`, [group_kind_unit_zone_id, kind_unit_zone_id, group_id, input_items])
                     .then(() => {
-                        query(`select * from group_kind_unit_zones`).then(res=>console.log(res));
+                        // query(`select * from group_kind_unit_zones`).then(res=>console.log(res));
                         Alert.alert('Success', 'Data berhasil tersimpan')
                     });
 
@@ -104,7 +104,7 @@ export default class z1aScreen extends React.Component {
                        and kind_unit_zone_id = ?`, [group_id, kind_unit_zone_id])
             .then(result => {
                 let res = input.z1a;
-                console.log(result);
+                // console.log(result);
                 if (result.length === 1) {
                     res = result[0].input_items;
                 }
@@ -137,11 +137,12 @@ export default class z1aScreen extends React.Component {
     }
 
     ImagePicker = (item, index) => {
-        console.log(item);
+        // console.log(item);
         this.props.navigation.navigate('ImagePicker', {
             groupItem: item.name,
-            kind_unit_zone_id:this.props.navigation.getParam('kind_unit_zone_id'),
+            kind_unit_zone_id: this.props.navigation.getParam('kind_unit_zone_id'),
             indexItem: index,
+            prevDataFoto: item.foto,
             unit: this.props.navigation.getParam('unit'),
             onGoBack: () => this.getFromImagePicker()
 
@@ -150,64 +151,50 @@ export default class z1aScreen extends React.Component {
     //excuted after user save photo
     getFromImagePicker = async () => {
         const dataFoto = await AsyncStorage.getItem('dataFoto');
-        console.log(dataFoto);
         const parsedFoto = JSON.parse(dataFoto);
-
+        // console.log(parsedFoto);
         //generate object foto
         const foto = {
             name: parsedFoto.uri,
             catatan: parsedFoto.catatanFoto
         };
         //push to object before save
-        console.log(foto);
+        // console.log(foto);
         const indexFoto = parsedFoto.indexItem;
         const inputItems = [...this.state.inputItems];
         inputItems[indexFoto] = {...inputItems[indexFoto], foto: foto};
         this.setState({inputItems});
-        console.log(this.state.inputItems[indexFoto])
+        // console.log(this.state.inputItems[indexFoto]);
 
         //if connect to internet then directly push
-        if(this.props.screenProps.isConnected){
+        if (this.props.screenProps.isConnected) {
             foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id;
             foto['index_foto'] = parsedFoto.indexItem;
-            console.log(foto);
+            let photoData = [];
+            photoData.push({uri: foto.name});
 
-            const uriPart = foto.name.split('.');
-            const fileExtension = uriPart[uriPart.length - 1];
-            let formData = new FormData();
-
-            let photoData = {uri: foto.name, name: foto.index_foto, type:fileExtension};
-            console.log(photoData);
+            console.log(`datafoto ${JSON.stringify(photoData)}`);
+            Uploader(photoData);
             // delete foto.name;
-            let detailPhoto = foto;
-            //result always jpg cz before save it, image are compress
-            formData.append('photo', {uri: foto.name, name: 'photo', type: `image/jpg`});
-            let options = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'multipart/form-data;'
-                },
-                method:"POST",
-                body:formData
-            };
-            await fetch(`${apiUri}upload.php?image=groups`,options).then(res=>{
+            // result always jpg cz before save it, image are compress
 
-                console.log(res)
-            });
         }
         //if not, push to async storage (QUEUE)
-        else{
-            foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id
-            foto['index_foto'] = parsedFoto.indexItem
-            let fotoQueue = await AsyncStorage.getItem('fotoQueue')
+        else {
+            foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id;
+            foto['index_foto'] = parsedFoto.indexItem;
+            let fotoQueue = await AsyncStorage.getItem('fotoQueue');
+
+            console.log(fotoQueue);
+
             let parsedFotoQueue = JSON.parse(fotoQueue);
-            if(typeof parsedFotoQueue === 'object'){
-                parsedFotoQueue.push(foto);
-                await AsyncStorage.setItem('fotoQueue',JSON.stringify(parsedFotoQueue));
 
-            }
+            console.log(parsedFotoQueue);
+
+            parsedFotoQueue.push(foto);
+            await AsyncStorage.setItem('fotoQueue', JSON.stringify(parsedFotoQueue));
+
         }
-
 
     };
 

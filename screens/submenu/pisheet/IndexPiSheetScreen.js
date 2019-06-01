@@ -1,13 +1,13 @@
 import React from 'react'
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, ActivityIndicator} from 'react-native'
+import {View, Alert, Styleet, AsyncStorage,TouchableOpacity, ScrollView, FlatList, ActivityIndicator} from 'react-native'
 import {Button} from 'react-native-paper'
-import {ViewPagerAndroid} from 'react-native-gesture-handler';
 import CustomHeader from "../../../components/CustomHeader";
-import {zones} from "../../../constants/Default_zones";
 import query from "../../../database/query";
 import Colors from "../../../constants/Colors";
 import {checkDataTable} from "../../../constants/Data_to_update";
 import {ID} from "../../../constants/Unique";
+import LoadingDialog from "../../../components/LoadingDialog";
+import {Uploader} from "../../../constants/Uploader";
 
 //if you want to get unit name on subheader, then send param from navigate function with "unit" param
 
@@ -22,7 +22,9 @@ export default class IndexPiSheetScreen extends React.Component {
         super(props);
         this.state = {
             loading: false,
-            submenus: []
+            submenus: [],
+            progress:false,
+            progressMessage:''
         }
     }
 
@@ -31,7 +33,7 @@ export default class IndexPiSheetScreen extends React.Component {
                      from zones`, [])
             .then(result => {
                 // console.log(result);
-                this.setState({submenus: result})
+                this.setState({submenus: result});
                 this.setState({loading: false});
             })
     };
@@ -42,9 +44,36 @@ export default class IndexPiSheetScreen extends React.Component {
                from kind_units`).then(res => console.log(res));
         this.setState({loading: true});
         this.getTable()
-
     }
 
+    _uploadImage = async ()=>{
+        const {isConnected} = this.props.navigation.getScreenProps();
+        if(isConnected){
+        const fotoQueue = await AsyncStorage.getItem('fotoQueue');
+
+            const parsedFotoQueue = JSON.parse(fotoQueue);
+
+            if(Array.isArray(parsedFotoQueue) && parsedFotoQueue.length > 0){
+                this.setState({progress:true});
+                console.log(parsedFotoQueue);
+                let dataFotoQueue = [];
+                parsedFotoQueue.forEach(foto=>{
+                    dataFotoQueue.push({uri:foto.name});
+                });
+                Uploader(dataFotoQueue).then(()=>{
+                    this.setState({progress:false});
+                    AsyncStorage.setItem('fotoQueue',JSON.stringify([]));
+                })
+            }
+            else{
+                Alert.alert('No Need Action','Data already uploaded. No need Action')
+            }
+        }
+        else{
+            Alert.alert('Fail','You\'re not connect to the internet');
+        }
+
+    };
 
     goTo = async submenu => {
         let kind_unit_id = this.props.navigation.getParam('kind_unit_id');
@@ -84,8 +113,7 @@ export default class IndexPiSheetScreen extends React.Component {
         const {submenus, loading} = this.state;
         return (
             <View style={styles.container}>
-
-
+                <LoadingDialog visible={this.state.progress} message={'Be patient. Uploading photos to server'}/>
                 <ScrollView style={styles.inputField}>
                     {
                         loading ? <ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/> :
@@ -105,7 +133,7 @@ export default class IndexPiSheetScreen extends React.Component {
                     <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginVertical: 10, padding: 10}}>
 
                         <Button mode="contained" style={{marginHorizontal: 10}}>Save</Button>
-                        <Button mode="contained">Upload</Button>
+                        <Button mode="contained" onPress={()=>this._uploadImage()}>Upload</Button>
                         <Button mode="contained" style={{marginHorizontal: 10}}>Back</Button>
                         <Button mode="contained">Finish</Button>
 

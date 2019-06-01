@@ -27,6 +27,18 @@ export default class ImagePickerScreen extends React.Component {
         AsyncStorage.removeItem('dataFoto');
     }
 
+    componentWillMount() {
+        let prevDataFoto = this.props.navigation.getParam('prevDataFoto');
+        let parsedDataFoto = prevDataFoto;
+
+        if(parsedDataFoto.name !== ""){
+            let selection = Object.assign({uri:parsedDataFoto.name});
+            this.setState({dataFoto:parsedDataFoto});
+            this.setState({selection});
+            console.log(selection);
+        }
+    }
+
     async componentDidFocus() {
         await Permissions.askAsync(Permissions.CAMERA);
         await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -39,15 +51,23 @@ export default class ImagePickerScreen extends React.Component {
         return CompressedImage;
     };
     _saveFoto = async (dataFoto) => {
+        console.log(dataFoto);
+        if(dataFoto.catatanFoto === ""){
+            Alert.alert('Alert','catatan foto tidak boleh kosong');
+            return;
+        }
+        if(dataFoto.uri === ""){
+            Alert.alert('Alert','Foto tidak boleh kosong');
+            return;
+        }
         dataFoto['indexItem'] = this.props.navigation.getParam('indexItem');
         dataFoto['kind_unit_zone_id'] = this.props.navigation.getParam('kind_unit_zone_id');
-
-
 
         let foto = JSON.stringify(dataFoto);
         await AsyncStorage.setItem('dataFoto', foto);
         this.props.navigation.state.params.onGoBack();
-        this.props.navigation.goBack();
+        await Alert.alert('Success',"Foto Tersimpan",[{text:'OK',onPress:()=>this.props.navigation.goBack()}])
+        // this.props.navigation.goBack();
     };
 
     render() {
@@ -56,7 +76,17 @@ export default class ImagePickerScreen extends React.Component {
             if (result.cancelled) {
                 this.setState({selection: null});
             } else {
-                this.setState({selection: result});
+                const resultImage = this._compressImage(result.uri);
+                //resultImage return promise
+                await resultImage.then(compressedJpg => {
+                    //compressed image
+                    this.setState({selection: compressedJpg});
+                    const dataFoto = {...this.state.dataFoto};
+                    dataFoto.uri = compressedJpg.uri;
+                    this.setState({dataFoto});
+                    console.log(this.state);
+                });
+                // this.setState({selection: result});
             }
         };
         const showPicker = async () => {
@@ -75,7 +105,7 @@ export default class ImagePickerScreen extends React.Component {
             } else {
                 const resultImage = this._compressImage(result.uri);
                 //resultImage return promise
-                resultImage.then(compressedJpg =>{
+                await resultImage.then(compressedJpg => {
                     //compressed image
                     this.setState({selection: compressedJpg});
                     const dataFoto = {...this.state.dataFoto};
@@ -137,7 +167,7 @@ export default class ImagePickerScreen extends React.Component {
         </View>
     );
     _maybeRenderSelection = () => {
-        const {selection, dataFoto} = this.state;
+        const {selection} = this.state;
 
         if (!selection) {
             return;

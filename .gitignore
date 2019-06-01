@@ -3,6 +3,9 @@ node_modules/**/*
 npm-debug.*
 *.jks
 .DS_Store
+backend/uploads/*
+.idea/*
+*.zip
 *.p12
-*.key
 *.mobileprovision
+

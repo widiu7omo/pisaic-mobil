@@ -31,7 +31,7 @@ class LogoTitle extends React.Component {
 }
 
 export default class HomeScreen extends React.Component {
-    static navigationOptions = ({navigation, navigationOptions}) => {
+    static navigationOptions = ({navigation}) => {
         // title: "United Tractor",
         return {
             headerTitle: <LogoTitle navigation={navigation}/>,
@@ -58,15 +58,15 @@ export default class HomeScreen extends React.Component {
         //array must be object with index name
         return items.findIndex(item => item.name === forLooking)
     };
-    goTo = (menu) => {
-        this.props.navigation.navigate(menu.screen, {headerTitle: menu.name})
+    goTo = async (menu) => {
+        await this.props.navigation.navigate(menu.screen, {headerTitle: menu.name})
     };
 
     render() {
         const textColor = Colors.primaryColor;
         const level = 'admin';
         let index = null;
-        const {menus} = this.state
+        const {menus} = this.state;
 
         if (level === 'admin') {
             index = this._getIndex(menus, 'Give Order');

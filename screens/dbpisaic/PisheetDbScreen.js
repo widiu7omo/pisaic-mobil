@@ -43,22 +43,22 @@ export default class PisheetDbScreen extends React.Component {
         let file = await this.parsingData();
         const items = file;
         delete items.input_items;
-        const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
-        const header = Object.keys(items[0])
-        let csv = items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','))
-        csv.unshift(header.join(','))
-        csv = csv.join('\r\n')
+        const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
+        const header = Object.keys(items[0]);
+        let csv = items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+        csv.unshift(header.join(','));
+        csv = csv.join('\r\n');
 
         let inputCsv = file.forEach(element=>{
-            const header = Object.keys(element.input_items[0])
-            let inputCSVV = element.input_items.map(row=>header.map(field=>JSON.stringify(row[field],replacer)))
+            const header = Object.keys(element.input_items[0]);
+            let inputCSVV = element.input_items.map(row=>header.map(field=>JSON.stringify(row[field],replacer)));
             inputCSVV.unshift(header.join(','));
             inputCSVV = inputCSVV.join('\r\n');
             console.log(inputCSVV)
-        })
+        });
 
         console.log(inputCsv);
-        console.log(csv)
+        console.log(csv);
         // let parsedFile = JSON.stringify(file);
         let newFile = FileSystem.documentDirectory + 'newFile.txt';
         FileSystem.writeAsStringAsync(newFile, csv);
@@ -69,7 +69,7 @@ export default class PisheetDbScreen extends React.Component {
         //         console.log(res)
         //     }
         // );
-    }
+    };
 
     render() {
         const {pisheetData} = this.state;

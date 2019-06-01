@@ -33,19 +33,19 @@ var data =
                     "name": "Cylinder Daily Check Sheet",
                     "screen": "CylinderDaily"
                 }
-            ]
+            ];
 
 
 export const init = async () => {
     let keys = Object.keys(data[0]).join(',');
-    let sqli = ''
+    let sqli = '';
     let toServer = [];
     data.forEach((unit,index)=>{
         let id = ID();
         delete unit.id;
         unit.id = id;
         toServer.push(unit);
-        sqli += `('${id}',"${unit.name}","${unit.nrp}","${unit.lahir}")`
+        sqli += `('${id}',"${unit.name}","${unit.nrp}","${unit.lahir}")`;
         if (data.length === index + 1) {
             return;
         }
@@ -135,4 +135,4 @@ export const init = async () => {
     //              );`, []).then(() => console.log('group_kind_unit_zones created'))
     // await query(`delete from users`)
     // await query(`insert into users (id,${keys}) values ${sqli}`).then(console.log('update users'));
-}
+};

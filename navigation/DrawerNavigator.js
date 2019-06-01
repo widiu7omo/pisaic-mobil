@@ -73,7 +73,7 @@ SettingStack.navigationOptions = {
                     : 'md-settings'
             }/>
     )
-}
+};
 
 //Main screen of AddUser
 const UserStack = createStackNavigator({

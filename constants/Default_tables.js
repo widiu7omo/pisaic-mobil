@@ -57,7 +57,7 @@ export const initMasterTable = async () => {
                      user_id TEXT,
                      unit_id TEXT,
                      status DEFAULT 0
-                 );`, []).then(() => console.log('unit_users created'))
+                 );`, []).then(() => console.log('unit_users created'));
     await query(`CREATE TABLE kind_units
                  (
                      id           TEXT PRIMARY KEY NOT NULL,
@@ -78,14 +78,14 @@ export const initMasterTable = async () => {
                      id     TEXT PRIMARY KEY NOT NULL,
                      name   TEXT,
                      screen TEXT
-                 );`, []).then(() => console.log('zones created'))
+                 );`, []).then(() => console.log('zones created'));
     await query(`CREATE TABLE groups
                  (
                      id      TEXT PRIMARY KEY NOT NULL,
                      name    TEXT,
                      screen  TEXT,
                      zone_id TEXT
-                 ); `, []).then(() => console.log('groups created'))
+                 ); `, []).then(() => console.log('groups created'));
 
     await query(`CREATE TABLE kind_unit_zones
                  (
@@ -93,7 +93,7 @@ export const initMasterTable = async () => {
                      kind_unit_id TEXT,
                      zone_id      TEXT,
                      status DEFAULT 0
-                 );`, []).then(() => console.log('kind_unit_zones created'))
+                 );`, []).then(() => console.log('kind_unit_zones created'));
     await query(`CREATE TABLE group_kind_unit_zones
                  (
                      id                TEXT PRIMARY KEY NOT NULL,
@@ -103,66 +103,128 @@ export const initMasterTable = async () => {
                      status DEFAULT 0
                  );`, []).then(() => console.log('group_kind_unit_zones created'))
 
-}
+};
 //#2
 export const syncMasterData = async () => {
     //sync user and units
     // await query(`DELETE
     //              FROM units`);
     await fetch(apiUri + "sync.php?data=units", {method: "GET"})
-        .then(res => res.json()).then(res => {
-            let sqli = '';
-            let keys = Object.keys(res[0]).join(',');
-            res.forEach((unit, index) => {
-                sqli += `(COALESCE((SELECT id from units where name = '${unit.name}'),'${unit.id}'),'${unit.name}',1)`;
-                if (res.length === index + 1) {
-                    return;
-                }
-                sqli += ','
-            });
-            query(`INSERT OR
-            REPLACE INTO units (${keys},status)
-                 VALUES ${sqli};`, []).then(() => console.log('unit inserted'));
+        .then(res => res.json()).then(async res => {
+            if (res.length > 0) {
+                let sqli = '';
+                let keys = Object.keys(res[0]).join(',');
+                res.forEach((unit, index) => {
+                    sqli += `('${unit.id}','${unit.name}',1)`;
+                    if (res.length === index + 1) {
+                        return;
+                    }
+                    sqli += ','
+                });
+                const sqlquery = `INSERT OR REPLACE INTO units (${keys},status) VALUES ${sqli};`;
+                await query(sqlquery, []).then(() => console.log('unit inserted'));
+            }
         }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...'));
 
     // await query(`DELETE
     //              FROM users`);
     //fetch from server, and initialize data
     await fetch(apiUri + "sync.php?data=users", {method: "GET"})
-        .then(res => res.json()).then(res => {
-            let sqli = '';
-            let keys = Object.keys(res[0]).join(',');
-            res.forEach((user, index) => {
-                sqli += `(COALESCE((SELECT id from users where name = '${user.name}'),'${user.id}'),'${user.name}','${user.lahir}','${user.nrp}',1)`;
-                if (res.length === index + 1) {
-                    return;
-                }
-                sqli += ','
-            });
-            //add status = 1 cz data synced with server
-            query(`INSERT OR
-            REPLACE INTO users (${keys},status)
-                 VALUES ${sqli};`, []).then(() => {
-                console.log('account inserted');
-
-                ///==========test user unit table
-                query(`INSERT OR
-                       REPLACE
-                       INTO unit_users(id, user_id, unit_id)
-                       values (COALESCE((SELECT id from unit_users where user_id = '2vgj5q2q0$9u8zteqoy' and unit_id = '7u9hwievk$c2vh2z31f'),'${ID()}'), '2vgj5q2q0$9u8zteqoy', '7u9hwievk$c2vh2z31f')`).then(() => {
-                    query(`SELECT units.name as unit, users.name as mekanik
-                           from unit_users
-                                    left join users on unit_users.user_id = users.id
-                                    left join units on unit_users.unit_id = units.id`)
-                        .then(res => {
-                            checkDataTable('unit_users').then(console.log('synced kind_units'));
-                            console.log(res)
-                        });
+        .then(res => res.json()).then(async res => {
+            if (res.length > 0) {
+                let sqli = '';
+                let keys = Object.keys(res[0]).join(',');
+                res.forEach((user, index) => {
+                    sqli += `('${user.id}','${user.name}','${user.lahir}','${user.nrp}',1)`;
+                    if (res.length === index + 1) {
+                        return;
+                    }
+                    sqli += ','
                 });
-            });
+                //add status = 1 cz data synced with server
+                await query(`INSERT OR REPLACE INTO users (${keys},status) VALUES ${sqli};`, []).then(() => {
+                    console.log('account inserted');
+                });
+            }
         }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...'));
 
-}
+    await fetch(apiUri + "sync.php?data=unit_users", {method: "GET"})
+        .then(res => res.json()).then(async res => {
+            if (res.length > 0) {
+                let sqli = '';
+                let keys = Object.keys(res[0]).join(',');
+                // console.log(keys);
+                res.forEach((unit_user, index) => {
+                    sqli += `('${unit_user.id}','${unit_user.unit_id}','${unit_user.user_id}',1)`;
+                    if (res.length === index + 1) {
+                        return;
+                    }
+                    sqli += ','
+                });
+                //add status = 1 cz data synced with server
+                await query(`INSERT OR REPLACE INTO unit_users (${keys},status) VALUES ${sqli};`, []).then(() => {
+                    console.log('unit_user inserted');
+                });
+            }
+        });
+    await fetch(apiUri + "sync.php?data=kind_units", {method: "GET"})
+        .then(res => res.json()).then(async res => {
+            if (res.length > 0) {
+                let sqli = '';
+                let keys = Object.keys(res[0]).join(',');
+                // console.log(keys);
+                res.forEach((kind_units, index) => {
+                    sqli += `('${kind_units.id}','${kind_units.kind_id}','${kind_units.unit_user_id}',1)`;
+                    if (res.length === index + 1) {
+                        return;
+                    }
+                    sqli += ','
+                });
+                //add status = 1 cz data synced with server
+                await query(`INSERT OR REPLACE INTO kind_units (${keys},status) VALUES ${sqli};`, []).then(() => {
+                    console.log('kind_units inserted');
+                });
+            }
+        });
+    await fetch(apiUri + "sync.php?data=kind_unit_zones", {method: "GET"})
+        .then(res => res.json()).then(async res => {
+            if (res.length > 0) {
+                let sqli = '';
+                let keys = Object.keys(res[0]).join(',');
+                // console.log(keys);
+                res.forEach((kind_unit_zones, index) => {
+                    sqli += `('${kind_unit_zones.id}','${kind_unit_zones.kind_unit_id}','${kind_unit_zones.zone_id}',1)`;
+                    if (res.length === index + 1) {
+                        return;
+                    }
+                    sqli += ','
+                });
+                //add status = 1 cz data synced with server
+                await query(`INSERT OR REPLACE INTO kind_unit_zones (${keys},status) VALUES ${sqli};`, []).then(() => {
+                    console.log('kind_unit_zones inserted');
+                });
+            }
+        });
+    await fetch(apiUri + "sync.php?data=group_kind_unit_zones", {method: "GET"})
+        .then(res => res.json()).then(async res => {
+            if (res.length > 0) {
+                let sqli = '';
+                let keys = Object.keys(res[0]).join(',');
+                // console.log(keys);
+                res.forEach((group_kind_unit_zones, index) => {
+                    sqli += `('${group_kind_unit_zones.id}','${group_kind_unit_zones.kind_unit_zone_id}','${group_kind_unit_zones.group_id}','${group_kind_unit_zones.input_items}',1)`;
+                    if (res.length === index + 1) {
+                        return;
+                    }
+                    sqli += ','
+                });
+                //add status = 1 cz data synced with server
+                await query(`INSERT OR REPLACE INTO group_kind_unit_zones (${keys},status) VALUES ${sqli};`, []).then(() => {
+                    console.log('group_kind_unit_zones inserted');
+                });
+            }
+        })
+};
 //#3
 export const createTableOffline = async () => {
 
@@ -174,7 +236,7 @@ export const createTableOffline = async () => {
     }
     //set initial fotoQueue as array
     let fotoQueue = JSON.stringify([]);
-    await AsyncStorage.setItem('fotoQueue',fotoQueue);
+    await AsyncStorage.setItem('fotoQueue', fotoQueue);
     await query(`DELETE
                  FROM kinds`);
     await fetch(apiUri + "sync.php?data=kinds", {method: "GET"})
@@ -207,7 +269,7 @@ export const createTableOffline = async () => {
             await query(`INSERT INTO zones
             VALUES ` + valueZone, []).then(() => console.log('zones inserted'));
         })
-}
+};
 //#4
 export const secondPartTableOffline = async () => {
 
@@ -238,13 +300,13 @@ export const secondPartTableOffline = async () => {
                         }
                         valueGroup += ','
                     });
-                    await query(`INSERT INTO groups 
+                    await query(`INSERT INTO groups
                     VALUES ` + valueGroup, []).then(() => console.log(`groups zone id ${zone.id} inserted`));
                     groupIndex++;
                 })
         }
     })
-}
+};
 
 export const _createMasterData = async () => {
     const beingUsed = await AsyncStorage.getItem('isUsed');
@@ -276,7 +338,7 @@ export const _createMasterData = async () => {
                  FROM units`, []).then(async results => {
         let param = [];
         await query(`DELETE
-                     FROM pisheets`).then(() => console.log('delete pisheets'))
+                     FROM pisheets`).then(() => console.log('delete pisheets'));
         await results.forEach(result => {
             const q = "INSERT INTO pisheets VALUES (null,?)";
             param.push(result.id);
@@ -306,4 +368,4 @@ export const _createMasterData = async () => {
     await query(`INSERT INTO z1b
                  VALUES (null, ?, ?)`, [defaultInput.z1b, 1]).then(() => console.log('z1b inserted'));
 
-}
+};

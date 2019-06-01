@@ -16,9 +16,10 @@ const createFormData = (body, table) => {
 //fetch from local db retrieve unsync data users.
 //TRIGGER WHEN NETWORK CHANGE
 export const checkDataTable = async (table) => {
-    const results = await query(`select * from ${table} where status = 0`).then(res => {
+    const results = await query(`select * from ${table} where status = 0`).then(async res => {
         if (res.length > 0) {
-            fetch(apiUri + `sync.php?input=${table}`, {
+            console.log(res);
+            await fetch(apiUri + `sync.php?input=${table}`, {
                 method: "POST",
                 body: createFormData(res, table)
             }).then(res => {
@@ -28,7 +29,7 @@ export const checkDataTable = async (table) => {
                     console.log(`update ${table} to server`)
                 }
                 return res;
-            }).catch(() => Alert.alert('Failed', 'Failed connect to server, get local data...'));
+            }).catch(() => Alert.alert('Problem with server', 'Failed connect to server, get local data...'));
 
         }
         return res;
