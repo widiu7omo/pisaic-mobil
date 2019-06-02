@@ -65,13 +65,12 @@ export default class App extends React.Component {
         if (isConnected) {
             this.setState({sync:true});
             this._dismissAllNotification();
+            const beingUsed = await AsyncStorage.getItem('isUsed');
+            if (!beingUsed) {
+                this.setState({syncMessage:'Initialize first launch'})
+            }
             await initMasterTable()
                 .then(async () => {
-                    const beingUsed = await AsyncStorage.getItem('isUsed');
-                    console.log(beingUsed);
-                    if (!beingUsed) {
-                        this.setState({syncMessage:'Initialize first launch'})
-                    }
                     //async when data connected
                     await this.syncLocalData();
                     await syncMasterData();

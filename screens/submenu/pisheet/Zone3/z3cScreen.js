@@ -1,11 +1,25 @@
 import React from 'react'
-import {FlatList, View, StyleSheet, ScrollView, Text, Picker, ActivityIndicator} from 'react-native'
-import {Card, Button, TextInput, RadioButton} from 'react-native-paper'
+import {
+    ActivityIndicator,
+    Alert,
+    AsyncStorage,
+    FlatList,
+    Picker,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View
+} from 'react-native'
+import {Button, Card, RadioButton, TextInput} from 'react-native-paper'
 import CustomHeader from '../../../../components/CustomHeader'
 import KeyboardShift from '../../../../components/KeyboardShift'
 import {normalize} from "../../../../constants/FontSize";
 import query from "../../../../database/query"
 import Colors from "../../../../constants/Colors";
+import input from "../../../../constants/Default_z3inputs";
+import {checkDataTable} from "../../../../constants/Data_to_update";
+import {ID} from "../../../../constants/Unique";
+import {Uploader} from "../../../../constants/Uploader"
 
 const styles = StyleSheet.create({
     container: {
@@ -38,18 +52,62 @@ const styles = StyleSheet.create({
         fontWeight: "600"
     }
 });
-export default class z1aScreen extends React.Component {
+export default class z3cScreen extends React.Component {
     componentDidMount() {
+        // console.log(this.props.navigation.getParam('group_id'));
+        // console.log(this.props.navigation.getParam('kind_unit_zone_id'));
         this.fetchInput().then(() => this.setState({loading: false}))
     }
 
+    saveInput = async () => {
+        let group_id = this.props.navigation.getParam('group_id');
+        let kind_unit_zone_id = this.props.navigation.getParam('kind_unit_zone_id');
+        let input_items = JSON.stringify(this.state.inputItems);
+
+        await query(`SELECT id
+                     FROM group_kind_unit_zones
+                     WHERE kind_unit_zone_id = ?
+                       AND group_id = ?`, [kind_unit_zone_id, group_id])
+            .then(async res => {
+                // console.log('hasil dari db lokal');
+                //generate new id
+                let group_kind_unit_zone_id = ID();
+                //if found
+                if (res.length > 0) {
+                    //replace generated id with existing id
+                    group_kind_unit_zone_id = res[0].id;
+                }
+                //insert or replace with kind_unit_id
+                await query(`INSERT OR
+                             REPLACE
+                             INTO group_kind_unit_zones (id, kind_unit_zone_id, group_id, input_items)
+                             VALUES (?, ?, ?, ?);`, [group_kind_unit_zone_id, kind_unit_zone_id, group_id, input_items])
+                    .then(() => {
+                        // query(`select * from group_kind_unit_zones`).then(res=>console.log(res));
+                        Alert.alert('Success', 'Data berhasil tersimpan')
+                    });
+
+                if (this.props.screenProps.isConnected) {
+                    await checkDataTable('group_kind_unit_zones').then(console.log('synced group_kind_unit_zones'));
+                }
+
+
+            });
+    };
     fetchInput = async () => {
+        let group_id = this.props.navigation.getParam('group_id');
+        let kind_unit_zone_id = this.props.navigation.getParam('kind_unit_zone_id');
         this.setState({loading: true});
         await query(`select *
-                     from z1a
-                     where zone1_id = ?`, [1])
+                     from group_kind_unit_zones
+                     where group_id = ?
+                       and kind_unit_zone_id = ?`, [group_id, kind_unit_zone_id])
             .then(result => {
-                const res = result[0].input_items;
+                let res = input.z3c;
+                // console.log(result);
+                if (result.length === 1) {
+                    res = result[0].input_items;
+                }
                 const parsedRes = JSON.parse(res);
                 this.setState({inputItems: parsedRes});
             })
@@ -65,6 +123,7 @@ export default class z1aScreen extends React.Component {
         headerIcon: null,
     };
 
+
     constructor(props) {
         super(props);
 
@@ -77,17 +136,72 @@ export default class z1aScreen extends React.Component {
         }
     }
 
-    ImagePicker = title => {
+    ImagePicker = (item, index) => {
+        // console.log(item);
         this.props.navigation.navigate('ImagePicker', {
-            zonekind: title,
-            unit: this.props.navigation.getParam('unit')
+            groupItem: item.name,
+            kind_unit_zone_id: this.props.navigation.getParam('kind_unit_zone_id'),
+            indexItem: index,
+            prevDataFoto: item.foto,
+            unit: this.props.navigation.getParam('unit'),
+            onGoBack: () => this.getFromImagePicker()
+
         });
+    };
+    //excuted after user save photo
+    getFromImagePicker = async () => {
+        const dataFoto = await AsyncStorage.getItem('dataFoto');
+        const parsedFoto = JSON.parse(dataFoto);
+        // console.log(parsedFoto);
+        //generate object foto
+        const foto = {
+            name: parsedFoto.uri,
+            catatan: parsedFoto.catatanFoto
+        };
+        //push to object before save
+        // console.log(foto);
+        const indexFoto = parsedFoto.indexItem;
+        const inputItems = [...this.state.inputItems];
+        inputItems[indexFoto] = {...inputItems[indexFoto], foto: foto};
+        this.setState({inputItems});
+        // console.log(this.state.inputItems[indexFoto]);
+
+        //if connect to internet then directly push
+        if (this.props.screenProps.isConnected) {
+            foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id;
+            foto['index_foto'] = parsedFoto.indexItem;
+            let photoData = [];
+            photoData.push({uri: foto.name});
+
+            console.log(`datafoto ${JSON.stringify(photoData)}`);
+            Uploader(photoData);
+            // delete foto.name;
+            // result always jpg cz before save it, image are compress
+
+        }
+        //if not, push to async storage (QUEUE)
+        else {
+            foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id;
+            foto['index_foto'] = parsedFoto.indexItem;
+            let fotoQueue = await AsyncStorage.getItem('fotoQueue');
+
+            console.log(fotoQueue);
+
+            let parsedFotoQueue = JSON.parse(fotoQueue);
+
+            console.log(parsedFotoQueue);
+
+            parsedFotoQueue.push(foto);
+            await AsyncStorage.setItem('fotoQueue', JSON.stringify(parsedFotoQueue));
+
+        }
+
     };
 
     PickerOption = (option, index, OptionSelect, kind) => (
         <Picker
             enabled={option.condition !== 'Good'}
-            style={{color:option.condition !== 'Good'?Colors.pureDark:Colors.disable}}
+            style={{color: option.condition !== 'Good' ? Colors.pureDark : Colors.disable}}
             selectedValue={option[kind]}
             onValueChange={value => {
                 const inputItems = [...this.state.inputItems];
@@ -154,7 +268,7 @@ export default class z1aScreen extends React.Component {
                                                   <Text style={styles.viewFoto}>Foto</Text>
                                                   <Button icon="add-a-photo" dark={true}
                                                           mode="contained"
-                                                          onPress={() => this.ImagePicker(item.name)}>Foto</Button>
+                                                          onPress={() => this.ImagePicker(item, index)}>Foto</Button>
                                               </View>
                                           </View>
                                       </View>
@@ -213,10 +327,8 @@ export default class z1aScreen extends React.Component {
                                                 style={{marginHorizontal: 10}}
                                                 onPress={() => this.props.navigation.goBack()}>Kembali</Button>
                                         <Button icon="save" mode="contained"
-                                                onPress={() => console.log(this.state)}>Simpan</Button>
+                                                onPress={() => this.saveInput()}>Simpan</Button>
                                     </View>
-
-
                                 </ScrollView>
                         }
                     </View>
