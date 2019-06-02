@@ -2,25 +2,28 @@ import {apiUri} from "../constants/config";
 
 export const Uploader = async (photoData) => {
     let formData = new FormData();
-    if(Array.isArray(photoData) && photoData.length !== 0){
-        await photoData.forEach(photo=>{
+    if (Array.isArray(photoData) && photoData.length !== 0) {
+        await photoData.forEach(photo => {
             formData.append('photo[]', {
-                uri:photo.uri,
+                uri: photo.uri,
                 name: 'photo',
-                type: 'image/jpg'
+                type: 'image/jpg',
+
             });
+            formData.append('note[]',{
+                note:photo.note
+            })
         });
     }
 
     let options = {
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'multipart/form-data;'
         },
-        method:"POST",
-        body:formData
+        method: "POST",
+        body: formData
     };
-    await fetch(`${apiUri}upload.php?image=groups`,options).then(res=>{
+    await fetch(`${apiUri}upload.php?image=groups`, options).then(res => {
         console.log(res)
     });
 };

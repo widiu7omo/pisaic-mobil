@@ -1,12 +1,11 @@
 import React from 'react';
 import {Platform, StatusBar, StyleSheet, View, Alert, AsyncStorage, NetInfo} from 'react-native';
-import {AppLoading, Asset, Font, Icon, Notifications,Permissions} from 'expo';
+import {AppLoading, Asset, Font, Icon, Notifications,Permissions, Updates} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper'
 import {useScreens} from 'react-native-screens';
 import {createTableOffline, initMasterTable, secondPartTableOffline, syncMasterData} from './constants/Default_tables'
 import {checkDataTable} from "./constants/Data_to_update";
-import SyncLoadingScreen from "./screens/SyncLoadingScreen";
 import LoadingDialog from "./components/LoadingDialog";
 useScreens();
 const primaryTheme = {
@@ -35,9 +34,9 @@ export default class App extends React.Component {
         await checkDataTable('users').then(this.setState({syncMessage:'Synchronizing Users'}));
         await checkDataTable('units').then(this.setState({syncMessage:'Synchronizing  Units'}));
         await checkDataTable('unit_users').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections'}));
-        await checkDataTable('kind_units').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections'}));
-        await checkDataTable('kind_unit_zones').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections'}));
-        await checkDataTable('group_kind_unit_zones').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections'}))
+        await checkDataTable('kind_units').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections.'}));
+        await checkDataTable('kind_unit_zones').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections..'}));
+        await checkDataTable('group_kind_unit_zones').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections...'}))
     };
 
     //create main table,

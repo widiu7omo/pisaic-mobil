@@ -3,7 +3,7 @@ import {
     AsyncStorage,
     StatusBar,
     StyleSheet,
-    View,
+    View,Text
 } from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
 
@@ -28,6 +28,7 @@ export default class AuthLoadingScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <ActivityIndicator/>
+                <Text style={{marginTop:15}}>Authenticating...</Text>
                 <StatusBar barStyle="default"/>
             </View>
         );

@@ -150,48 +150,38 @@ export default class z1aScreen extends React.Component {
     };
     //excuted after user save photo
     getFromImagePicker = async () => {
+        //Parsing picked image
         const dataFoto = await AsyncStorage.getItem('dataFoto');
         const parsedFoto = JSON.parse(dataFoto);
-        // console.log(parsedFoto);
-        //generate object foto
-        const foto = {
-            name: parsedFoto.uri,
-            catatan: parsedFoto.catatanFoto
-        };
-        //push to object before save
-        // console.log(foto);
+
+        // matching foto with input items and push it
+        let foto = {name:parsedFoto.uri,catatan:parsedFoto.catatanFoto}
         const indexFoto = parsedFoto.indexItem;
         const inputItems = [...this.state.inputItems];
         inputItems[indexFoto] = {...inputItems[indexFoto], foto: foto};
         this.setState({inputItems});
-        // console.log(this.state.inputItems[indexFoto]);
-
-        //if connect to internet then directly push
+//not yet testing. TODO after this
+        //initalize photoData
+        let photoData = [];
+        //push foto to array
+        photoData.push(
+            {
+                uri: parsedFoto.uri,
+                catatan: parsedFoto.catatanFoto,
+                indexfoto:parsedFoto.indexItem,
+                kind_unit_zone_id:parsedFoto.kind_unit_zone_id
+            });
+        //if connect to internet then directly push to server
         if (this.props.screenProps.isConnected) {
-            foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id;
-            foto['index_foto'] = parsedFoto.indexItem;
-            let photoData = [];
-            photoData.push({uri: foto.name});
-
-            console.log(`datafoto ${JSON.stringify(photoData)}`);
             Uploader(photoData);
-            // delete foto.name;
-            // result always jpg cz before save it, image are compress
-
         }
         //if not, push to async storage (QUEUE)
         else {
-            foto['kind_unit_zone_id'] = parsedFoto.kind_unit_zone_id;
-            foto['index_foto'] = parsedFoto.indexItem;
+            //get queue foto
             let fotoQueue = await AsyncStorage.getItem('fotoQueue');
-
-            console.log(fotoQueue);
-
             let parsedFotoQueue = JSON.parse(fotoQueue);
 
-            console.log(parsedFotoQueue);
-
-            parsedFotoQueue.push(foto);
+            parsedFotoQueue.push(photoData);
             await AsyncStorage.setItem('fotoQueue', JSON.stringify(parsedFotoQueue));
 
         }

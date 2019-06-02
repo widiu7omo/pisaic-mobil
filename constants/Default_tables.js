@@ -1,5 +1,6 @@
 import query from '../database/query'
 import {AsyncStorage, Alert} from "react-native";
+import {Updates} from 'expo';
 import defaultInput from "./Default_z1inputs";
 import {apiUri} from "./config";
 import {checkDataTable} from "./Data_to_update";
@@ -124,7 +125,7 @@ export const syncMasterData = async () => {
                 const sqlquery = `INSERT OR REPLACE INTO units (${keys},status) VALUES ${sqli};`;
                 await query(sqlquery, []).then(() => console.log('unit inserted'));
             }
-        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...'));
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...',[{text:"Retry",onPress:()=>Updates.reload()}]));
 
     // await query(`DELETE
     //              FROM users`);
@@ -146,7 +147,7 @@ export const syncMasterData = async () => {
                     console.log('account inserted');
                 });
             }
-        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...'));
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...',[{text:"Retry",onPress:()=>Updates.reload()}]));
 
     await fetch(apiUri + "sync.php?data=unit_users", {method: "GET"})
         .then(res => res.json()).then(async res => {
@@ -166,7 +167,7 @@ export const syncMasterData = async () => {
                     console.log('unit_user inserted');
                 });
             }
-        });
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...',[{text:"Retry",onPress:()=>Updates.reload()}]));
     await fetch(apiUri + "sync.php?data=kind_units", {method: "GET"})
         .then(res => res.json()).then(async res => {
             if (res.length > 0) {
@@ -185,7 +186,7 @@ export const syncMasterData = async () => {
                     console.log('kind_units inserted');
                 });
             }
-        });
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...',[{text:"Retry",onPress:()=>Updates.reload()}]));
     await fetch(apiUri + "sync.php?data=kind_unit_zones", {method: "GET"})
         .then(res => res.json()).then(async res => {
             if (res.length > 0) {
@@ -204,7 +205,7 @@ export const syncMasterData = async () => {
                     console.log('kind_unit_zones inserted');
                 });
             }
-        });
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...',[{text:"Retry",onPress:()=>Updates.reload()}]));
     await fetch(apiUri + "sync.php?data=group_kind_unit_zones", {method: "GET"})
         .then(res => res.json()).then(async res => {
             if (res.length > 0) {
@@ -223,7 +224,7 @@ export const syncMasterData = async () => {
                     console.log('group_kind_unit_zones inserted');
                 });
             }
-        })
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...',[{text:"Retry",onPress:()=>Updates.reload()}]));
 };
 //#3
 export const createTableOffline = async () => {

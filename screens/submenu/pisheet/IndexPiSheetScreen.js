@@ -58,7 +58,14 @@ export default class IndexPiSheetScreen extends React.Component {
                 console.log(parsedFotoQueue);
                 let dataFotoQueue = [];
                 parsedFotoQueue.forEach(foto=>{
-                    dataFotoQueue.push({uri:foto.name});
+                    dataFotoQueue.push(
+                        {
+                            uri: foto.name,
+                            catatan: parsedFoto.catatanFoto,
+                            indexfoto:parsedFoto.indexItem,
+                            kind_unit_zone_id:parsedFoto.kind_unit_zone_id
+                        }
+                    );
                 });
                 Uploader(dataFotoQueue).then(()=>{
                     this.setState({progress:false});

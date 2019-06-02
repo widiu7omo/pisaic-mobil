@@ -3,6 +3,8 @@
 if(isset($_GET['image'])){
     $post = $_POST;
     $imageName = [];
+    var_dump($post);
+    var_dump($_FILES);
     // Image uploading folder.
     $target_dir = "uploads";
     $name =time().'_'.basename($file['name']);
@@ -16,22 +18,6 @@ if(isset($_GET['image'])){
             // var_dump($file);
         }
     }
-    // if(gettype($_FILES) == 'array'){
-    //     foreach($_FILES as $key=>$file){
-    //         // var_dump($file);
-    //         // Generating random image name each time so image name will not be same .
-    
-    //         $target_dir = "$target_dir /$name";
-    //         $imageName[] =$name;
-    //         // Receiving image sent from Application
-    //         var_dump($file['tmp_name']);
-    //         move_uploaded_file($_FILES['photo']['tmp_name'][$key], $target_dir);
-            
-    //         // Adding domain name with image random name.
-    //         $target_dir = getcwd(). $target_dir ;
-    //         // Inserting data into MySQL database.
-    //         // mysql_query("insert into image_upload_table ( image_tag, image_path) VALUES('$img_tag' , '$target_dir')");
-    // }
     
     echo json_encode(array('status'=>'success','uploaded'=>json_encode($imageName),'count'=>count($imageName)));
     // }
