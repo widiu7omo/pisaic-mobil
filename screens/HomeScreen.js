@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, Image, TouchableOpacity, StyleSheet, FlatList} from 'react-native'
+import {View, Text, Image,AsyncStorage, TouchableOpacity, StyleSheet, FlatList} from 'react-native'
 import {Button} from 'react-native-paper';
 import Colors from '../constants/Colors'
 
@@ -48,11 +48,17 @@ export default class HomeScreen extends React.Component {
                 {name: 'Work Order & Others', screen: 'Workorder'},
                 {name: 'Cek Status Progress PI', screen: 'Workorder'},
                 {name: 'Go To PI', screen: 'ListUnit'},
-                {name: 'Create New PI', screen: 'Workorder'},
+                {name: 'Create New PI', screen: 'CreateNewPi'},
                 {name: 'Give Order', screen: ''}
-            ]
+            ],
+            level: ''
         }
     }
+
+    componentDidMount = async () => {
+       const level = await AsyncStorage.getItem('level');
+       this.setState({level:level});
+    };
 
     _getIndex = (items, forLooking) => {
         //array must be object with index name
@@ -61,13 +67,11 @@ export default class HomeScreen extends React.Component {
     goTo = async (menu) => {
         await this.props.navigation.navigate(menu.screen, {headerTitle: menu.name})
     };
-
     render() {
         const textColor = Colors.primaryColor;
-        const level = 'admin';
         let index = null;
-        const {menus} = this.state;
-
+        const {menus,level} = this.state;
+        console.log(this.state);
         if (level === 'admin') {
             index = this._getIndex(menus, 'Give Order');
             menus.splice(index, 1)

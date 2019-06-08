@@ -98,6 +98,7 @@ export default class LoginScreen extends React.Component {
                 if (res.length > 0) {
                     AsyncStorage.setItem('userToken', 'abc');
                     AsyncStorage.setItem('isUsed', 'yeyeye');
+                    AsyncStorage.setItem('level',res[0].level);
                 } else Alert.alert('Login Gagal', 'Periksa Kembali username dan password anda')
             });
 

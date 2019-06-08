@@ -1,5 +1,5 @@
 import React from 'react'
-import {TouchableOpacity, View, ScrollView, Image, Text, Alert, AsyncStorage} from 'react-native'
+import {TouchableOpacity, View, ScrollView, Image,Picker, Text, Alert, AsyncStorage} from 'react-native'
 import {TextInput, Button} from 'react-native-paper'
 import query from "../database/query";
 import {ID} from "../constants/Unique";
@@ -44,11 +44,12 @@ export default class AddUserScreen extends React.Component {
     state = {
         name: '',
         nrp: '',
-        lahir: ''
+        lahir: '',
+        level:'',
     };
-
+    levelOptions = ['SPV','MEKANIK'];
     save = async () => {
-        if (this.state.nrp !== '') {
+        if (this.state.nrp !== '' && this.state.level !== '') {
             await query(`SELECT id
                      FROM users
                      WHERE nrp= ? `, [this.state.nrp])
@@ -60,13 +61,11 @@ export default class AddUserScreen extends React.Component {
                         //replace generated id with existing id
                         user_id = res[0].id;
                     }
-                    console.log('get user is');
-                    console.log(user_id);
                     //insert or replace with kind_unit_id
                     await query(`INSERT OR
                              REPLACE
-                             INTO users(id, name,nrp,lahir)
-                             VALUES (?, ?, ?,?);`, [user_id, this.state.name,this.state.nrp,this.state.lahir])
+                             INTO users(id, name,nrp,lahir,level)
+                             VALUES (?, ?, ?,?,?);`, [user_id, this.state.name,this.state.nrp,this.state.lahir,this.state.level.toLowerCase()])
                         .then(() => {
                             Alert.alert('Success', 'Data berhasil tersimpan')
                             this.props.navigation.goBack();
@@ -82,9 +81,27 @@ export default class AddUserScreen extends React.Component {
     }
 
     render() {
+
         return (
             <ScrollView>
                 <View style={{flex: 1, flexDirection: 'column', padding: 15}}>
+                    <View>
+                        <Text>Akun untuk: </Text>
+                        <Picker
+                            selectedValue={this.state.level}
+                            onValueChange={value => {
+                                this.setState({level:value})
+                            }
+                            }>
+                            {
+                                this.levelOptions.map((level, key) => (
+                                    <Picker.Item key={key} label={level}
+                                                 value={level}/>
+                                ))
+                            }
+                        </Picker>
+                    </View>
+
                     <TextInput mode="outlined" value={this.state.name}
                                onChangeText={(value) => this.setState({name: value})} placeholder="Nama"/>
                     <TextInput mode="outlined" value={this.state.nrp}

@@ -48,6 +48,8 @@ import z3fScreen from "../screens/submenu/pisheet/Zone3/z3fScreen";
 import z3gScreen from "../screens/submenu/pisheet/Zone3/z3gScreen";
 import ImagePickerScreen from "../screens/submenu/pisheet/ImagePickerScreen";
 import SignatureScreen from "../screens/SignatureScreen";
+import CreateNewPiScreeen from "../screens/main/CreateNewPiScreen";
+import MaintainScreen from "../screens/main/MaintainScreen";
 
 //Main screen on Home
 //with some of nested screen
@@ -64,6 +66,8 @@ const HomeStack = createStackNavigator({
     UnitMenu: IndexSubmenuScreen,
     //Periodic Inspection: Have Submenu
     PeriodicInspection:IndexPiSheetScreen,
+    CreateNewPi:CreateNewPiScreeen,
+    Maintain:MaintainScreen,
         //sub Pi
     Dataunit:DataunitScreen,
     Workorder:WorkorderScreen,

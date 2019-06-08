@@ -49,6 +49,7 @@ export const initMasterTable = async () => {
                      name   TEXT,
                      nrp    TEXT,
                      lahir  TEXT,
+                     level TEXT,
                      status INTEGER          NULL DEFAULT 0
                  )`, []).then(() => console.log('user created'));
     await query(`CREATE TABLE IF NOT EXISTS unit_users
@@ -146,7 +147,7 @@ export const syncMasterData = async () => {
                 let sqli = '';
                 let keys = Object.keys(res[0]).join(',');
                 res.forEach((user, index) => {
-                    sqli += `('${user.id}','${user.name}','${user.nrp}','${user.lahir}',1)`;
+                    sqli += `('${user.id}','${user.name}','${user.nrp}','${user.lahir}','${user.level}',1)`;
                     if (res.length === index + 1) {
                         return;
                     }
