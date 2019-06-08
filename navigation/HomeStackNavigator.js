@@ -47,6 +47,7 @@ import z3eScreen from "../screens/submenu/pisheet/Zone3/z3eScreen";
 import z3fScreen from "../screens/submenu/pisheet/Zone3/z3fScreen";
 import z3gScreen from "../screens/submenu/pisheet/Zone3/z3gScreen";
 import ImagePickerScreen from "../screens/submenu/pisheet/ImagePickerScreen";
+import SignatureScreen from "../screens/SignatureScreen";
 
 //Main screen on Home
 //with some of nested screen
@@ -119,7 +120,8 @@ const HomeStack = createStackNavigator({
     DataunitDaily:DataUnitDailyScreen,
     SheetDaily:SheetDailyScreen,
     FotoSheetDaily:FotoSheetDailyScreen,
-    SheetDailyQuestion:SheetDailyQuestionScreen
+    SheetDailyQuestion:SheetDailyQuestionScreen,
+    DigitalSignature:SignatureScreen,
 
   },
   {

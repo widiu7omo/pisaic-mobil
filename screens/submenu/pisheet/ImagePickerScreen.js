@@ -1,9 +1,11 @@
 import React from 'react';
-import {Alert, ScrollView, View, Platform, Image, AsyncStorage} from 'react-native';
-import {ImagePicker, Permissions, ImageManipulator} from 'expo';
+import {Alert, AsyncStorage, Image, Platform, ScrollView, View} from 'react-native';
+import * as ImagePicker from 'expo-image-picker'
+import * as ImageManipulator from 'expo-image-manipulator'
+import * as Permissions from 'expo-permissions'
 import {NavigationEvents} from 'react-navigation';
 import CustomHeader from "../../../components/CustomHeader";
-import {Title, Button, Card, Avatar, TextInput} from "react-native-paper";
+import {Button, Card, TextInput} from "react-native-paper";
 import {Ionicons} from '@expo/vector-icons';
 import Colors from "../../../constants/Colors";
 import KeyboardShift from "../../../components/KeyboardShift";
@@ -45,10 +47,9 @@ export default class ImagePickerScreen extends React.Component {
     }
 
     _compressImage = async (uri) => {
-        const CompressedImage = await ImageManipulator.manipulateAsync(uri, [], {compress: 0.6});
         // console.log(CompressedImage);
         //return promise
-        return CompressedImage;
+        return await ImageManipulator.manipulateAsync(uri, [], {compress: 0.6});
     };
     _saveFoto = async (dataFoto) => {
         console.log(dataFoto);
@@ -65,7 +66,7 @@ export default class ImagePickerScreen extends React.Component {
 
         let foto = JSON.stringify(dataFoto);
         await AsyncStorage.setItem('dataFoto', foto);
-        this.props.navigation.state.params.onGoBack();
+        await this.props.navigation.state.params.onGoBack();
         await Alert.alert('Success',"Foto Tersimpan",[{text:'OK',onPress:()=>this.props.navigation.goBack()}])
         // this.props.navigation.goBack();
     };

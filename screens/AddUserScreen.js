@@ -1,7 +1,9 @@
 import React from 'react'
 import {TouchableOpacity, View, ScrollView, Image, Text, Alert, AsyncStorage} from 'react-native'
 import {TextInput, Button} from 'react-native-paper'
-import user from "../constants/UserController"
+import query from "../database/query";
+import {ID} from "../constants/Unique";
+import {checkDataTable} from "../constants/Data_to_update";
 
 class LogoTitle extends React.Component {
     constructor(props) {
@@ -45,20 +47,38 @@ export default class AddUserScreen extends React.Component {
         lahir: ''
     };
 
-    save(newUser) {
-        user.insert(newUser,this.props.screenProps.isConnected).then(() => {
-            this.success = true;
-            Alert.alert("Success", "User berhasil ditambahkan",
-                [{
-                    text: 'OK', onPress: () => {
-                        this.props.navigation.navigate('User')
+    save = async () => {
+        if (this.state.nrp !== '') {
+            await query(`SELECT id
+                     FROM users
+                     WHERE nrp= ? `, [this.state.nrp])
+                .then(async res => {
+                    //generate new id
+                    let user_id = ID();
+                    //if found
+                    if (res.length > 0) {
+                        //replace generated id with existing id
+                        user_id = res[0].id;
                     }
-                }]);
-        }).catch(err => {
-            console.log('fail', err);
-            this.err = err;
-            this.success = false;
-        })
+                    console.log('get user is');
+                    console.log(user_id);
+                    //insert or replace with kind_unit_id
+                    await query(`INSERT OR
+                             REPLACE
+                             INTO users(id, name,nrp,lahir)
+                             VALUES (?, ?, ?,?);`, [user_id, this.state.name,this.state.nrp,this.state.lahir])
+                        .then(() => {
+                            Alert.alert('Success', 'Data berhasil tersimpan')
+                            this.props.navigation.goBack();
+                        });
+
+                    if (this.props.screenProps.isConnected) {
+                        await checkDataTable('users').then(console.log('synced users'));
+                    }
+
+
+                });
+        }
     }
 
     render() {
@@ -73,8 +93,7 @@ export default class AddUserScreen extends React.Component {
                                onChangeText={(value) => this.setState({lahir: value})} placeholder="Tanggal Lahir"/>
 
                     <Button style={{margin: 15}} mode="contained" onPress={() => {
-                        console.log(this.state);
-                        this.save(this.state);
+                        this.save();
                     }
                     }>Tambah User</Button>
                 </View>

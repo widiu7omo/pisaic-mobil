@@ -1,5 +1,5 @@
 import React from 'react'
-import {Component, Image, View, StyleSheet, ScrollView, Text, TouchableOpacity} from 'react-native'
+import {Image, View, StyleSheet, ScrollView, Text, TouchableOpacity} from 'react-native'
 import {Button, TextInput} from 'react-native-paper'
 import DatePicker from 'react-native-datepicker'
 

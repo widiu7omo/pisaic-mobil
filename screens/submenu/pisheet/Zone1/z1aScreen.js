@@ -91,7 +91,6 @@ export default class z1aScreen extends React.Component {
                     await checkDataTable('group_kind_unit_zones').then(console.log('synced group_kind_unit_zones'));
                 }
 
-
             });
     };
     fetchInput = async () => {
@@ -136,9 +135,9 @@ export default class z1aScreen extends React.Component {
         }
     }
 
-    ImagePicker = (item, index) => {
+    ImagePicker = async (item, index) => {
         // console.log(item);
-        this.props.navigation.navigate('ImagePicker', {
+        await this.props.navigation.navigate('ImagePicker', {
             groupItem: item.name,
             kind_unit_zone_id: this.props.navigation.getParam('kind_unit_zone_id'),
             indexItem: index,
@@ -153,38 +152,42 @@ export default class z1aScreen extends React.Component {
         //Parsing picked image
         const dataFoto = await AsyncStorage.getItem('dataFoto');
         const parsedFoto = JSON.parse(dataFoto);
-
+        console.log('get image from picker');
+        console.log(parsedFoto);
         // matching foto with input items and push it
-        let foto = {name:parsedFoto.uri,catatan:parsedFoto.catatanFoto}
+        let foto = {name: parsedFoto.uri, catatan: parsedFoto.catatanFoto}
         const indexFoto = parsedFoto.indexItem;
         const inputItems = [...this.state.inputItems];
         inputItems[indexFoto] = {...inputItems[indexFoto], foto: foto};
         this.setState({inputItems});
 //not yet testing. TODO after this
         //initalize photoData
-        let photoData = [];
-        //push foto to array
-        photoData.push(
+        let photoData =
             {
                 uri: parsedFoto.uri,
                 catatan: parsedFoto.catatanFoto,
-                indexfoto:parsedFoto.indexItem,
-                kind_unit_zone_id:parsedFoto.kind_unit_zone_id
-            });
-        //if connect to internet then directly push to server
-        if (this.props.screenProps.isConnected) {
-            Uploader(photoData);
-        }
-        //if not, push to async storage (QUEUE)
-        else {
-            //get queue foto
-            let fotoQueue = await AsyncStorage.getItem('fotoQueue');
-            let parsedFotoQueue = JSON.parse(fotoQueue);
+                indexfoto: parsedFoto.indexItem,
+                kind_unit_zone_id: parsedFoto.kind_unit_zone_id
+            };
+        // //if connect to internet then directly push to server
+        // if (this.props.screenProps.isConnected) {
+        //     console.log('youre connected');
+        //     Uploader(photoData);
+        // }
+        // //if not, push to async storage (QUEUE)
+        // else {
+        //     console.log('youre offline');
 
-            parsedFotoQueue.push(photoData);
-            await AsyncStorage.setItem('fotoQueue', JSON.stringify(parsedFotoQueue));
+        //get queue foto
+        let fotoQueue = await AsyncStorage.getItem('fotoQueue');
+        let parsedFotoQueue = JSON.parse(fotoQueue);
 
-        }
+        parsedFotoQueue.push(photoData);
+        await AsyncStorage.setItem('fotoQueue', JSON.stringify(parsedFotoQueue));
+
+        console.log('foto queue join with new one');
+        console.log(parsedFotoQueue);
+        // }
 
     };
 

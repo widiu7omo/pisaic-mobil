@@ -55,12 +55,11 @@ export default class UserScreen extends React.Component {
         this.loading = true;
         let isConnected = this.props.screenProps.isConnected;
         this.setState({refreshing: true});
-        await user.select(null,isConnected)
+        await user.select(null, isConnected)
             .then(users => {
-                console.log(users);
                 this.loading = false;
 
-                if(typeof users === 'object'){
+                if (typeof users === 'object') {
                     this.setState({users: users})
                 }
                 this.setState({refreshing: false})
@@ -71,6 +70,10 @@ export default class UserScreen extends React.Component {
 
     render() {
         const {users} = this.state;
+        //filtering user
+        let filteredUsers = users.filter((user) => {
+            return (user.name !== 'admin' && user.name !== 'spv') ? user : null;
+        });
         const loading = this.loading;
         return (
             <ScrollView refreshControl={
@@ -88,7 +91,7 @@ export default class UserScreen extends React.Component {
                     </DataTable.Header>
                     {
                         loading ? (<ActivityIndicator style={{marginTop: 20}}/>) :
-                            users.map((user, key) => {
+                            filteredUsers.map((user, key) => {
                                 return (
                                     <DataTable.Row key={key}>
                                         <DataTable.Cell style={{maxWidth: 25}}>{key + 1}</DataTable.Cell>

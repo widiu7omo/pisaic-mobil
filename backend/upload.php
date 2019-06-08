@@ -3,8 +3,8 @@
 if(isset($_GET['image'])){
     $post = $_POST;
     $imageName = [];
-    var_dump($post);
-    var_dump($_FILES);
+    // var_dump($post);
+    // var_dump($_FILES);
     // Image uploading folder.
     $target_dir = "uploads";
     $name =time().'_'.basename($file['name']);

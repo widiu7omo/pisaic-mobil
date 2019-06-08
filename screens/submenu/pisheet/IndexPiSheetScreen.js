@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Alert, AsyncStorage,StyleSheet, ScrollView, FlatList, ActivityIndicator} from 'react-native'
+import {View, Alert, AsyncStorage, StyleSheet, ScrollView, FlatList, ActivityIndicator} from 'react-native'
 import {Button} from 'react-native-paper'
 import CustomHeader from "../../../components/CustomHeader";
 import query from "../../../database/query";
@@ -23,8 +23,8 @@ export default class IndexPiSheetScreen extends React.Component {
         this.state = {
             loading: false,
             submenus: [],
-            progress:false,
-            progressMessage:''
+            progress: false,
+            progressMessage: ''
         }
     }
 
@@ -46,38 +46,37 @@ export default class IndexPiSheetScreen extends React.Component {
         this.getTable()
     }
 
-    _uploadImage = async ()=>{
+    _uploadImage = async () => {
         const {isConnected} = this.props.navigation.getScreenProps();
-        if(isConnected){
-        const fotoQueue = await AsyncStorage.getItem('fotoQueue');
+        if (isConnected) {
+
+            const fotoQueue = await AsyncStorage.getItem('fotoQueue');
 
             const parsedFotoQueue = JSON.parse(fotoQueue);
-
-            if(Array.isArray(parsedFotoQueue) && parsedFotoQueue.length > 0){
-                this.setState({progress:true});
-                console.log(parsedFotoQueue);
+            console.log('connect with internet and retrive data from fotoQueue');
+            console.log(parsedFotoQueue);
+            //filtering if any undefined value
+            if (Array.isArray(parsedFotoQueue) && parsedFotoQueue.length > 0) {
+                this.setState({progress: true});
+                // console.log(parsedFotoQueue);
                 let dataFotoQueue = [];
-                parsedFotoQueue.forEach(foto=>{
-                    dataFotoQueue.push(
-                        {
-                            uri: foto.name,
-                            catatan: parsedFoto.catatanFoto,
-                            indexfoto:parsedFoto.indexItem,
-                            kind_unit_zone_id:parsedFoto.kind_unit_zone_id
-                        }
-                    );
+
+                parsedFotoQueue.forEach((foto,index) => {
+                    if(typeof  foto.uri !== "undefined"){
+                        dataFotoQueue.push(foto)
+                    }
                 });
-                Uploader(dataFotoQueue).then(()=>{
-                    this.setState({progress:false});
-                    AsyncStorage.setItem('fotoQueue',JSON.stringify([]));
+                console.log('filtering parsed Foto Queue')
+                console.log(dataFotoQueue)
+                Uploader(dataFotoQueue).then(() => {
+                    this.setState({progress: false});
+                    AsyncStorage.setItem('fotoQueue', JSON.stringify([]));
                 })
+            } else {
+                Alert.alert('No Need Action', 'Data already uploaded. No need Action')
             }
-            else{
-                Alert.alert('No Need Action','Data already uploaded. No need Action')
-            }
-        }
-        else{
-            Alert.alert('Fail','You\'re not connect to the internet');
+        } else {
+            Alert.alert('Fail', 'You\'re not connect to the internet');
         }
 
     };
@@ -140,7 +139,7 @@ export default class IndexPiSheetScreen extends React.Component {
                     <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginVertical: 10, padding: 10}}>
 
                         <Button mode="contained" style={{marginHorizontal: 10}}>Save</Button>
-                        <Button mode="contained" onPress={()=>this._uploadImage()}>Upload</Button>
+                        <Button mode="contained" onPress={() => this._uploadImage()}>Upload</Button>
                         <Button mode="contained" style={{marginHorizontal: 10}}>Back</Button>
                         <Button mode="contained">Finish</Button>
 
