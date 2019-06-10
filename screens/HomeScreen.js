@@ -49,7 +49,9 @@ export default class HomeScreen extends React.Component {
                 {name: 'Cek Status Progress PI', screen: 'Workorder'},
                 {name: 'Go To PI', screen: 'ListUnit'},
                 {name: 'Create New PI', screen: 'CreateNewPi'},
-                {name: 'Give Order', screen: ''}
+                {name: 'Give Order', screen: 'GiveOrder'},
+                {name: 'Pick Up Order', screen: ''},
+                {name: 'Update Progress PI', screen: ''}
             ],
             level: ''
         }
@@ -71,18 +73,31 @@ export default class HomeScreen extends React.Component {
         const textColor = Colors.primaryColor;
         let index = null;
         const {menus,level} = this.state;
-        console.log(this.state);
         if (level === 'admin') {
             index = this._getIndex(menus, 'Give Order');
+            menus.splice(index, 1)
+            index = this._getIndex(menus, 'Pick Up Order');
+            menus.splice(index, 1)
+            index = this._getIndex(menus, 'Update Progress PI');
             menus.splice(index, 1)
         } else if (level === 'spv') {
             index = this._getIndex(menus, 'Create New PI');
             menus.splice(index, 1);
             index = this._getIndex(menus, 'Work Order & Others');
             menus.splice(index, 1)
+            index = this._getIndex(menus, 'Pick Up Order');
+            menus.splice(index, 1)
+            index = this._getIndex(menus, 'Update Progress PI');
+            menus.splice(index, 1)
         } else if (level === 'mekanik') {
+            index = this._getIndex(menus, 'Give Order');
+            menus.splice(index, 1);
             index = this._getIndex(menus, 'Create New PI');
             menus.splice(index, 1);
+            index = this._getIndex(menus, 'Go To PI');
+            menus.splice(index, 1)
+            index = this._getIndex(menus, 'Cek Status Progress PI');
+            menus.splice(index, 1)
             index = this._getIndex(menus, 'Work Order & Others');
             menus.splice(index, 1)
         }

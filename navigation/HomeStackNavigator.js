@@ -50,6 +50,7 @@ import ImagePickerScreen from "../screens/submenu/pisheet/ImagePickerScreen";
 import SignatureScreen from "../screens/SignatureScreen";
 import CreateNewPiScreeen from "../screens/main/CreateNewPiScreen";
 import MaintainScreen from "../screens/main/MaintainScreen";
+import GiveOrderScreen from "../screens/main/GiveOrderScreen";
 
 //Main screen on Home
 //with some of nested screen
@@ -68,6 +69,7 @@ const HomeStack = createStackNavigator({
     PeriodicInspection:IndexPiSheetScreen,
     CreateNewPi:CreateNewPiScreeen,
     Maintain:MaintainScreen,
+    GiveOrder:GiveOrderScreen,
         //sub Pi
     Dataunit:DataunitScreen,
     Workorder:WorkorderScreen,

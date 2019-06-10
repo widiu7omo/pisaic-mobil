@@ -1,6 +1,6 @@
 import React from 'react';
-import {Platform, ScrollView, View, AsyncStorage, TouchableOpacity, Text, Alert} from 'react-native';
-import {DrawerItems, SafeAreaView, createStackNavigator, createDrawerNavigator} from 'react-navigation';
+import {Alert, AsyncStorage, Platform, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {createDrawerNavigator, createStackNavigator, DrawerItems, SafeAreaView} from 'react-navigation';
 // import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 import TabBarIcon from '../components/TabBarIcon';
 import Colors from '../constants/Colors'
@@ -17,12 +17,17 @@ import PisheetDbScreen from "../screens/dbpisaic/PisheetDbScreen";
 //@TODO:goto pi screen
 //@TODO:Create new pi
 //@TODO:Give order
+class NullStack extends React.Component {
+    static navigationOptions = {
+        drawerLabel: () => null
+    }
+}
 
 //Main screen on DBPisaic
 //doesn't have any nested screen
 const DatabasePisaicStack = createStackNavigator({
     DbPisaic: DbPisaicScreen,
-    PisheetDb:PisheetDbScreen
+    PisheetDb: PisheetDbScreen
 });
 
 DatabasePisaicStack.navigationOptions = {
@@ -56,7 +61,6 @@ AboutStack.navigationOptions = {
         />
     )
 };
-
 //Main screen of Setting
 const SettingStack = createStackNavigator({
     Settings: indexScreen
@@ -98,68 +102,82 @@ UserStack.navigationOptions = {
         />
     )
 };
-
-//Add custom drawer, override default drawer config
-const drawerContent = (props) =>
-    (
-        <ScrollView>
-            <SafeAreaView forceInset={{top: 'always', horizontal: 'never'}}>
-                <DrawerItems {...props} onItemPress={({route, focused}) => {
-                    // console.log(route);
-                    if (route.key === "HomeStack") {
-                        if (route.routes.length === 1) {
-                            props.navigation.navigate(route.routeName);
-                        } else {
-                            props.navigation.navigate(route.routes[0].routeName);
-                        }
-                    } else {
-                        props.onItemPress({route, focused});
-                    }
-                }}/>
-                <TouchableOpacity onPress={() =>
-                    Alert.alert(
-                        'Log out',
-                        'Do you want to logout?',
-                        [
-                            {
-                                text: 'Cancel', onPress: () => {
-                                    return null
-                                }
-                            },
-                            {
-                                text: 'Confirm', onPress: () => {
-                                    AsyncStorage.removeItem('userToken');
-                                    //enable for debugging,
-                                    AsyncStorage.removeItem('isUsed');
-                                    props.navigation.navigate('Auth')
-                                }
-                            },
-                        ],
-                        {cancelable: false}
-                    )
-                }>
-                    <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginLeft: 20, marginTop: 10}}>
-                        <TabBarIcon name={
-                            Platform.OS === 'ios'
-                                ? `ios-log-out'}`
-                                : 'md-log-out'
-                        }
-                                    focused={false}
-                        />
-                        <Text style={{marginTop: 5, marginLeft: 30, fontWeight: 'bold', color: '#fff'}}>Logout</Text>
-                    </View>
-                </TouchableOpacity>
-            </SafeAreaView>
-
-        </ScrollView>
-    );
-export default createDrawerNavigator({
+let routeStack = {
     HomeStack,
     DatabasePisaicStack,
     AboutStack,
     SettingStack,
     UserStack,
-}, {
+};
+
+//Add custom drawer, override default drawer config
+const drawerContent = (props) => {
+    AsyncStorage.getItem('level').then(res => {
+        props.screenProps.level = res;
+    });
+    const level = props.screenProps.level;
+    const newProps = {...props};
+    if (level !== 'admin') {
+        newProps.items = newProps.items.filter(item => {
+            return (item.key !== 'SettingStack' && item.key !== 'UserStack') ? item : null;
+        });
+    }
+
+
+    return (<ScrollView>
+        <SafeAreaView forceInset={{top: 'always', horizontal: 'never'}}>
+            <DrawerItems {...newProps} onItemPress={({route, focused}) => {
+                // console.log(route);
+                if (route.key === "HomeStack") {
+                    if (route.routes.length === 1) {
+                        props.navigation.navigate(route.routeName);
+                    } else {
+                        props.navigation.navigate(route.routes[0].routeName);
+                    }
+                } else {
+                    props.onItemPress({route, focused});
+                }
+            }}/>
+            <TouchableOpacity onPress={() =>
+                Alert.alert(
+                    'Log out',
+                    'Do you want to logout?',
+                    [
+                        {
+                            text: 'Cancel', onPress: () => {
+                                return null
+                            }
+                        },
+                        {
+                            text: 'Confirm', onPress: () => {
+                                AsyncStorage.removeItem('userToken');
+                                //enable for debugging,
+                                AsyncStorage.removeItem('isUsed');
+                                props.navigation.navigate('Auth')
+                            }
+                        },
+                    ],
+                    {cancelable: false}
+                )
+            }>
+                <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginLeft: 20, marginTop: 10}}>
+                    <TabBarIcon name={
+                        Platform.OS === 'ios'
+                            ? `ios-log-out'}`
+                            : 'md-log-out'
+                    }
+                                focused={false}
+                    />
+                    <Text style={{marginTop: 5, marginLeft: 30, fontWeight: 'bold', color: '#fff'}}>Logout</Text>
+                </View>
+            </TouchableOpacity>
+
+        </SafeAreaView>
+
+    </ScrollView>)
+};
+
+export default createDrawerNavigator(routeStack, {
     drawerBackgroundColor: Colors.darkColor,
     contentComponent: drawerContent,
     contentOptions: {
