@@ -37,13 +37,13 @@ export default class LoginScreen extends React.Component {
                             <View style={styles.containerHeader}>
                                 <Image source={require('../assets/images/polman.png')} style={styles.logoHeader}/>
                                 <Text style={{
-                                    color: 'blue',
+                                    color: 'red',
                                     padding: 5,
                                     fontSize: normalize(12),
                                     fontWeight: '500'
                                 }}>POLMAN </Text>
                                 <Text style={{
-                                    color: 'red',
+                                    color: 'blue',
                                     padding: 5,
                                     paddingLeft: 0,
                                     margin: 0,
@@ -77,8 +77,8 @@ export default class LoginScreen extends React.Component {
                             <View style={{alignItems: 'flex-end', flexDirection: 'row', marginTop: 20}}>
                                 <Button style={{marginRight: 20}} mode="contained"
                                         onPress={this._signInAsync}>Login</Button>
-                                <Button mode="contained"
-                                        onPress={() => this.props.navigation.navigate('Main')}>Register</Button>
+                                {/*<Button mode="contained"*/}
+                                {/*        onPress={() => this.props.navigation.navigate('Main')}>Register</Button>*/}
                             </View>
                         </View>
                     </View>)
@@ -128,8 +128,8 @@ const styles = StyleSheet.create({
     logoTitle: {
         marginLeft: 50,
         marginRight: 50,
-        borderRadius: 4,
-        borderWidth: 3,
+        // borderRadius: 4,
+        // borderWidth: 3,
         borderColor: '#000',
         fontSize: 70,
         textAlign: 'center'

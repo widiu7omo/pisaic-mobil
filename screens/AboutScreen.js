@@ -1,6 +1,7 @@
 import React from 'react'
 import { View,Image,Text, StyleSheet, ScrollView,TouchableOpacity, } from 'react-native'
 import Markdown from 'react-native-easy-markdown'
+import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 
 class LogoTitle extends React.Component{
     constructor(props){
@@ -40,8 +41,8 @@ export default class AboutScreen extends React.Component{
     render(){
         return(
             <ScrollView style = {styles.container}>
-                <Image style={styles.img}
-                source={{uri:'https://facebook.github.io/react/logo-og.png', method:'POST'}}>
+                <Image style={{width:wp('100%'),height:200, padding: 0}}
+                       source={require('../assets/images/banner3.jpg')}>
                 </Image>
                 <View style = {styles.subContainer}>
                     <Markdown style={styles.textAlign}>

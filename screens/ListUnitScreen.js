@@ -13,6 +13,7 @@ import {
 import Colors from '../constants/Colors'
 import query from '../database/query'
 import {Button, ActivityIndicator} from 'react-native-paper';
+import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 
 class LogoTitle extends React.Component {
     constructor(props) {
@@ -63,10 +64,10 @@ export default class ListUnitScreen extends React.Component {
 
     update = async () => {
         this.setState({loading: true});
-        await query(`select units.name,unit_users.id
-                     from unit_users left join units on unit_users.unit_id = units.id`, [])
+        await query(`select units.*,unit_users.*
+                     from unit_users left outer join units on unit_users.unit_id = units.id`, [])
             .then(units => {
-                // console.log(units);
+                console.log(units);
                 this.setState({loading: false});
                 this.setState({units: units});
             });
@@ -83,14 +84,13 @@ export default class ListUnitScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.contentContainer}>
-                    <Image style={{height: 200, padding: 0}}
-                           source={{
-                               uri: 'https://facebook.github.io/react/logo-og.png',
-                               method: 'POST'
-                           }}>
+                    <Image style={{width:wp('100%'),height:200, padding: 0}}
+                           source={require('../assets/images/banner2.jpg')}>
                     </Image>
                     <View style={styles.bordered}>
-                        <Text style={{color: `${Colors.primaryColor}`, fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>
+                        <View style={{backgroundColor:'#FEDA01',padding:5}}>
+                            <Text style={{color: '#000', fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>
+                        </View>
                     </View>
                 </View>
                 <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>

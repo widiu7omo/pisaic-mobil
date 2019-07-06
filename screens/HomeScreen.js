@@ -1,7 +1,8 @@
 import React from 'react'
 import {View, Text, Image,AsyncStorage, TouchableOpacity, StyleSheet, FlatList} from 'react-native'
 import {Button} from 'react-native-paper';
-import Colors from '../constants/Colors'
+import Colors from '../constants/Colors';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen";
 
 class LogoTitle extends React.Component {
     constructor(props) {
@@ -50,8 +51,8 @@ export default class HomeScreen extends React.Component {
                 {name: 'Go To PI', screen: 'ListUnit'},
                 {name: 'Create New PI', screen: 'CreateNewPi'},
                 {name: 'Give Order', screen: 'GiveOrder'},
-                {name: 'Pick Up Order', screen: ''},
-                {name: 'Update Progress PI', screen: ''}
+                {name: 'Pick Up Order', screen: 'ListUnit'},
+                {name: 'Update Progress PI', screen: 'ListUnit'}
             ],
             level: ''
         }
@@ -105,14 +106,11 @@ export default class HomeScreen extends React.Component {
 
             <View style={styles.container}>
                 <View style={styles.subContainer}>
-                    <Image style={{height: 200, padding: 0}}
-                           source={{
-                               uri: 'https://facebook.github.io/react/logo-og.png',
-                               method: 'POST'
-                           }}>
+                    <Image style={{height: 200, padding: 0,width:wp('100%')}}
+                           source={require('../assets/images/banner.png')}>
                     </Image>
                     <View style={styles.bordered}>
-                        <Text style={{color: `${textColor}`, fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>
+                        {/*<Text style={{color: `${textColor}`, fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>*/}
                     </View>
                 </View>
                 <View style={styles.subContainer}>

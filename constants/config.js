@@ -1,1 +1,1 @@
-export const apiUri = 'http://192.168.43.235/';
+export const apiUri = 'https://pisaic.dioinstant.com/';

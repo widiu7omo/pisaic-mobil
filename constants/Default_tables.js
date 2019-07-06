@@ -167,8 +167,7 @@ export const syncMasterData = async () => {
         .then(res => res.json()).then(async res => {
             if (res.length > 0) {
                 let sqli = '';
-                let keys = Object.keys(res[0]).join(',');
-                // console.log(keys);
+
                 res.forEach((unit_user, index) => {
                     sqli += `('${unit_user.id}','${unit_user.unit_id}','${unit_user.user_id}',1)`;
                     if (res.length === index + 1) {
@@ -177,7 +176,7 @@ export const syncMasterData = async () => {
                     sqli += ','
                 });
                 //add status = 1 cz data synced with server
-                await query(`INSERT OR REPLACE INTO unit_users (${keys},status) VALUES ${sqli};`, []).then(() => {
+                await query(`INSERT OR REPLACE INTO unit_users (id,unit_id,user_id,status) VALUES ${sqli};`, []).then(() => {
                     console.log('unit_user inserted');
                 });
             }

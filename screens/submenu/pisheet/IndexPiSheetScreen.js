@@ -108,6 +108,7 @@ export default class IndexPiSheetScreen extends React.Component {
                 await this.props.navigation.navigate(submenu.screen, {
                     zoneTitle: submenu.screen,
                     unit: this.props.navigation.getParam('unit', 'Unit Name'),
+                    idUnit: this.props.navigation.getParam('idUnit'),
                     zone_id: zone_id,
                     kind_unit_zone_id: kind_unit_zone_id,
                 });

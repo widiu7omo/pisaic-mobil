@@ -6,6 +6,7 @@ import query from '../../database/query'
 import {checkDataTable} from '../../constants/Data_to_update'
 import Colors from "../../constants/Colors";
 import {ID} from "../../constants/Unique";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen";
 
 export default class IndexSubmenuScreen extends React.Component {
     constructor(props) {
@@ -63,7 +64,6 @@ export default class IndexSubmenuScreen extends React.Component {
                              REPLACE
                              INTO kind_units (id, kind_id, unit_user_id)
                              VALUES (?, ?, ?);`, [kind_unit_id, kind_id, unit_id]);
-
                 if (this.props.screenProps.isConnected) {
                     await checkDataTable('kind_units').then(console.log('synced kind_units'));
                 }
@@ -84,15 +84,15 @@ export default class IndexSubmenuScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.contentContainer}>
-                    <Image style={{height: 200, padding: 0}}
-                           source={{
-                               uri: 'https://facebook.github.io/react/logo-og.png',
-                               method: 'POST'
-                           }}>
+                    <Image style={{width:wp('100%'),height:200, padding: 0}}
+                           source={require('../../assets/images/banner1.jpg')}>
                     </Image>
                     <View style={styles.bordered}>
-                        <Text style={{color: '#FEDA01', fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>
+                        <View style={{backgroundColor:'#FEDA01',padding:5}}>
+                            <Text style={{color: '#000', fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>
+                        </View>
                     </View>
+                    <View style={{backgroundColor:'#FEDA01'}}><Text style={{textAlign: 'center',fontWeight:'bold'}}>Periodic Inspection and Camera Inspection</Text></View>
                 </View>
                 <ScrollView>
                     <View style={{justifyContent: "center", flex: 1}}>
