@@ -5,6 +5,7 @@ import DatePicker from 'react-native-datepicker'
 import query from '../../../database/query'
 import {ID} from "../../../constants/Unique";
 import {checkDataTable} from "../../../constants/Data_to_update";
+import KeyboardShift from "../../../components/KeyboardShift";
 
 const styles = StyleSheet.create({
     container: {
@@ -100,7 +101,7 @@ export default class WorkorderScreen extends React.Component {
         this.props.navigation.navigate('DigitalSignature',
             {
                 'header': "Form Tanda tangan",
-                'title':"Service  Dept.  Head",
+                'title': "Service  Dept.  Head",
                 onGoBack: (param) => this.getSignature(param)
             });
     };
@@ -116,8 +117,8 @@ export default class WorkorderScreen extends React.Component {
         const unit_id = this.state.inputItems.unit_id;
         if (unit_id !== '') {
             await query(`SELECT id
-                     FROM workorders
-                     WHERE unit_id = ? `, [unit_id])
+                         FROM workorders
+                         WHERE unit_id = ? `, [unit_id])
                 .then(async res => {
                     // console.log('hasil dari db lokal');
                     //generate new id
@@ -129,9 +130,9 @@ export default class WorkorderScreen extends React.Component {
                     }
                     //insert or replace with kind_unit_id
                     await query(`INSERT OR
-                             REPLACE
-                             INTO workorders (id, unit_id,input_data)
-                             VALUES (?, ?, ?);`, [wo_id, unit_id, input_data])
+                                 REPLACE
+                                 INTO workorders (id, unit_id, input_data)
+                                 VALUES (?, ?, ?);`, [wo_id, unit_id, input_data])
                         .then(() => {
                             // query(`select * from group_kind_unit_zones`).then(res=>console.log(res));
                             Alert.alert('Success', 'Data berhasil tersimpan')
@@ -149,85 +150,89 @@ export default class WorkorderScreen extends React.Component {
     render() {
         const {inputItems} = this.state;
         return (
-            <View style={styles.container}>
-                <ScrollView style={styles.inputField}>
-                    <View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}}>
-                        <Text style={{margin:10}}>Tanggal Order</Text>
-                        <DatePicker
-                            date={inputItems.date}
-                            format="DD-MM-YYYY"
-                            placeholder="Pilih tanggal"
-                            showIcon={true}
-                            onDateChange={(date) => {
-                                inputItems.date = date;
-                                this.setState({inputItems})
-                            }}/>
-                    </View>
-                    <Text style={{margin: 10}}>Pilih Unit</Text>
-                    {this.PickerOption()}
-                    <TextInput value={inputItems.wono}
-                               onChangeText={(wono) => {
-                                   inputItems.wono = wono;
-                                   this.setState({inputItems})
-                               }} label="WO No."
-                               mode="outlined"/>
-                    <TextInput value={inputItems.refisisr}
-                               onChangeText={(refisisr) => {
-                                   inputItems.refisisr = refisisr
-                                   this.setState({inputItems})
-                               }}
-                               label="Refisi SR" mode="outlined"/>
-                    <TextInput value={inputItems.pocust}
-                               onChangeText={(pocust) => {
-                                   inputItems.pocust = pocust
-                                   this.setState({inputItems})
-                               }}
-                               label="PO Cust." mode="outlined"/>
-                    <TextInput value={inputItems.prodname}
-                               onChangeText={(prodname) => {
-                                   inputItems.prodname = prodname;
-                                   this.setState({inputItems})
-                               }}
-                               label="Product Name" mode="outlined"/>
-                    <TextInput value={inputItems.modelunit}
-                               onChangeText={(modelunit) => {
-                                   inputItems.modelunit = modelunit;
-                                   this.setState({inputItems})
-                               }}
-                               label="Model Unit/ Equipment No." mode="outlined"/>
-                    <TextInput value={inputItems.modelengine}
-                               onChangeText={(modelengine) => {
-                                   inputItems.modelengine = modelengine;
-                                   this.setState({inputItems})
-                               }}
-                               label="Model Engine/ Equipment No." mode="outlined"/>
-                    <TextInput value={inputItems.estjob}
-                               onChangeText={(estjob) => {
-                                   inputItems.estjob = estjob
-                                   this.setState({inputItems})
-                               }}
-                               label="Estimasi Pekerjaan" mode="outlined"/>
-                    <TextInput multiline={true} value={inputItems.note}
-                               onChangeText={(note) => {
-                                   inputItems.note = note;
-                                   this.setState({inputItems})
-                               }}
-                               label="Catatan" mode="outlined" style={{height: 200}}/>
-                    <View style={{
-                        justifyContent: 'space-between',
-                        marginTop: 20,
-                        flexDirection: 'row',
-                        paddingBottom: 20
-                    }}>
-                        <Button mode="contained" onPress={() => this.goTo()}>
-                            TTD Sdh
-                        </Button>
-                        <Button icon="add-a-photo" mode="contained" onPress={() => this._saveInput()}>
-                            Simpan
-                        </Button>
-                    </View>
-                </ScrollView>
-            </View>
+            <KeyboardShift>
+                {
+                    () => (<View style={styles.container}>
+                        <ScrollView style={styles.inputField}>
+                            <View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}}>
+                                <Text style={{margin: 10}}>Tanggal Order</Text>
+                                <DatePicker
+                                    date={inputItems.date}
+                                    format="DD-MM-YYYY"
+                                    placeholder="Pilih tanggal"
+                                    showIcon={true}
+                                    onDateChange={(date) => {
+                                        inputItems.date = date;
+                                        this.setState({inputItems})
+                                    }}/>
+                            </View>
+                            <Text style={{margin: 10}}>Pilih Unit</Text>
+                            {this.PickerOption()}
+                            <TextInput value={inputItems.wono}
+                                       onChangeText={(wono) => {
+                                           inputItems.wono = wono;
+                                           this.setState({inputItems})
+                                       }} label="WO No."
+                                       mode="outlined"/>
+                            <TextInput value={inputItems.refisisr}
+                                       onChangeText={(refisisr) => {
+                                           inputItems.refisisr = refisisr
+                                           this.setState({inputItems})
+                                       }}
+                                       label="Refisi SR" mode="outlined"/>
+                            <TextInput value={inputItems.pocust}
+                                       onChangeText={(pocust) => {
+                                           inputItems.pocust = pocust
+                                           this.setState({inputItems})
+                                       }}
+                                       label="PO Cust." mode="outlined"/>
+                            <TextInput value={inputItems.prodname}
+                                       onChangeText={(prodname) => {
+                                           inputItems.prodname = prodname;
+                                           this.setState({inputItems})
+                                       }}
+                                       label="Product Name" mode="outlined"/>
+                            <TextInput value={inputItems.modelunit}
+                                       onChangeText={(modelunit) => {
+                                           inputItems.modelunit = modelunit;
+                                           this.setState({inputItems})
+                                       }}
+                                       label="Model Unit/ Equipment No." mode="outlined"/>
+                            <TextInput value={inputItems.modelengine}
+                                       onChangeText={(modelengine) => {
+                                           inputItems.modelengine = modelengine;
+                                           this.setState({inputItems})
+                                       }}
+                                       label="Model Engine/ Equipment No." mode="outlined"/>
+                            <TextInput value={inputItems.estjob}
+                                       onChangeText={(estjob) => {
+                                           inputItems.estjob = estjob
+                                           this.setState({inputItems})
+                                       }}
+                                       label="Estimasi Pekerjaan" mode="outlined"/>
+                            <TextInput multiline={true} value={inputItems.note}
+                                       onChangeText={(note) => {
+                                           inputItems.note = note;
+                                           this.setState({inputItems})
+                                       }}
+                                       label="Catatan" mode="outlined" style={{height: 200}}/>
+                            <View style={{
+                                justifyContent: 'space-between',
+                                marginTop: 20,
+                                flexDirection: 'row',
+                                paddingBottom: 20
+                            }}>
+                                <Button mode="contained" onPress={() => this.goTo()}>
+                                    TTD Sdh
+                                </Button>
+                                <Button icon="save" mode="contained" onPress={() => this._saveInput()}>
+                                    Simpan
+                                </Button>
+                            </View>
+                        </ScrollView>
+                    </View>)
+                }
+            </KeyboardShift>
         )
     }
 }

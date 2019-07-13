@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, Image,AsyncStorage, TouchableOpacity, StyleSheet, FlatList} from 'react-native'
+import {View, Text, Image, AsyncStorage, TouchableOpacity, StyleSheet, FlatList} from 'react-native'
 import {Button} from 'react-native-paper';
 import Colors from '../constants/Colors';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen";
@@ -12,19 +12,24 @@ class LogoTitle extends React.Component {
     //buat header atas
     render() {
         return (
-            <View style={{flexDirection: 'row'}}>
+            <View style={{flexDirection:'row',flex:1}}>
                 <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
                     <Image
                         source={require('../assets/images/iconut.png')}
                         style={{marginHorizontal: 5, width: 40, height: 40}}/>
                 </TouchableOpacity>
-                <View style={{flexDirection: 'column'}}>
-                    <Text style={{fontSize: 25, fontWeight: 'bold'}}>United Tractors</Text>
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={{fontSize: 10, fontWeight: '100',}}>member of </Text>
-                        <Text style={{fontSize: 10, fontWeight: 'bold'}}>ASTRA</Text>
+                <View style={{flexDirection:'row',justifyContent: 'space-between',flex:1}}>
+                    <View style={{flexDirection: 'column'}}>
+                        <Text style={{fontSize: 22, fontWeight: 'bold'}}>United Tractors</Text>
+                        <View style={{flexDirection: 'row'}}>
+                            <Text style={{fontSize: 10, fontWeight: '100', color: "#1475B2"}}>member of </Text>
+                            <Text style={{fontSize: 10, fontWeight: 'bold', color: "#1475B2"}}>ASTRA</Text>
+                        </View>
                     </View>
-
+                    <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
+                        <Image source={require('../assets/images/komatsu.png')}
+                               style={{marginHorizontal: 5, height: hp("3.333%"), width: wp("35%")}}/>
+                    </View>
                 </View>
             </View>
         )
@@ -59,8 +64,8 @@ export default class HomeScreen extends React.Component {
     }
 
     componentDidMount = async () => {
-       const level = await AsyncStorage.getItem('level');
-       this.setState({level:level});
+        const level = await AsyncStorage.getItem('level');
+        this.setState({level: level});
     };
 
     _getIndex = (items, forLooking) => {
@@ -70,10 +75,11 @@ export default class HomeScreen extends React.Component {
     goTo = async (menu) => {
         await this.props.navigation.navigate(menu.screen, {headerTitle: menu.name})
     };
+
     render() {
         const textColor = Colors.primaryColor;
         let index = null;
-        const {menus,level} = this.state;
+        const {menus, level} = this.state;
         if (level === 'admin') {
             index = this._getIndex(menus, 'Give Order');
             menus.splice(index, 1)
@@ -106,7 +112,7 @@ export default class HomeScreen extends React.Component {
 
             <View style={styles.container}>
                 <View style={styles.subContainer}>
-                    <Image style={{height: 200, padding: 0,width:wp('100%')}}
+                    <Image style={{height: 200, padding: 0, width: wp('100%')}}
                            source={require('../assets/images/banner.png')}>
                     </Image>
                     <View style={styles.bordered}>
@@ -117,7 +123,7 @@ export default class HomeScreen extends React.Component {
                     <FlatList data={menus}
                               renderItem={({item}) => {
                                   return (<Button style={styles.button} mode="contained"
-                                                  onPress={() => this.goTo(item)}>{item.name}</Button>)
+                                                  onPress={async () =>await this.goTo(item)}>{item.name}</Button>)
                               }}
                               extraData={this.state}
                               keyExtractor={(item) => item.name}>

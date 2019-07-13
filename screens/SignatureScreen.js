@@ -36,15 +36,15 @@ export default class SignatureScreen extends React.Component {
         return (
             <View style={{flex: 1, padding: 10}}>
                 <Text style={{marginBottom: 10}}>{nav.getParam('title')}</Text>
-                <View style={styles.preview}>
-                    {this.state.signature ? (
-                        <Image
-                            resizeMode={"contain"}
-                            style={{width: Math.round(Dimensions.get('window').width), height: 114}}
-                            source={{uri: this.state.signature}}
-                        />
-                    ) : null}
-                </View>
+                {/*<View style={styles.preview}>*/}
+                {/*    {this.state.signature ? (*/}
+                {/*        <Image*/}
+                {/*            resizeMode={"contain"}*/}
+                {/*            style={{width: Math.round(Dimensions.get('window').width), height: 114}}*/}
+                {/*            source={{uri: this.state.signature}}*/}
+                {/*        />*/}
+                {/*    ) : null}*/}
+                {/*</View>*/}
                 <TextInput style={{marginBottom:10}} mode="outlined" placeholder='Tuliskan nama' value={this.state.name}
                            onChangeText={val => this.setState({name: val})}/>
                 <Signature
