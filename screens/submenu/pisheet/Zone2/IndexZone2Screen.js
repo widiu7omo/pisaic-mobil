@@ -1,9 +1,10 @@
 import React from 'react'
-import {View, StyleSheet, ScrollView, FlatList, ActivityIndicator} from 'react-native'
+import {View, StyleSheet, ScrollView, FlatList, ActivityIndicator,Text,Image} from 'react-native'
 import {Button, TextInput} from 'react-native-paper'
 import CustomHeader from '../../../../components/CustomHeader'
 import query from "../../../../database/query";
 import Colors from "../../../../constants/Colors";
+import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 
 export default class IndexZone1Screen extends React.Component {
     static navigationOptions = {
@@ -57,7 +58,16 @@ export default class IndexZone1Screen extends React.Component {
             <View style={styles.container}>
                 {/* bring your input here */}
                 {/* <Text>This is from workorder</Text> */}
-
+                <View style={styles.contentContainer}>
+                    <Image style={{width:wp('100%'),height:200, padding: 0}}
+                           source={require('../../../../assets/images/banner5.jpg')}>
+                    </Image>
+                    <View style={styles.bordered}>
+                        <View style={{backgroundColor:'#FEDA01',padding:5}}>
+                            <Text style={{color: '#000', fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>
+                        </View>
+                    </View>
+                </View>
                 <ScrollView style={styles.inputField}>
                     {
                         loading ? <ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/>

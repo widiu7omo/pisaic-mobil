@@ -2724,6 +2724,11 @@ expo-print@^5.0.0:
   resolved "https://registry.yarnpkg.com/expo-print/-/expo-print-5.0.0.tgz#0503abf9d28a4d22ff095ab73ba5b80789102e70"
   integrity sha512-5oNDphdDjSK/8u4OXQa3xTDAYOWSv8urb1QST9sgVRp3HoZtY96KSBnf9a75cMY5toRhkK6A7ujuYkx5Eoyk5A==
 
+expo-print@~5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/expo-print/-/expo-print-5.0.1.tgz#2daca5538a4447764a2910a6cd95d7b844c6637d"
+  integrity sha512-cQ7kyKoAfL52iRnXH7b0aHNmZdORURBXZLZ6z495XG/S52nox1GtuXdZSSfo9qptDwWaKbsetVzDAM58LVIoWw==
+
 expo-random@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/expo-random/-/expo-random-5.0.0.tgz#fb781d12a329a4c7be5346b5bd14b257deb281ac"
@@ -6077,6 +6082,14 @@ react-native-webview@5.8.1:
   version "5.8.1"
   resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-5.8.1.tgz#6f5a83dec55bbc02700155b1a16a668870f14de0"
   integrity sha512-b6pSvmjoiWtcz6YspggW02X+BRXJWuquHwkh37BRx1NMW1iwMZA31SnFQvTpPzWYYIb9WF/mRsy2nGtt9C6NIg==
+  dependencies:
+    escape-string-regexp "1.0.5"
+    invariant "2.2.4"
+
+react-native-webview@~5.8.1:
+  version "5.8.2"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-5.8.2.tgz#dcc9c802f145183cfc828944350bd43f968aa72c"
+  integrity sha512-WvB5vH3xaxwXbk0RFGDIkM+MEeMfrfkhXdgYW1qj/xUuioeH5lduCpR+sID8+OR35zx+pBuamQ9jSlRGuREJrw==
   dependencies:
     escape-string-regexp "1.0.5"
     invariant "2.2.4"

@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Alert, AsyncStorage, StyleSheet, ScrollView, FlatList, ActivityIndicator} from 'react-native'
+import {View, Alert, AsyncStorage, StyleSheet, ScrollView, FlatList, ActivityIndicator, Image, Text} from 'react-native'
 import {Button} from 'react-native-paper'
 import CustomHeader from "../../../components/CustomHeader";
 import query from "../../../database/query";
@@ -8,6 +8,7 @@ import {checkDataTable} from "../../../constants/Data_to_update";
 import {ID} from "../../../constants/Unique";
 import LoadingDialog from "../../../components/LoadingDialog";
 import {Uploader} from "../../../constants/Uploader";
+import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 
 //if you want to get unit name on subheader, then send param from navigate function with "unit" param
 
@@ -121,6 +122,16 @@ export default class IndexPiSheetScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <LoadingDialog visible={this.state.progress} message={'Be patient. Uploading photos to server'}/>
+                <View style={styles.contentContainer}>
+                    <Image style={{width:wp('100%'),height:200, padding: 0}}
+                           source={require('../../../assets/images/banner4.jpg')}>
+                    </Image>
+                    <View style={styles.bordered}>
+                        <View style={{backgroundColor:'#FEDA01',padding:5}}>
+                            <Text style={{color: '#000', fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>
+                        </View>
+                    </View>
+                </View>
                 <ScrollView style={styles.inputField}>
                     {
                         loading ? <ActivityIndicator size={"large"} color={Colors.darkColor} style={{marginTop: 20}}/> :
@@ -139,9 +150,9 @@ export default class IndexPiSheetScreen extends React.Component {
                     }
                     <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginVertical: 10, padding: 10}}>
 
-                        <Button mode="contained" style={{marginHorizontal: 10}}>Save</Button>
-                        <Button mode="contained" onPress={() => this._uploadImage()}>Upload</Button>
-                        <Button mode="contained" style={{marginHorizontal: 10}}>Back</Button>
+                        {/*<Button mode="contained" style={{marginHorizontal: 10}}>Save</Button>*/}
+                        <Button mode="contained" onPress={() => this._uploadImage()}>Upload Data</Button>
+                        <Button mode="contained" style={{marginHorizontal: 10}} onPress={() => this.props.navigation.goBack()}>Back</Button>
                         <Button mode="contained">Finish</Button>
 
                     </View>

@@ -12,7 +12,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/pisaic_icon.png",
     "splash": {
-      "image": "./assets/images/splashut.png",
+      "image": "./assets/images/splashut2.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },

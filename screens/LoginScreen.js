@@ -6,7 +6,8 @@ import {
     Alert,
     AsyncStorage,
     StyleSheet,
-    View, Image
+    View, Image,
+    ImageBackground,
 } from 'react-native';
 import Colors from "../constants/Colors";
 import {normalize} from "../constants/FontSize";
@@ -27,61 +28,87 @@ export default class LoginScreen extends React.Component {
         return (
             <KeyboardShift>
                 {
-                    () => (<View style={styles.container}>
-                        <View style={styles.header}>
-                            <View style={styles.containerHeader}>
-                                <Image style={styles.logoHeader} source={require('../assets/images/iconut.png')}/>
-                                <Text style={{padding: 5, fontSize: normalize(12), fontWeight: '500'}}>UNITED
-                                    TRACTORS</Text>
-                            </View>
-                            <View style={styles.containerHeader}>
-                                <Image source={require('../assets/images/polman.png')} style={styles.logoHeader}/>
-                                <Text style={{
-                                    color: 'red',
-                                    padding: 5,
-                                    fontSize: normalize(12),
-                                    fontWeight: '500'
-                                }}>POLMAN </Text>
-                                <Text style={{
-                                    color: 'blue',
-                                    padding: 5,
-                                    paddingLeft: 0,
-                                    margin: 0,
-                                    fontSize: normalize(12),
-                                    fontWeight: '500'
-                                }}>ASTRA</Text>
-                            </View>
-                        </View>
-                        <View style={styles.input}>
-                            <View style={{marginBottom: 50}}>
-                                <Text style={styles.logoTitle}>PISAIC</Text>
-                            </View>
-                            <View style={{}}>
-                                <TextInput value={this.state.username}
-                                           onChangeText={(username) => this.setState({username})}
-                                           style={styles.inputField}
-                                           mode="flat"
-                                           label="Username"
-                                />
-                            </View>
-                            <View>
-                                <TextInput value={this.state.password}
-                                           secureTextEntry={true}
-                                           style={styles.inputField}
-                                           onChangeText={(password) => this.setState({password})}
-                                           mode="flat"
-                                           label="Password"
-                                />
-                            </View>
+                    () => (
+                        <View style={styles.container}>
+                            <ImageBackground
+                                resizeMode={'cover'}
+                                style={{flex: 1, padding: 20}}
+                                source={require('../assets/images/login-screen.jpg')}
+                            >
+                                <View style={styles.header}>
+                                    <View style={styles.containerHeader}>
+                                        <Image style={styles.logoHeader}
+                                               source={require('../assets/images/iconut.png')}/>
+                                        <View style={{flexDirection: 'column', padding: 5}}>
+                                            <Text style={{fontSize: normalize(12), fontWeight: '500'}}>UNITED
+                                                TRACTORS</Text>
+                                            <View style={{flexDirection: 'row', margin: 0}}>
+                                                <Text style={{fontSize: normalize(9), color: "#1475B2"}}>member
+                                                    of </Text>
+                                                <Text style={{
+                                                    fontWeight: '800',
+                                                    fontSize: normalize(9),
+                                                    color: "#1475B2"
+                                                }}>ASTRA</Text>
+                                            </View>
+                                        </View>
 
-                            <View style={{alignItems: 'flex-end', flexDirection: 'row', marginTop: 20}}>
-                                <Button style={{marginRight: 20}} mode="contained"
-                                        onPress={this._signInAsync}>Login</Button>
-                                {/*<Button mode="contained"*/}
-                                {/*        onPress={() => this.props.navigation.navigate('Main')}>Register</Button>*/}
-                            </View>
+                                    </View>
+                                    <View style={styles.containerHeader}>
+                                        <Image source={require('../assets/images/polman.png')}
+                                               style={styles.logoHeader}/>
+                                        <Text style={{
+                                            color: 'red',
+                                            padding: 5,
+                                            fontSize: normalize(12),
+                                            fontWeight: '500'
+                                        }}>POLMAN </Text>
+                                        <Text style={{
+                                            color: 'blue',
+                                            padding: 5,
+                                            paddingLeft: 0,
+                                            margin: 0,
+                                            fontSize: normalize(12),
+                                            fontWeight: '500'
+                                        }}>ASTRA</Text>
+                                    </View>
+                                </View>
+                                <View style={styles.input}>
+                                    <View style={{marginBottom: 50}}>
+                                        <Text style={styles.logoTitle}>PISAIC</Text>
+                                    </View>
+                                    <View style={{}}>
+                                        <TextInput value={this.state.username}
+                                                   onChangeText={(username) => this.setState({username})}
+                                                   style={styles.inputField}
+                                                   mode="flat"
+                                                   label="Username"
+                                        />
+                                    </View>
+                                    <View>
+                                        <TextInput value={this.state.password}
+                                                   secureTextEntry={true}
+                                                   style={styles.inputField}
+                                                   onChangeText={(password) => this.setState({password})}
+                                                   mode="flat"
+                                                   label="Password"
+                                        />
+                                    </View>
+
+                                    <View style={{alignItems: 'flex-end', flexDirection: 'row', marginTop: 20}}>
+                                        <Button style={{
+                                            marginRight: 20,
+                                            backgroundColor: Colors.primaryColor,
+                                            textColor: Colors.darkColor
+                                        }} mode="contained"
+                                                onPress={this._signInAsync}>Login</Button>
+                                        {/*<Button mode="contained"*/}
+                                        {/*        onPress={() => this.props.navigation.navigate('Main')}>Register</Button>*/}
+                                    </View>
+                                </View>
+                            </ImageBackground>
                         </View>
-                    </View>)
+                    )
                 }
 
             </KeyboardShift>
@@ -98,7 +125,7 @@ export default class LoginScreen extends React.Component {
                 if (res.length > 0) {
                     AsyncStorage.setItem('userToken', 'abc');
                     AsyncStorage.setItem('isUsed', 'yeyeye');
-                    AsyncStorage.setItem('level',res[0].level);
+                    AsyncStorage.setItem('level', res[0].level);
                 } else Alert.alert('Login Gagal', 'Periksa Kembali username dan password anda')
             });
 
@@ -114,24 +141,30 @@ const styles = StyleSheet.create({
             // justifyContent:'center',
             // alignItems:'center',
             flexDirection: 'column',
-            padding: 20
+
         },
-    logoHeader: {height: 30, width: 30},
+    logoHeader: {height: 35, width: 35},
     containerHeader: {
         flexDirection: 'row',
     },
     header: {
         marginTop: 35,
+        padding: 10,
+        borderRadius: 4,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        backgroundColor: Colors.primaryColor,
     },
     logoTitle: {
-        marginLeft: 50,
-        marginRight: 50,
+        marginLeft: 60,
+        marginRight: 60,
         // borderRadius: 4,
         // borderWidth: 3,
         borderColor: '#000',
+        borderRadius:4,
         fontSize: 70,
+        backgroundColor: Colors.primaryColor,
+        fontWeight: '800',
         textAlign: 'center'
     },
     input: {

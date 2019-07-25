@@ -1,26 +1,51 @@
 import React from 'react';
-import {Text, View, FlatList, ScrollView, WebView} from 'react-native'
+import {Text, View, Platform, WebView, Alert, ScrollView, TouchableOpacity, Image, StyleSheet} from 'react-native'
 import query from '../../database/query';
-import {Button} from "react-native-paper";
-import {FileSystem, Linking, WebBrowser} from 'expo'
-import { CameraRoll } from 'react-native';
+// import {WebView} from "react-native-webview";
+import {ActivityIndicator, Button} from "react-native-paper";
+import * as Print from "expo-print";
+import {apiUri} from "../../constants/config";
 
 // import RNFetchBlob from "rn-fetch-blob";
 
+class LogoTitle extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View style={{flexDirection: 'row'}}>
+                <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
+                    <Image
+                        source={require('../../assets/images/iconut.png')}
+                        style={{marginHorizontal: 5, width: 40, height: 40}}/>
+                </TouchableOpacity>
+                <View style={{flexDirection: 'column'}}>
+                    <Text style={{fontSize: 25, fontWeight: 'bold'}}>Cetak Pisheet DB</Text>
+                </View>
+            </View>
+        )
+    }
+}
 
 export default class PisheetDbScreen extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            pisheetData: []
+            pisheetData: [],
+            visible: true,
         }
-        // const dirs = RNFetchBlob.fs.dirs
-        // console.log(dirs.DocumentDir)
-        // console.log(dirs.CacheDir)
-        // console.log(dirs.DCIMDir)
-        // console.log(dirs.DownloadDir)
     }
+
+    static navigationOptions = ({navigation}) => {
+        // title: "United Tractor",
+        return {
+            headerTitle: <LogoTitle navigation={navigation}/>,
+            headerStyle: {backgroundColor: "#FEDA01"}
+        }
+    };
 
     componentDidMount() {
         query(`select *
@@ -32,55 +57,79 @@ export default class PisheetDbScreen extends React.Component {
             )
     }
 
-    parsingData = async () => {
-        return this.state.pisheetData.map((group) => {
-            const parsedInput = JSON.parse(group.input_items);
-            return {...group, input_items: parsedInput}
+    _printHTMLToPDF = async () => {
 
-        });
+        try {
+            let response = await fetch('https://pisaic.dioinstant.com/print.php', {method: 'GET'}).then((res) => res.text());
+            let pdf = await Print.printToFileAsync({
+                html: response,
+                // uri:`https://pisaic.dioinstant.com/print.php`
+            });
+            Alert.alert('Successfully printed to PDF', 'Do you want to print this file to the printer?', [
+                {
+                    text: 'No',
+                    onPress: () => {
+                    },
+                },
+                {
+                    text: 'Yes',
+                    onPress: () => {
+                        Print.printAsync({
+                            uri: pdf.uri,
+                        });
+                    },
+                },
+            ]);
+        } catch (e) {
+            Alert.alert('Something went wrong: ', e.message);
+        }
     };
-    Download = async () => {
-        let file = await this.parsingData();
-        const items = file;
-        delete items.input_items;
-        const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
-        const header = Object.keys(items[0]);
-        let csv = items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
-        csv.unshift(header.join(','));
-        csv = csv.join('\r\n');
 
-        let inputCsv = file.forEach(element=>{
-            const header = Object.keys(element.input_items[0]);
-            let inputCSVV = element.input_items.map(row=>header.map(field=>JSON.stringify(row[field],replacer)));
-            inputCSVV.unshift(header.join(','));
-            inputCSVV = inputCSVV.join('\r\n');
-            console.log(inputCSVV)
-        });
+    showLoad() {
+        this.setState({visible: true});
+    }
 
-        console.log(inputCsv);
-        console.log(csv);
-        // let parsedFile = JSON.stringify(file);
-        let newFile = FileSystem.documentDirectory + 'newFile.txt';
-        FileSystem.writeAsStringAsync(newFile, csv);
-        CameraRoll.saveToCameraRoll( newFile, 'photo');
-        // WebBrowser.openBrowserAsync('file:///newfile.txt');
-        // FileSystem.getInfoAsync(newFile).then(res => {
-        //         FileSystem.moveAsync({from: res.uri,to:toLocation+'/newFile.txt'});
-        //         console.log(res)
-        //     }
-        // );
-    };
+    hideLoad() {
+        this.setState({visible: false});
+    }
+
+    ActivityIndicatorLoadingView() {
+        return (
+            <ActivityIndicator
+                color='#009688'
+                size='large'
+                style={styles.ActivityIndicatorStyle}
+            />
+        );
+    }
 
     render() {
-        const {pisheetData} = this.state;
-
-
-        // console.log(newPisheetData);
 
         return (
-            <ScrollView style={{flex: 1}}>
-                <Button onPress={() => this.Download()}>Download</Button>
-            </ScrollView>
-        )
+
+            <WebView
+                style={styles.WebViewStyle}
+                source={{uri: 'https://pisaic.dioinstant.com'}}
+                javaScriptEnabled={true}
+                domStorageEnabled={true}
+                renderLoading={this.ActivityIndicatorLoadingView}
+                startInLoadingState={true}
+            />
+
+        );
     }
+
 }
+const styles = StyleSheet.create({
+    WebViewStyle:
+        {
+            justifyContent: 'center',
+            alignItems: 'center',
+            flex: 1,
+            marginTop: (Platform.OS) === 'ios' ? 20 : 0
+        },
+    ActivityIndicatorStyle: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+});

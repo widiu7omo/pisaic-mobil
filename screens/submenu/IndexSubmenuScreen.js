@@ -92,7 +92,6 @@ export default class IndexSubmenuScreen extends React.Component {
                             <Text style={{color: '#000', fontSize: 25, fontWeight: 'bold'}}>PISAIC</Text>
                         </View>
                     </View>
-                    <View style={{backgroundColor:'#FEDA01'}}><Text style={{textAlign: 'center',fontWeight:'bold'}}>Periodic Inspection and Camera Inspection</Text></View>
                 </View>
                 <ScrollView>
                     <View style={{justifyContent: "center", flex: 1}}>

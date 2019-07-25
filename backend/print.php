@@ -23,10 +23,12 @@ while($row = $result->fetch_assoc()){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cetak Dokumen</title>
     <style>
-    table, th, td {
-        border: 1px solid black;
-        }
-</style>
+        table, th, td {
+            border: 1px solid black;
+            }
+        @media print and (min-width: 1024px) {
+            }
+    </style>
 </head>
 <body>
     <table style="border:solid 1px black">

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Text, TouchableOpacity, Image, View, StyleSheet, FlatList} from 'react-native'
 import {Button} from 'react-native-paper'
+import Colors from "../constants/Colors";
 
 class LogoTitle extends React.Component {
     constructor(props) {
@@ -18,8 +19,8 @@ class LogoTitle extends React.Component {
                 <View style={{flexDirection: 'column'}}>
                     <Text style={{fontSize: 25, fontWeight: 'bold'}}>Database Pisaic</Text>
                     <View style={{flexDirection: 'row'}}>
-                        <Text style={{fontSize: 10, fontWeight: '100',}}>member of </Text>
-                        <Text style={{fontSize: 10, fontWeight: 'bold'}}>ASTRA</Text>
+                        <Text style={{fontSize: 10, fontWeight: '100',color:Colors.blueColor}}>member of </Text>
+                        <Text style={{fontSize: 10, fontWeight: 'bold',color:Colors.blueColor}}>ASTRA</Text>
                     </View>
 
                 </View>
