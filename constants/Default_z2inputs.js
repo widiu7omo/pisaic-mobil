@@ -2,7 +2,7 @@ const z2a = [
     {
         "name": "Abnormal Noise During Operation",
         "subname": "(By Operator)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -14,7 +14,7 @@ const z2a = [
     {
         "name": "Drive Motor Support Mounting RHLH",
         "subname": "(Loose,Missing)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -26,7 +26,7 @@ const z2a = [
     {
         "name": "Connection Box",
         "subname": "(Cover Loose,Crack,Clamp Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -38,7 +38,7 @@ const z2a = [
     {
         "name": "Capacitor",
         "subname": "(Oil Leak, Bolt Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -64,7 +64,7 @@ const z2b = [
     {
         "name": "Flexible Coupling",
         "subname": "(Loose,Crack)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -76,7 +76,7 @@ const z2b = [
     {
         "name": "PTO",
         "subname": "(Oil level, Oil Leak)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -88,7 +88,7 @@ const z2b = [
     {
         "name": "PTO Relief Valve",
         "subname": "(Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -100,7 +100,7 @@ const z2b = [
     {
         "name": "Accumulator Pilot Pressure",
         "subname": "(Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -234,7 +234,7 @@ const z2c = [
     {
         "name": "Swing Motor",
         "subname": "(Oil Leak,Bolt Loose etc)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -246,7 +246,7 @@ const z2c = [
     {
         "name": "Gear Box",
         "subname": "(Oil Level,Oil Leak,Bolt Loose etc)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -258,7 +258,7 @@ const z2c = [
     {
         "name": "Swing Motor Adapter",
         "subname": "(Oil Level,Oil Leak,Bolt Loose etc)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -270,7 +270,7 @@ const z2c = [
     {
         "name": "Hose And Part Related",
         "subname": "(Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -296,7 +296,7 @@ const z2d = [
     {
         "name": "Oil Cooler Upper",
         "subname": "(Condition)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -308,7 +308,7 @@ const z2d = [
     {
         "name": "Fan Motor Upper",
         "subname": "(Condition)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -320,7 +320,7 @@ const z2d = [
     {
         "name": "Hosses Upper",
         "subname": "(Crack And Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -332,7 +332,7 @@ const z2d = [
     {
         "name": "Oil Cooler Lower",
         "subname": "(Condition)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -356,7 +356,7 @@ const z2d = [
     {
         "name": "Hoses Lower",
         "subname": "(Crack And Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -382,7 +382,7 @@ const z2e = [
     {
         "name": "Pump And Gauge",
         "subname": "(Visual Check,Oil & Grease Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -394,7 +394,7 @@ const z2e = [
     {
         "name": "Valve",
         "subname": "(Function And Oil Leak)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -406,7 +406,7 @@ const z2e = [
     {
         "name": "Line",
         "subname": "(Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -418,7 +418,7 @@ const z2e = [
     {
         "name": "Grease CLS Level",
         "subname": "-",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -444,7 +444,7 @@ const z2f = [
     {
         "name": "Pump And Gauge",
         "subname": "(Visual Check,Oil & Grease Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -456,7 +456,7 @@ const z2f = [
     {
         "name": "Valve",
         "subname": "(Function And Oil Leak)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -468,7 +468,7 @@ const z2f = [
     {
         "name": "Line",
         "subname": "(Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -480,7 +480,7 @@ const z2f = [
     {
         "name": "Grease SLS Level",
         "subname": "-",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -506,7 +506,7 @@ const z2g = [
     {
         "name": "Hydraulic Tank",
         "subname": "(Oil Level And Visual Contamination)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -518,7 +518,7 @@ const z2g = [
     {
         "name": "Collector Pipe",
         "subname": "(Oil Leak)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -530,7 +530,7 @@ const z2g = [
     {
         "name": "Hose",
         "subname": "(Oil Leak,Crack etc)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -542,7 +542,7 @@ const z2g = [
     {
         "name": "Control Block No.1",
         "subname": "(Leak,Crack,Bolt Loose etc)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -566,7 +566,7 @@ const z2g = [
     {
         "name": "Control Block No.3",
         "subname": "(Oil Leak,Crack,Bolt Loose etc)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -592,7 +592,7 @@ const z2h = [
     {
         "name": "Batteries",
         "subname": "(Cleaness, Connection,Braket Mounting)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -604,7 +604,7 @@ const z2h = [
     {
         "name": "Batteries Switch",
         "subname": "(Damage, Level Missing)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -618,7 +618,7 @@ const z2i = [
     {
         "name": "DIEDIT LAGI",
         "subname": "-",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {

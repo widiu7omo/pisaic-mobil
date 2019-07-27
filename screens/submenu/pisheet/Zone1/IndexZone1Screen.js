@@ -40,6 +40,9 @@ export default class IndexZone1Screen extends React.Component {
         this.getTable()
 
     }
+    async componentWillUnmount() {
+        await this.props.navigation.state.params.onGoBack();
+    }
 
     goTo = async submenu => {
         let kind_unit_zone_id = this.props.navigation.getParam('kind_unit_zone_id');

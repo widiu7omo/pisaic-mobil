@@ -34,7 +34,7 @@ export default class SignatureScreen extends React.Component {
     }`;
         const nav = this.props.navigation;
         return (
-            <View style={{flex: 1, padding: 10}}>
+            <ScrollView style={{flex: 1, padding: 10}}>
                 <Text style={{marginBottom: 10}}>{nav.getParam('title')}</Text>
                 {/*<View style={styles.preview}>*/}
                 {/*    {this.state.signature ? (*/}
@@ -54,7 +54,7 @@ export default class SignatureScreen extends React.Component {
                     confirmText="Save"
                     webStyle={style}
                 />
-            </View>
+            </ScrollView>
         );
     }
 }

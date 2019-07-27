@@ -7,9 +7,12 @@ export const Uploader = async (photoData) => {
     console.log(photoData);
     if (Array.isArray(photoData) && photoData.length !== 0) {
         photoData.forEach(photo => {
+            console.log(photo);
+            let getFotoName = photo.uri.split('/');
+            let fotoName = getFotoName[getFotoName.length-1];
             formData.append('photo[]', {
                 uri: photo.uri,
-                name: 'photo',
+                name: photo.name,
                 type: 'image/jpg',
             });
             // formData.append('note[]', {
@@ -26,6 +29,7 @@ export const Uploader = async (photoData) => {
         method: "POST",
         body: formData
     };
+    // console.log(formData);
     await fetch(apiUri + `upload.php?image=groups`, options)
         .then((response) => response.json())
         .then((responseJson) => {

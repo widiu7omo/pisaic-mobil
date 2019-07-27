@@ -36,12 +36,13 @@ export default class App extends React.Component {
     }
 
     syncLocalData = async () => {
-        await checkDataTable('users').then(this.setState({syncMessage:'Synchronizing Users'}));
-        await checkDataTable('units').then(this.setState({syncMessage:'Synchronizing  Units'}));
-        await checkDataTable('unit_users').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections'}));
-        await checkDataTable('kind_units').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections.'}));
-        await checkDataTable('kind_unit_zones').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections..'}));
-        await checkDataTable('group_kind_unit_zones').then(this.setState({syncMessage:'Synchronizing  Periodic Inspections...'}))
+        await checkDataTable('users').then(this.setState({syncMessage:'Synchronizing Users .'}));
+        await checkDataTable('units').then(this.setState({syncMessage:'Synchronizing Units .'}));
+        await checkDataTable('unit_users').then(this.setState({syncMessage:'Synchronizing Periodic Inspections .'}));
+        await checkDataTable('kind_units').then(this.setState({syncMessage:'Synchronizing Periodic Inspections ..'}));
+        await checkDataTable('kind_unit_zones').then(this.setState({syncMessage:'Synchronizing Periodic Inspections...'}));
+        await checkDataTable('group_kind_unit_zones').then(this.setState({syncMessage:'Synchronizing Periodic Inspections....'}))
+        await checkDataTable('camera_inspection').then(this.setState({syncMessage:'Synchronizing Camera Inspection .'}))
     };
 
     //create main table,

@@ -25,7 +25,8 @@ export default class IndexPiSheetScreen extends React.Component {
             loading: false,
             submenus: [],
             progress: false,
-            progressMessage: ''
+            progressMessage: '',
+            imageQueue:0,
         }
     }
 
@@ -39,9 +40,16 @@ export default class IndexPiSheetScreen extends React.Component {
             })
     };
 
-    componentDidMount() {
-        // console.log(this.props.navigation.getParam('kind_unit_id'));
-        query(`select *
+    async componentDidMount() {
+        let lengthQueue = 0;
+        this.setState({loading: true});
+        let imageQueue = await AsyncStorage.getItem('fotoQueue');
+        if(imageQueue){
+            lengthQueue = JSON.parse(imageQueue).length;
+        }
+        console.log(lengthQueue);
+        this.setState({imageQueue: lengthQueue});
+        await query(`select *
                from kind_units`).then(res => console.log(res));
         this.setState({loading: true});
         this.getTable()
@@ -63,7 +71,7 @@ export default class IndexPiSheetScreen extends React.Component {
                 let dataFotoQueue = [];
 
                 parsedFotoQueue.forEach((foto,index) => {
-                    if(typeof  foto.uri !== "undefined"){
+                    if(typeof foto.uri !== "undefined"){
                         dataFotoQueue.push(foto)
                     }
                 });
@@ -72,6 +80,7 @@ export default class IndexPiSheetScreen extends React.Component {
                 Uploader(dataFotoQueue).then(() => {
                     this.setState({progress: false});
                     AsyncStorage.setItem('fotoQueue', JSON.stringify([]));
+                    this.setState({imageQueue:0});
                 })
             } else {
                 Alert.alert('No Need Action', 'Data already uploaded. No need Action')
@@ -112,11 +121,16 @@ export default class IndexPiSheetScreen extends React.Component {
                     idUnit: this.props.navigation.getParam('idUnit'),
                     zone_id: zone_id,
                     kind_unit_zone_id: kind_unit_zone_id,
+                    onGoBack: () => this.updateQueue()
                 });
-
             });
     };
-
+    async updateQueue(){
+        let imageQueue = await AsyncStorage.getItem('fotoQueue');
+        let lengthQueue = JSON.parse(imageQueue).length;
+        console.log(lengthQueue);
+        this.setState({imageQueue: lengthQueue});
+    }
     render() {
         const {submenus, loading} = this.state;
         return (
@@ -141,7 +155,6 @@ export default class IndexPiSheetScreen extends React.Component {
                                               <View style={styles.submenu}>
                                                   <Button style={styles.menuButton} mode="contained"
                                                           onPress={() => this.goTo(item)}>{item.name}</Button>
-
                                               </View>)
                                       }}
                                       extraData={this.state}
@@ -149,11 +162,10 @@ export default class IndexPiSheetScreen extends React.Component {
                             </FlatList>
                     }
                     <View style={{flexDirection: 'row', justifyContent: 'flex-end', marginVertical: 10, padding: 10}}>
-
                         {/*<Button mode="contained" style={{marginHorizontal: 10}}>Save</Button>*/}
-                        <Button mode="contained" onPress={() => this._uploadImage()}>Upload Data</Button>
+                        <Button mode="contained" style={{backgroundColor: this.state.imageQueue>0?Colors.danger:Colors.success}} onPress={() => this._uploadImage()}>Upload Data ({this.state.imageQueue})</Button>
                         <Button mode="contained" style={{marginHorizontal: 10}} onPress={() => this.props.navigation.goBack()}>Back</Button>
-                        <Button mode="contained">Finish</Button>
+                        <Button mode="contained" onPress={()=>this.props.navigation.goBack()}>Finish</Button>
 
                     </View>
 

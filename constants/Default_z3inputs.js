@@ -2,7 +2,7 @@ const z3a = [
     {
         "name": "Block SRV & ACV Manifold A-B",
         "subname": "(Oil Leak,Crack,Bolt Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -14,7 +14,7 @@ const z3a = [
     {
         "name": "Block SRV & ACV Manifold C-D",
         "subname": "(Oil Leak,Crack,Bolt Loose)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -26,7 +26,7 @@ const z3a = [
     {
         "name": "Block SRV & ACV Manifold E-F",
         "subname": "(Oil Leak,Crack,Bolt Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -38,7 +38,7 @@ const z3a = [
     {
         "name": "Block SRV & ACV Manifold G-H",
         "subname": "(Oil Leak,Crack,Bolt Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -62,7 +62,7 @@ const z3a = [
     {
         "name": "Block SRV & ACV Manifold L-M",
         "subname": "(Oil Leak,Crack,Bolt Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -88,7 +88,7 @@ const z3b = [
     {
         "name": "Hose A",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -100,7 +100,7 @@ const z3b = [
     {
         "name": "Hose B",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -112,7 +112,7 @@ const z3b = [
     {
         "name": "Hose C",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -124,7 +124,7 @@ const z3b = [
     {
         "name": "Hose D",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -148,7 +148,7 @@ const z3b = [
     {
         "name": "Hose F",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -172,7 +172,7 @@ const z3b = [
     {
         "name": "Hose H",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -184,7 +184,7 @@ const z3b = [
     {
         "name": "Hose J",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -196,7 +196,7 @@ const z3b = [
     {
         "name": "Hose K",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -208,7 +208,7 @@ const z3b = [
     {
         "name": "Hose L",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -232,7 +232,7 @@ const z3b = [
     {
         "name": "Hose N",
         "subname": "(Crack And Oil Leak, Grommet Half Clamp)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -258,7 +258,7 @@ const z3c = [
     {
         "name": "Pipe To Bucket LH",
         "subname": "(Crack And Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -270,7 +270,7 @@ const z3c = [
     {
         "name": "Pipe To Bucket RH",
         "subname": "(Crack And Oil Leak)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -282,7 +282,7 @@ const z3c = [
     {
         "name": "Pipe To Boom LH",
         "subname": "(Crack And Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -294,7 +294,7 @@ const z3c = [
     {
         "name": "Pipe To Boom RH",
         "subname": "(Crack And Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -318,7 +318,7 @@ const z3c = [
     {
         "name": "Injector & Grease Line Boom",
         "subname": "(Leak, Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -344,7 +344,7 @@ const z3d = [
     {
         "name": "Hose & Piping To Bucket LH Bottom",
         "subname": "(Crack,Leak,Clamp Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -356,7 +356,7 @@ const z3d = [
     {
         "name": "Hose & Piping To Bucket RH Bottom",
         "subname": "(Crack,Leak,Clamp Loose)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -368,7 +368,7 @@ const z3d = [
     {
         "name": "Hose & Piping To Bucket LH Rod",
         "subname": "(Crack,Leak,Clamp Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -380,7 +380,7 @@ const z3d = [
     {
         "name": "Hose & Piping To Bucket RH Rod",
         "subname": "(Crack,Leak,Clamp Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -404,7 +404,7 @@ const z3d = [
     {
         "name": "Hose & Piping To Clamp RH",
         "subname": "(Crack,Leak,Clamp Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -418,7 +418,7 @@ const z3e = [
     {
         "name": "Return Filter",
         "subname": "(Oil Leak)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -430,7 +430,7 @@ const z3e = [
     {
         "name": "Internal Leak Filter",
         "subname": "(Oil Leak)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -442,7 +442,7 @@ const z3e = [
     {
         "name": "Breather Hydraulic Tank",
         "subname": "(Loose,Dirty,Leak,Crack)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -454,7 +454,7 @@ const z3e = [
     {
         "name": "Lamp",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -478,7 +478,7 @@ const z3e = [
     {
         "name": "Mirror RH",
         "subname": "(Check Condition,Position)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -490,7 +490,7 @@ const z3e = [
     {
         "name": "Hand Rail",
         "subname": "(Inspect Condition)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -502,7 +502,7 @@ const z3e = [
     {
         "name": "Camera",
         "subname": "(Wiring Loose,Mounting,Angle)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -516,7 +516,7 @@ const z3f = [
     {
         "name": "Operator Opinion",
         "subname": "-",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -528,7 +528,7 @@ const z3f = [
     {
         "name": "Fan Condensor",
         "subname": "(Damage)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -540,7 +540,7 @@ const z3f = [
     {
         "name": "Condensor",
         "subname": "(Clogged And Leaking)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -552,7 +552,7 @@ const z3f = [
     {
         "name": "Hose Suction And Discharge Compressor",
         "subname": "(Inspect Condition)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -578,7 +578,7 @@ const z3g = [
     {
         "name": "Gauge And Switch",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -590,7 +590,7 @@ const z3g = [
     {
         "name": "Horn",
         "subname": "(Check Function)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -602,7 +602,7 @@ const z3g = [
     {
         "name": "Monitor Panel",
         "subname": "(Check Function And Error Code)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -614,7 +614,7 @@ const z3g = [
     {
         "name": "Lamp Cabin",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -638,7 +638,7 @@ const z3g = [
     {
         "name": "Pedal Travel",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -650,7 +650,7 @@ const z3g = [
     {
         "name": "Pedal Bullclamp",
         "subname": "(Check Function)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -662,7 +662,7 @@ const z3g = [
     {
         "name": "Radio Tape & Radio Komunikasi",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -674,7 +674,7 @@ const z3g = [
     {
         "name": "Rotary Lamp",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -698,7 +698,7 @@ const z3g = [
     {
         "name": "Wipper",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -710,7 +710,7 @@ const z3g = [
     {
         "name": "Door",
         "subname": "(Seal,Lock,Hold Open Latch)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -722,7 +722,7 @@ const z3g = [
     {
         "name": "Shockabsorber",
         "subname": "(Leak,Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -734,7 +734,7 @@ const z3g = [
     {
         "name": "Emergency Ladder",
         "subname": "(Damage,Loose,Missing)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -758,7 +758,7 @@ const z3g = [
     {
         "name": "Operator Seat & Seat Belt",
         "subname": "(Damage,Malfungtion)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -770,7 +770,7 @@ const z3g = [
     {
         "name": "Fire Suppression Unit",
         "subname": "(Check Function)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -782,7 +782,7 @@ const z3g = [
     {
         "name": "Monitor Camera",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -794,7 +794,7 @@ const z3g = [
     {
         "name": "Apar",
         "subname": "(Check Function)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {

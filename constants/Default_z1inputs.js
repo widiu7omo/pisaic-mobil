@@ -2,7 +2,7 @@ const z1a = [
     {
         "name": "Teeth Bucket",
         "subname": "(Crack,Worn, Loose, Missing)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -14,7 +14,7 @@ const z1a = [
     {
         "name": "Lock Pin Teeth Bucket",
         "subname": "(Broken, Worn, Loose, Missing)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -26,7 +26,7 @@ const z1a = [
     {
         "name": "Shroud",
         "subname": "(Worn,Crack,Loose,Missing)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -38,7 +38,7 @@ const z1a = [
     {
         "name": "Bucket Hinge Front Face",
         "subname": "(Crack)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -149,7 +149,7 @@ const z1b = [
     {
         "name": "Stick",
         "subname": "(Crack)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -161,7 +161,7 @@ const z1b = [
     {
         "name": "Stick Cylinder LH",
         "subname": "(Leaking, Scratch, Bending Etc)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -173,7 +173,7 @@ const z1b = [
     {
         "name": "Pin & Bushing RHLH Stick To Bucket",
         "subname": "( Lock Pin, Lubricating)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -185,7 +185,7 @@ const z1b = [
     {
         "name": "Cylinder Protector LH Stick",
         "subname": "(Loose, Damage, Crack)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -271,7 +271,7 @@ const z1c = [
     {
         "name": "Boom",
         "subname": " (Crack)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -283,7 +283,7 @@ const z1c = [
     {
         "name": "Boom Cylinder LH",
         "subname": "(Leaking, Scratch,Bending etc)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -295,7 +295,7 @@ const z1c = [
     {
         "name": "Cylinder Protector LH Boom",
         "subname": "(Loose,Damage,Crack)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -393,7 +393,7 @@ const z1d = [
     {
         "name": "Idler",
         "subname": "(Abnormal Pitting,Leaking, Stopper Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -405,7 +405,7 @@ const z1d = [
     {
         "name": "Adjusting Track Cylinder/Hic",
         "subname": "(Leaking)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -417,7 +417,7 @@ const z1d = [
     {
         "name": "Track Roller",
         "subname": "(Worn,Abnormal Pitting,Leaking)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -523,7 +523,7 @@ const z1e = [
     {
         "name": "Idler",
         "subname": "(Abnormal Pitting,Leaking,Stoper Loose)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -535,7 +535,7 @@ const z1e = [
     {
         "name": "Adjusting Track Cylinder/Hic",
         "subname": "(Lleaking)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -547,7 +547,7 @@ const z1e = [
     {
         "name": "Track Roller",
         "subname": "(Worn,Abnormal Ptting,Leaking)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -633,7 +633,7 @@ const z1f = [
     {
         "name": "Swing Circle Bolt",
         "subname": "(Loose,Missing)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -645,7 +645,7 @@ const z1f = [
     {
         "name": "Mounting Bolt Center Body RHLH",
         "subname": "(Loose,Missing)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -657,7 +657,7 @@ const z1f = [
     {
         "name": "Teeth Swing Circle",
         "subname": "(Worn,Lubricating)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -731,7 +731,7 @@ const z1g = [
     {
         "name": "Cylinder",
         "subname": "(Leaking,Scratch,Bending etc)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -743,7 +743,7 @@ const z1g = [
     {
         "name": "Mounting",
         "subname": "(Crack, Bolt Loose etc)",
-        "condition": "Bad",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {
@@ -755,7 +755,7 @@ const z1g = [
     {
         "name": "Handrail Ladder Area",
         "subname": "(Crack and Missing)",
-        "condition": "Good",
+        "condition": "",
         "note": "None",
         "priority": "None",
         "foto": {

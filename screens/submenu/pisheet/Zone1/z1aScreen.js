@@ -84,7 +84,8 @@ export default class z1aScreen extends React.Component {
                              VALUES (?, ?, ?, ?);`, [group_kind_unit_zone_id, kind_unit_zone_id, group_id, input_items])
                     .then(() => {
                         // query(`select * from group_kind_unit_zones`).then(res=>console.log(res));
-                        Alert.alert('Success', 'Data berhasil tersimpan')
+                        Alert.alert('Success', 'Data berhasil tersimpan',
+                            [{text:'OK',onPress:()=>this.props.navigation.goBack()}])
                     });
 
                 if (this.props.screenProps.isConnected) {
@@ -152,19 +153,23 @@ export default class z1aScreen extends React.Component {
         //Parsing picked image
         const dataFoto = await AsyncStorage.getItem('dataFoto');
         const parsedFoto = JSON.parse(dataFoto);
+        let getFotoName = parsedFoto.uri.split('/');
+        let fotoName = getFotoName[getFotoName.length-1];
         console.log('get image from picker');
         console.log(parsedFoto);
         // matching foto with input items and push it
-        let foto = {name: parsedFoto.uri, catatan: parsedFoto.catatanFoto}
+        let foto = {name: fotoName, catatan: parsedFoto.catatanFoto}
         const indexFoto = parsedFoto.indexItem;
         const inputItems = [...this.state.inputItems];
         inputItems[indexFoto] = {...inputItems[indexFoto], foto: foto};
         this.setState({inputItems});
 //not yet testing. TODO after this
         //initalize photoData
+
         let photoData =
             {
                 uri: parsedFoto.uri,
+                name: fotoName,
                 catatan: parsedFoto.catatanFoto,
                 indexfoto: parsedFoto.indexItem,
                 kind_unit_zone_id: parsedFoto.kind_unit_zone_id

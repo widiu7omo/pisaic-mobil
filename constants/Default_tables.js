@@ -31,6 +31,7 @@ export const initMasterTable = async () => {
     await query(`DROP TABLE IF EXISTS zones`);
     await query(`DROP TABLE IF EXISTS groups`);
 
+    await query(`DROP TABLE IF EXISTS camera_inspection`);
     await query(`DROP TABLE IF EXISTS unit_users`);
     await query(`DROP TABLE IF EXISTS kind_units`);
     await query(`DROP TABLE IF EXISTS kind_unit_zones`);
@@ -49,7 +50,7 @@ export const initMasterTable = async () => {
                      name   TEXT,
                      nrp    TEXT,
                      lahir  TEXT,
-                     level TEXT,
+                     level  TEXT,
                      status INTEGER          NULL DEFAULT 0
                  )`, []).then(() => console.log('user created'));
     await query(`CREATE TABLE IF NOT EXISTS unit_users
@@ -88,6 +89,13 @@ export const initMasterTable = async () => {
                      zone_id TEXT
                  ); `, []).then(() => console.log('groups created'));
 
+    await query(`create table camera_inspection
+                 (
+                     id          PRIMARY KEY NOT NULL,
+                     unit_id     TEXT,
+                     input_items TEXT,
+                     status DEFAULT 0
+                 ); `, []).then(() => console.log('camera inspection created'));
     await query(`CREATE TABLE kind_unit_zones
                  (
                      id           TEXT PRIMARY KEY NOT NULL,
@@ -263,7 +271,26 @@ export const syncMasterData = async () => {
                     sqli += ','
                 });
                 const sqlquery = `INSERT OR REPLACE INTO workorders (${keys},status) VALUES ${sqli};`;
-                await query(sqlquery, []).then(() => console.log('unit inserted'));
+                await query(sqlquery, []).then(() => console.log('workorders inserted'));
+            }
+        }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...', [{
+            text: "Retry",
+            onPress: () => Updates.reload()
+        }]));
+    await fetch(apiUri + "sync.php?data=camera_inspection", {method: "GET"})
+        .then(res => res.json()).then(async res => {
+            if (res.length > 0) {
+                let sqli = '';
+                let keys = Object.keys(res[0]).join(',');
+                res.forEach((ci, index) => {
+                    sqli += `('${ci.id}','${ci.unit_id}','${ci.input_items}',1)`;
+                    if (res.length === index + 1) {
+                        return;
+                    }
+                    sqli += ','
+                });
+                const sqlquery = `INSERT OR REPLACE INTO camera_inspection (${keys},status) VALUES ${sqli};`;
+                await query(sqlquery, []).then(() => console.log('camera inspection inserted'));
             }
         }).catch(() => Alert.alert('Failed', 'Failed retrive data, can\'t connect to server...', [{
             text: "Retry",

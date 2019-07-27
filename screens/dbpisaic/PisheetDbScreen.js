@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, Platform, WebView, Alert, ScrollView, TouchableOpacity, Image, StyleSheet} from 'react-native'
 import query from '../../database/query';
 // import {WebView} from "react-native-webview";
+import * as WebBrowser from "expo-web-browser";
 import {ActivityIndicator, Button} from "react-native-paper";
 import * as Print from "expo-print";
 import {apiUri} from "../../constants/config";

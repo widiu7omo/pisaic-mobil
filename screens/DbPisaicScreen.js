@@ -3,6 +3,8 @@ import {Text, TouchableOpacity, Image, View, StyleSheet, FlatList} from 'react-n
 import {Button} from 'react-native-paper'
 import Colors from "../constants/Colors";
 
+import * as WebBrowser from "expo-web-browser";
+
 class LogoTitle extends React.Component {
     constructor(props) {
         super(props);
@@ -34,8 +36,8 @@ export default class DbPisaicScreen extends React.Component {
         super(props);
         this.state = {
             menu: [
-                {name: 'Periodict Inspection Sheet', action: '', screen: 'PisheetDb'},
-                {name: 'Inspection Camera', action: '', screen: ''},
+                {name: 'Periodict Inspection Sheet', action: 'pisheet', screen: 'PisheetDb'},
+                {name: 'Inspection Camera', action: 'ci', screen: ''},
                 {name: 'Problem Log', action: '', screen: ''},
                 {name: 'Backlog Entry Sheet', action: '', screen: ''},
                 {name: 'Backlog Monitoring Sheet', action: '', screen: ''},
@@ -52,6 +54,11 @@ export default class DbPisaicScreen extends React.Component {
         }
     };
 
+    handleOpenWebUrlClicked = async (uri) => {
+        let url = `https://pisaic.dioinstant.com?uri=${uri}`;
+        await WebBrowser.openBrowserAsync(url,{toolbarColor:Colors.primaryColor,showTitle:false});
+        // setTimeout(() => Alert.alert('Result', JSON.stringify(result, null, 2)), 1000);
+    }
     render() {
         const {menu} = this.state;
         return (
@@ -61,7 +68,7 @@ export default class DbPisaicScreen extends React.Component {
                               renderItem={({item, index}) => {
                                   return (
                                       <Button mode="contained" style={styles.subContainer}
-                                              onPress={() => this.props.navigation.navigate(item.screen)}>{item.name}</Button>
+                                              onPress={() => this.handleOpenWebUrlClicked(item.action)}>{item.name}</Button>
                                   )
                               }}
                               extraData={this.state}

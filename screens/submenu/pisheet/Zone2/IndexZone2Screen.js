@@ -52,6 +52,9 @@ export default class IndexZone1Screen extends React.Component {
         })
     };
 
+    async componentWillUnmount() {
+        await this.props.navigation.state.params.onGoBack();
+    }
     render() {
         const {groups, loading} = this.state;
         return (

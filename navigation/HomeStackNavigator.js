@@ -52,6 +52,7 @@ import CreateNewPiScreeen from "../screens/main/CreateNewPiScreen";
 import MaintainScreen from "../screens/main/MaintainScreen";
 import GiveOrderScreen from "../screens/main/GiveOrderScreen";
 import WorkorderViewScreen from "../screens/submenu/pisheet/WorkorderViewScreen";
+import ImagePickerCIScreen from "../screens/submenu/ImagePickerCIScreen";
 
 //Main screen on Home
 //with some of nested screen
@@ -78,6 +79,7 @@ const HomeStack = createStackNavigator({
 
     //ImagePicker
     ImagePicker:ImagePickerScreen,
+    ImagePickerCI:ImagePickerCIScreen,
 
     Zone1:IndexZone1Screen,
           //sub Zone1
